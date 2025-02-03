@@ -8,7 +8,6 @@
     <meta name="author" content="David Valadares">
     <title>David Valadares | Work Experience</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add a favicon for better branding -->
 </head>
 <body class="experience-page">
 
@@ -16,14 +15,21 @@
     <header class="navbar">
         <div class="container">
             <!-- Brand/Logo -->
-            <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
+            <a class="navbar-brand" href="index.html">David Valadares</a>
 
-            <!-- Navigation Links -->
-            <nav aria-label="Main Navigation">
-                <ul class="nav-links">
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" aria-label="Toggle navigation" onclick="toggleNav()">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <nav class="navbar-links" id="navbarLinks">
+                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projects.html">Projects</a></li>
-                    <li><a href="experience.html" aria-current="page">Experience</a></li>
+                    <li><a href="experience.html">Experience</a></li>
                     <li><a href="education.html">Education</a></li>
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="cv.html">CV</a></li>
