@@ -1,0 +1,231 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset & Global Styles */
+:root {
+    --background-dark: #121212;
+    --background-light: rgba(255, 255, 255, 0.1);
+    --text-color: white;
+    --primary-color: #f8d210;
+    --secondary-color: #ffb800;
+    --navbar-bg: #222;
+    --hero-gradient: linear-gradient(135deg, #111, #333);
+    --card-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Allow scrolling */
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--navbar-bg);
+    flex-shrink: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section (Index Page) */
+.hero {
+    height: calc(100vh - 70px); /* Adjusts based on navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--hero-gradient);
+    padding: 2rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: black;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--transition);
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Experience/Projects Section */
+.experience-section, .projects-section {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.experience-title, .title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-container {
+    max-width: 800px; /* Adjusted container size */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.experience-item {
+    margin-bottom: 2rem;
+}
+
+.experience-box {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    color: var(--text-color);
+}
+
+.experience-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.experience-heading {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-date {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-list li {
+    font-size: 1.1rem;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.experience-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--navbar-bg);
+    margin-top: auto;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
