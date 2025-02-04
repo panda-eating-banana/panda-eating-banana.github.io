@@ -8,6 +8,9 @@
     <meta name="author" content="David Valadares">
     <title>David Valadares | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
 </head>
 <body>
 
@@ -15,10 +18,10 @@
     <header class="navbar">
         <div class="container">
             <!-- Brand/Logo -->
-            <a class="navbar-brand" href="index.html">David Valadares</a>
+            <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
 
             <!-- Hamburger Menu Button -->
-            <button class="navbar-toggler" aria-label="Toggle navigation" onclick="toggleNav()">
+            <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
@@ -32,6 +35,7 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="education.html">Education</a></li>
                     <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="skill.html">Skills & Interests</a></li>
                     <li><a href="cv.html">CV</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -40,22 +44,30 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <main class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm <span>David</span> <span>Valadares</span></h1>
-            <p>IT Technician passionate about Cloud Computing and Network Management.</p>
+            <h1>Hi, I'm <span>David Valadares</span></h1>
+            <p>
+                IT Technician passionate about <span><strong>Cloud Computing</strong></span> and <span><strong>Network Management</strong></span>.<br> 
+                I thrive on solving technical challenges, securing networks, and optimizing IT systems for efficiency.
+            </p>
+          
             <a href="projects.html" class="btn" aria-label="View My Work">View My Work</a>
         </div>
-    </section>
+    </main>
+    
+    
 
     <!-- Footer -->
     <footer class="footer">
         <ul class="social-links">
-            <li><p>&copy; 2024 David Valadares. All rights reserved.</p></li>
-            <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/panda-eating-banana" target="_blank"  aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><p>&copy; 2025 David Valadares. All rights reserved.</p></li>
+            <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
-    <script src="js/script.js"></script>
+
+    <!-- Load JavaScript asynchronously -->
+    <script src="js/script.js" async></script>
 </body>
 </html>

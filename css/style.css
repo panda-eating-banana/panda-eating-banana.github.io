@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
-
 /* Reset & Global Styles */
 :root {
     --background-dark: #121212;
@@ -41,7 +40,9 @@ body {
 h1 span {
     color: var(--secondary-color);
 }
-
+p span {
+    color: var(--secondary-color);
+}
 /* Navbar */
 .navbar {
     display: flex;
@@ -194,12 +195,12 @@ h1 span {
 }
 
 /* Experience/Projects Section */
-.main-section{
+.main-section {
     padding: 2rem;
     flex-grow: 1;
 }
 
-.title{
+.title {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -294,78 +295,326 @@ h1 span {
 .social-links a:hover {
     color: var(--primary-color);
 }
-/* Ensure the badge images are aligned consistently */
-.badge-image {
-    width: 100px; /* Adjust the size as needed */
-    height: auto; /* Maintain aspect ratio */
-    float: left; /* Align to the left */
-    margin-right: 1rem; /* Add some spacing between the image and text */
-    margin-bottom: 1rem; /* Add spacing below the image */
-}
 
-/* Clear floats to prevent layout issues */
-.box::after {
-    content: "";
-    display: table;
-    clear: both;
-}
 /* Certifications Page Specific Styles */
 .certifications-page .list li::before {
-    content: none; /* Remove the "✔" */
+    content: none;
+}
+
+.education-page .list li::before {
+    content: none;
+}
+h2 {
+    text-align: center;
+}
+
+.skill-page .list{
+    text-align: center;
+}
+.skills-page .list li::before {
+    content: none;
+}
+.projects-page .list li:last-child::before {
+    content: none !important;
 }
 
 .certifications-page .list li {
     font-size: 1.1rem;
-    padding-left: 0; /* Remove padding to align text with the title */
+    padding-left: 0;
     margin-bottom: 10px;
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none;
 }
 
 .certifications-page .box {
-    display: flex; /* Ensures image and text are in one row */
-    align-items: center; /* Aligns image perfectly with text */
-    padding: 1.5rem; /* Keep spacing consistent */
-    background: #222; /* Keep your dark theme style */
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: #222;
     border-radius: 10px;
 }
 
-/* Default (Desktop View) */
 .certifications-page .badge-image {
-    width: 160px; /* Large image for desktop */
-    height: auto; /* Maintain aspect ratio */
+    width: 160px;
+    height: auto;
 }
 
 .certifications-page .badge-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px; /* Ensure proper spacing */
+    min-width: 180px;
 }
 
-/* Responsive Fix for Mobile */
+.certifications-page .text-container {
+    flex-grow: 1;
+}
+
 @media (max-width: 768px) {
     .certifications-page .box {
-        flex-direction: column; /* Stack image and text vertically */
-        align-items: center; /* Center align content */
-        text-align: center; /* Align text properly */
-        padding: 1rem; /* Adjust padding */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
     }
 
     .certifications-page .badge-container {
-        min-width: auto; /* Remove fixed width */
-        margin-bottom: 1rem; /* Add space below the image */
+        min-width: auto;
+        margin-bottom: 1rem;
     }
 
     .certifications-page .badge-image {
-        width: 120px; /* Slightly smaller badge for mobile */
+        width: 120px;
     }
 
     .certifications-page .text-container {
-        width: 100%; /* Make text full width */
+        width: 100%;
     }
 }
 
+/* Common styling for CV and Contact boxes */
+.contact-page .box,
+.cv-page .box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
 
-.certifications-page .text-container {
-    flex-grow: 1; /* Ensures text takes up remaining space */
+.contact-page .box:hover,
+.cv-page .box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.contact-page .box .date,
+.cv-page .box .date {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.contact-page .box p,
+.cv-page .box p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: left;
+    color: #f1f1f1;
+}
+
+.contact-page .box a,
+.cv-page .box a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-page .box a:hover,
+.cv-page .box a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.contact-page .box .btn,
+.cv-page .box .btn {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+    padding: 0.9rem 1.7rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-page .box .btn:hover,
+.cv-page .box .btn:hover {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+/* Center buttons only on the projects page */
+.projects-page .box .btn {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+    text-align: center;
+}
+/* Apply styles only when body has class 'skills-page' */
+.skills-page .list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-page .list li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between icon and text */
+}
+
+.skills-page .list li strong {
+    min-width: 180px; /* Adjust width to align properly */
+    display: inline-block;
+    text-align: left;
+}
+/* Skills Page Specific List Styling */
+.skills-page .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px; /* Spacing between columns */
+}
+
+.skills-page .list li {
+    font-size: 1.1rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.skills-page .list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skills-page .list li span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.skills-page .list li strong {
+    min-width: 120px; /* Adjust width for better alignment */
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+/* Center text for Hobbies & Interests */
+.skills-page .hobbies-list .list li {
+    justify-content: center; /* Center-align text */
+    text-align: center;
+}
+
+/* Center German box in Language Skills */
+.skills-page .language-list .list li[data-item="german"] {
+    grid-column: span 2; /* Span across both columns */
+    justify-content: center; /* Center-align text */
+    text-align: center;
+}
+
+/* Responsive Design: Switch to one column on smaller screens */
+@media (max-width: 768px) {
+    .skills-page .list {
+        grid-template-columns: 1fr; /* One column */
+    }
+
+    .skills-page .language-list .list li[data-item="german"] {
+        grid-column: span 1; /* Reset to one column on smaller screens */
+    }
+}
+
+/* Hover effect for list items */
+.skills-page .list li:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    padding: 10px;
+    transition: var(--transition);
+}
+/* Technical Skills Specific Styling */
+.skills-page .technical-list .list {
+    display: grid;
+    grid-template-columns: 1fr; /* One column by default */
+    gap: 15px; /* Spacing between items */
+}
+
+.skills-page .technical-list .list li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between icon and text */
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.skills-page .technical-list .list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skills-page .technical-list .list li span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.skills-page .technical-list .list li strong {
+    min-width: 120px; /* Adjust width for better alignment */
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+/* Two columns for larger screens */
+@media (min-width: 768px) {
+    .skills-page .technical-list .list {
+        grid-template-columns: 1fr 1fr; /* Two columns */
+    }
+}
+/* Language Skills Specific Styling */
+.skills-page .language-list .list li {
+    display: flex;
+    justify-content: space-between; /* Align text and proficiency levels */
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.skills-page .language-list .list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skills-page .language-list .list li strong {
+    color: var(--primary-color);
+}
+
+.skills-page .language-list .list li span {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Center German box in Language Skills */
+.skills-page .language-list .list li[data-item="german"] {
+    grid-column: span 2; /* Span across both columns */
+    justify-content: center; /* Center-align text */
+    text-align: center;
+}
+
+/* Responsive Design: Align proficiency levels to the right on mobile */
+@media (max-width: 768px) {
+    .skills-page .language-list .list li {
+        flex-direction: column; /* Stack text and proficiency levels vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .skills-page .language-list .list li span {
+        align-self: flex-end; /* Align proficiency levels to the right */
+    }
 }
