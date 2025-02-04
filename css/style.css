@@ -233,7 +233,7 @@ h1 span, p span {
 
 /* Main Sections */
 .main-section {
-    padding: 4rem 2rem;
+    padding: 2rem 1rem; /* Reduced padding */
     flex-grow: 1;
 }
 
@@ -241,7 +241,7 @@ h1 span, p span {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* Reduced margin */
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -255,7 +255,7 @@ h1 span, p span {
 }
 
 .item {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* Reduced margin */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -268,8 +268,8 @@ h1 span, p span {
 
 .box {
     background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 15px;
+    padding: 1rem; /* Reduced padding */
+    border-radius: 10px; /* Reduced border radius */
     box-shadow: var(--card-shadow);
     backdrop-filter: blur(10px);
     transition: var(--transition);
@@ -282,16 +282,16 @@ h1 span, p span {
 }
 
 .heading {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Reduced font size */
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .date {
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* Reduced font size */
     font-weight: bold;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
 }
 
 .list {
@@ -300,10 +300,10 @@ h1 span, p span {
 }
 
 .list li {
-    font-size: 1.1rem;
-    padding-left: 30px;
+    font-size: 1rem; /* Reduced font size */
+    padding-left: 20px; /* Reduced padding */
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced margin */
 }
 
 .list li::before {
@@ -311,7 +311,7 @@ h1 span, p span {
     position: absolute;
     left: 0;
     color: var(--secondary-color);
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* Reduced font size */
 }
 
 /* Footer */
@@ -349,22 +349,22 @@ h1 span, p span {
 }
 
 .certifications-page .list li {
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reduced font size */
     padding-left: 0;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced margin */
     list-style-type: none;
 }
 
 .certifications-page .box {
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1rem; /* Reduced padding */
     background: #222;
-    border-radius: 10px;
+    border-radius: 8px; /* Reduced border radius */
 }
 
 .certifications-page .badge-image {
-    width: 160px;
+    width: 120px; /* Reduced width */
     height: auto;
 }
 
@@ -372,7 +372,7 @@ h1 span, p span {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
+    min-width: 140px; /* Reduced min-width */
 }
 
 .certifications-page .text-container {
@@ -393,7 +393,7 @@ h1 span, p span {
     }
 
     .certifications-page .badge-image {
-        width: 120px;
+        width: 100px; /* Further reduced width for mobile */
     }
 
     .certifications-page .text-container {
@@ -407,9 +407,9 @@ h1 span, p span {
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
-    padding: 2rem;
+    padding: 1.5rem; /* Reduced padding */
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 8px; /* Reduced border radius */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
 }
@@ -424,15 +424,15 @@ h1 span, p span {
 .cv-page .box .date {
     display: block;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reduced font size */
     font-weight: bold;
     color: var(--primary-color);
 }
 
 .contact-page .box p,
 .cv-page .box p {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1.1rem; /* Reduced font size */
+    line-height: 1.6;
     text-align: left;
     color: #f1f1f1;
 }
@@ -455,8 +455,8 @@ h1 span, p span {
     display: block;
     width: fit-content;
     margin: 1rem auto 0;
-    padding: 0.9rem 1.7rem;
-    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem; /* Reduced padding */
+    font-size: 1.1rem; /* Reduced font size */
     font-weight: bold;
     background-color: var(--primary-color);
     color: var(--background-dark);
@@ -472,26 +472,26 @@ h1 span, p span {
     color: var(--background-dark);
 }
 
-/* Skills Page Specific Styles */
+/* Skills & Interests Section */
 .skills-page .list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px; /* Reduced gap */
 }
 
 .skills-page .list li {
-    font-size: 1.1rem;
-    padding: 10px;
-    margin-bottom: 10px;
+    font-size: 1rem; /* Reduced font size */
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 8px; /* Reduced margin */
     color: var(--text-color);
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    border-radius: 6px; /* Reduced border radius */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* Reduced gap */
     transition: var(--transition);
 }
 
@@ -501,23 +501,97 @@ h1 span, p span {
 }
 
 .skills-page .list li span {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reduced font size */
     color: var(--primary-color);
 }
 
 .skills-page .list li strong {
-    min-width: 120px;
+    min-width: 100px; /* Reduced min-width */
     display: inline-block;
     color: var(--primary-color);
 }
 
-/* Responsive Design */
+/* Align proficiency levels (e.g., C1, B2) to the right */
+.skills-page .language-list .list li {
+    display: flex;
+    justify-content: space-between; /* Align text and proficiency levels */
+    align-items: center;
+}
+
+.skills-page .language-list .list li span {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Center German box in Language Skills */
+.skills-page .language-list .list li[data-item="german"] {
+    grid-column: span 2; /* Span across both columns */
+    justify-content: center; /* Center-align text */
+    text-align: center;
+}
+
+/* Responsive Design: Switch to one column on smaller screens */
 @media (max-width: 768px) {
     .skills-page .list {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* One column */
     }
 
     .skills-page .language-list .list li[data-item="german"] {
-        grid-column: span 1;
+        grid-column: span 1; /* Reset to one column on smaller screens */
+    }
+
+    .skills-page .language-list .list li {
+        flex-direction: column; /* Stack text and proficiency levels vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .skills-page .language-list .list li span {
+        align-self: flex-end; /* Align proficiency levels to the right */
+    }
+}
+
+/* Hobbies & Interests: Center-align text */
+.skills-page .hobbies-list .list li {
+    justify-content: center; /* Center-align text */
+    text-align: center;
+}
+
+/* Technical Skills: Two columns for larger screens */
+.skills-page .technical-list .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px; /* Reduced gap */
+}
+
+.skills-page .technical-list .list li {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced gap */
+    padding: 10px; /* Reduced padding */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px; /* Reduced border radius */
+    transition: var(--transition);
+}
+
+.skills-page .technical-list .list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skills-page .technical-list .list li span {
+    font-size: 1.1rem; /* Reduced font size */
+    color: var(--primary-color);
+}
+
+.skills-page .technical-list .list li strong {
+    min-width: 100px; /* Reduced min-width */
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+/* Responsive Design: Switch to one column on smaller screens */
+@media (max-width: 768px) {
+    .skills-page .technical-list .list {
+        grid-template-columns: 1fr; /* One column */
     }
 }
