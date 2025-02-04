@@ -7,16 +7,17 @@
     <meta name="keywords" content="David Valadares, Certifications, Microsoft Azure, Microsoft Word, Microsoft PowerPoint">
     <meta name="author" content="David Valadares">
     <title>David Valadares | Certifications</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Preload CSS for faster rendering -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Load Font Awesome asynchronously -->
 </head>
 <body class="certifications-page">
-
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">David Valadares</a>
-            <button class="navbar-toggler" aria-label="Toggle navigation" onclick="toggleNav()">
+            <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
+            <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
@@ -27,7 +28,7 @@
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="education.html">Education</a></li>
-                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="certifications.html" aria-current="page">Certifications</a></li>
                     <li><a href="skill.html">Skills & Interests</a></li>
                     <li><a href="cv.html">CV</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -40,82 +41,81 @@
     <main class="main-section">
         <h1 class="title">My Certifications</h1>
         <div class="container">
-
             <!-- Microsoft Certified: Azure Fundamentals -->
-<article class="item">
-    <div class="box">
-        <div class="badge-container">
-        <img src="assets/images/azure-fundamentals-badge.png" alt="Azure Fundamentals Badge" class="badge-image">
-    </div>
-    <div class="text-container">
-        <h2 class="heading">Microsoft Certified: Azure Fundamentals</h2>
-        <p class="date">📅 Earned: 13/01/2025</p>
-        <ul class="list">
-            <li>Issued by Microsoft</li>
-            <li>Validates foundational knowledge of cloud services and Microsoft Azure.</li>
-        </ul>
-        <a href="https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url" target="_blank" rel="noopener noreferrer" class="btn">
-            View Badge <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
+            <article class="item">
+                <div class="box">
+                    <div class="badge-container">
+                        <img src="assets/images/azure-fundamentals-badge.png" alt="Azure Fundamentals Badge" class="badge-image" loading="lazy">
+                    </div>
+                    <div class="text-container">
+                        <h2 class="heading">Microsoft Certified: Azure Fundamentals</h2>
+                        <p class="date">📅 Earned: 13/01/2025</p>
+                        <ul class="list">
+                            <li>Issued by Microsoft</li>
+                            <li>Validates foundational knowledge of cloud services and Microsoft Azure.</li>
+                        </ul>
+                        <a href="https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url" target="_blank" rel="noopener noreferrer" class="btn" aria-label="View Azure Fundamentals Badge">
+                            View Badge <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-</article>
+            <!-- Microsoft Office Specialist: Word Associate -->
+            <article class="item">
+                <div class="box">
+                    <div class="badge-container">
+                        <img src="assets/images/word-associate-badge.png" alt="Word Associate Badge" class="badge-image" loading="lazy">
+                    </div>
+                    <div class="text-container">
+                        <h2 class="heading">Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)</h2>
+                        <p class="date">📅 Earned: 17/12/2024</p>
+                        <ul class="list">
+                            <li>Issued by Microsoft</li>
+                            <li>Demonstrates expertise in using Microsoft Word for creating professional documents.</li>
+                        </ul>
+                        <a href="https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url" target="_blank" rel="noopener noreferrer" class="btn" aria-label="View Word Associate Badge">
+                            View Badge <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-<!-- Microsoft Office Specialist: Word Associate -->
-<article class="item">
-    <div class="box">
-        <div class="badge-container">
-        <img src="assets/images/word-associate-badge.png" alt="Word Associate Badge" class="badge-image">
-    </div>
-    <div class="text-container">
-        <h2 class="heading">Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)</h2>
-        <p class="date">📅 Earned: 17/12/2024</p>
-        <ul class="list">
-            <li>Issued by Microsoft</li>
-            <li>Demonstrates expertise in using Microsoft Word for creating professional documents.</li>
-        </ul>
-        <a href="https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url" target="_blank" rel="noopener noreferrer" class="btn">
-            View Badge <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
-
-</article>
-
-<!-- Microsoft Office Specialist: PowerPoint Associate -->
-<article class="item">
-    <div class="box">
-        <div class="badge-container">
-        <img src="assets/images/powerpoint-associate-badge.png" alt="PowerPoint Associate Badge" class="badge-image">
-    </div>
-    <div class="text-container">
-
-        <h2 class="heading">Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)</h2>
-        <p class="date">📅 Earned: 22/10/2024</p>
-        <ul class="list">
-            <li>Issued by Microsoft</li>
-            <li>Validates skills in creating and managing professional PowerPoint presentations.</li>
-        </ul>
-        <a href="https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url" target="_blank" rel="noopener noreferrer" class="btn">
-            View Badge <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
-
-</article>
+            <!-- Microsoft Office Specialist: PowerPoint Associate -->
+            <article class="item">
+                <div class="box">
+                    <div class="badge-container">
+                        <img src="assets/images/powerpoint-associate-badge.png" alt="PowerPoint Associate Badge" class="badge-image" loading="lazy">
+                    </div>
+                    <div class="text-container">
+                        <h2 class="heading">Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)</h2>
+                        <p class="date">📅 Earned: 22/10/2024</p>
+                        <ul class="list">
+                            <li>Issued by Microsoft</li>
+                            <li>Validates skills in creating and managing professional PowerPoint presentations.</li>
+                        </ul>
+                        <a href="https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url" target="_blank" rel="noopener noreferrer" class="btn" aria-label="View PowerPoint Associate Badge">
+                            View Badge <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <ul class="social-links">
-            <li><p>&copy; 2025 David Valadares. All rights reserved.</p></li>
-            <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/panda-eating-banana" target="_blank"  aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+            <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Load JavaScript defer to avoid render-blocking -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>

@@ -1,18 +1,18 @@
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 /* Reset & Global Styles */
 :root {
-    --background-dark: #121212;
-    --background-light: rgba(255, 255, 255, 0.1);
-    --text-color: white;
-    --primary-color: #f8d210;
-    --secondary-color: #ffb800;
+    --background-dark: #1a1a1a;
+    --background-light: rgba(255, 255, 255, 0.05);
+    --text-color: #f5f5f5;
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
     --navbar-bg: #222;
-    --hero-gradient: linear-gradient(135deg, #111, #333);
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --hover-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+    --hero-gradient: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --hover-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
     --transition: all 0.3s ease;
 }
 
@@ -20,7 +20,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html, body {
@@ -35,14 +35,13 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
+    line-height: 1.6;
 }
 
-h1 span {
+h1 span, p span {
     color: var(--secondary-color);
 }
-p span {
-    color: var(--secondary-color);
-}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -55,6 +54,7 @@ p span {
     width: 100%;
     z-index: 1000;
     height: 70px;
+    box-shadow: var(--card-shadow);
 }
 
 .navbar .container {
@@ -69,7 +69,7 @@ p span {
     font-size: 1.5rem;
     color: var(--text-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .navbar-links {
@@ -80,7 +80,7 @@ p span {
 .navbar-links ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
 }
@@ -113,6 +113,7 @@ p span {
     width: 100%;
     height: 3px;
     background-color: var(--text-color);
+    transition: var(--transition);
 }
 
 /* Mobile Styles */
@@ -168,35 +169,71 @@ p span {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
-    color: black;
+    color: var(--background-dark);
     padding: 0.75rem 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
     border-radius: 5px;
+    animation: fadeIn 2.5s ease-in-out;
 }
 
 .btn:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
 }
 
-/* Experience/Projects Section */
+.projects-page .btn {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+    padding: 0.9rem 1.7rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.projects-page .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-dark);
+}
+
+/* Main Sections */
 .main-section {
-    padding: 2rem;
+    padding: 4rem 2rem;
     flex-grow: 1;
 }
 
@@ -212,13 +249,21 @@ p span {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
 .item {
     margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .box {
@@ -243,7 +288,7 @@ p span {
 }
 
 .date {
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--secondary-color);
     margin-bottom: 1rem;
@@ -282,7 +327,7 @@ p span {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 0.5rem;
 }
 
@@ -296,26 +341,11 @@ p span {
     color: var(--primary-color);
 }
 
-/* Certifications Page Specific Styles */
-.certifications-page .list li::before {
-    content: none;
-}
-
-.education-page .list li::before {
-    content: none;
-}
-h2 {
-    text-align: center;
-}
-
-.skill-page .list{
-    text-align: center;
-}
+/* Page-Specific Styles */
+.certifications-page .list li::before,
+.education-page .list li::before,
 .skills-page .list li::before {
     content: none;
-}
-.projects-page .list li:last-child::before {
-    content: none !important;
 }
 
 .certifications-page .list li {
@@ -371,7 +401,7 @@ h2 {
     }
 }
 
-/* Common styling for CV and Contact boxes */
+/* Contact & CV Page Styles */
 .contact-page .box,
 .cv-page .box {
     max-width: 600px;
@@ -429,7 +459,7 @@ h2 {
     font-size: 1.2rem;
     font-weight: bold;
     background-color: var(--primary-color);
-    color: #121212;
+    color: var(--background-dark);
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -439,41 +469,17 @@ h2 {
 .contact-page .box .btn:hover,
 .cv-page .box .btn:hover {
     background-color: var(--secondary-color);
-    color: black;
+    color: var(--background-dark);
 }
 
-/* Center buttons only on the projects page */
-.projects-page .box .btn {
-    display: block;
-    width: fit-content;
-    margin: 1rem auto 0;
-    text-align: center;
-}
-/* Apply styles only when body has class 'skills-page' */
-.skills-page .list {
-    list-style: none;
-    padding: 0;
-}
-
-.skills-page .list li {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adjust spacing between icon and text */
-}
-
-.skills-page .list li strong {
-    min-width: 180px; /* Adjust width to align properly */
-    display: inline-block;
-    text-align: left;
-}
-/* Skills Page Specific List Styling */
+/* Skills Page Specific Styles */
 .skills-page .list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 20px; /* Spacing between columns */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .skills-page .list li {
@@ -500,121 +506,18 @@ h2 {
 }
 
 .skills-page .list li strong {
-    min-width: 120px; /* Adjust width for better alignment */
+    min-width: 120px;
     display: inline-block;
     color: var(--primary-color);
 }
 
-/* Center text for Hobbies & Interests */
-.skills-page .hobbies-list .list li {
-    justify-content: center; /* Center-align text */
-    text-align: center;
-}
-
-/* Center German box in Language Skills */
-.skills-page .language-list .list li[data-item="german"] {
-    grid-column: span 2; /* Span across both columns */
-    justify-content: center; /* Center-align text */
-    text-align: center;
-}
-
-/* Responsive Design: Switch to one column on smaller screens */
+/* Responsive Design */
 @media (max-width: 768px) {
     .skills-page .list {
-        grid-template-columns: 1fr; /* One column */
+        grid-template-columns: 1fr;
     }
 
     .skills-page .language-list .list li[data-item="german"] {
-        grid-column: span 1; /* Reset to one column on smaller screens */
-    }
-}
-
-/* Hover effect for list items */
-.skills-page .list li:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    padding: 10px;
-    transition: var(--transition);
-}
-/* Technical Skills Specific Styling */
-.skills-page .technical-list .list {
-    display: grid;
-    grid-template-columns: 1fr; /* One column by default */
-    gap: 15px; /* Spacing between items */
-}
-
-.skills-page .technical-list .list li {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Spacing between icon and text */
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    transition: var(--transition);
-}
-
-.skills-page .technical-list .list li:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-}
-
-.skills-page .technical-list .list li span {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-}
-
-.skills-page .technical-list .list li strong {
-    min-width: 120px; /* Adjust width for better alignment */
-    display: inline-block;
-    color: var(--primary-color);
-}
-
-/* Two columns for larger screens */
-@media (min-width: 768px) {
-    .skills-page .technical-list .list {
-        grid-template-columns: 1fr 1fr; /* Two columns */
-    }
-}
-/* Language Skills Specific Styling */
-.skills-page .language-list .list li {
-    display: flex;
-    justify-content: space-between; /* Align text and proficiency levels */
-    align-items: center;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    transition: var(--transition);
-}
-
-.skills-page .language-list .list li:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-}
-
-.skills-page .language-list .list li strong {
-    color: var(--primary-color);
-}
-
-.skills-page .language-list .list li span {
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-/* Center German box in Language Skills */
-.skills-page .language-list .list li[data-item="german"] {
-    grid-column: span 2; /* Span across both columns */
-    justify-content: center; /* Center-align text */
-    text-align: center;
-}
-
-/* Responsive Design: Align proficiency levels to the right on mobile */
-@media (max-width: 768px) {
-    .skills-page .language-list .list li {
-        flex-direction: column; /* Stack text and proficiency levels vertically */
-        align-items: flex-start; /* Align items to the left */
-    }
-
-    .skills-page .language-list .list li span {
-        align-self: flex-end; /* Align proficiency levels to the right */
+        grid-column: span 1;
     }
 }

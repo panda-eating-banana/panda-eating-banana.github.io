@@ -7,17 +7,17 @@
     <meta name="keywords" content="David Valadares, CV, Resume, IT Technician, Cloud Computing, Software Development">
     <meta name="author" content="David Valadares">
     <title>David Valadares | CV</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Add Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Preload CSS for faster rendering -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Load Font Awesome asynchronously -->
 </head>
 <body class="cv-page">
-
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">David Valadares</a>
-            <button class="navbar-toggler" aria-label="Toggle navigation" onclick="toggleNav()">
+            <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
+            <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
@@ -30,44 +30,45 @@
                     <li><a href="education.html">Education</a></li>
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="skill.html">Skills & Interests</a></li>
-                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="cv.html" aria-current="page">CV</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-<!-- CV Section -->
-<main class="main-section">
-    <h1 class="title">My CV</h1>
-    <div class="container">
-        <article class="item">
-            <div class="box">
-                <p class="date">📅 Updated: February 2024</p>
-                <p>Welcome to my CV page. <br>Below, you can find my professional experience, skills, and education. You can also download or view my full CV using the buttons below.</p>
-                
-                <!-- English CV Button -->
-                <a href="docs/CV-eng.pdf" target="_blank" class="btn" aria-label="View CV in English">View CV (English) <i class="fas fa-external-link-alt"></i></a>
-                
-                <!-- French CV Button -->
-                <a href="docs/CV-fr.pdf" target="_blank" class="btn" aria-label="Voir le CV en Français">Voir CV (Français) <i class="fas fa-external-link-alt"></i></a>
-            </div>
-        </article>
-    </div>
-</main>
-
+    <!-- CV Section -->
+    <main class="main-section">
+        <h1 class="title">My CV</h1>
+        <div class="container">
+            <article class="item">
+                <div class="box">
+                    <p class="date">📅 Updated: February 2024</p>
+                    <p>Welcome to my CV page. <br>Below, you can find my professional experience, skills, and education. You can also download or view my full CV using the buttons below.</p>
+                    
+                    <!-- English CV Button -->
+                    <a href="docs/CV-eng.pdf" target="_blank" rel="noopener noreferrer" class="btn" aria-label="View CV in English">View CV (English) <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <!-- French CV Button -->
+                    <a href="docs/CV-fr.pdf" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Voir le CV en Français">Voir CV (Français) <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </article>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <ul class="social-links">
-                <li><p>&copy; 2025 David Valadares. All rights reserved.</p></li>
-                <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://github.com/panda-eating-banana" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-            </ul>
-        </div>
+        <ul class="social-links">
+            <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+            <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        </ul>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Load JavaScript defer to avoid render-blocking -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>
