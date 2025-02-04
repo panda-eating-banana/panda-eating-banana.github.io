@@ -8,23 +8,19 @@
     <meta name="author" content="David Valadares">
     <title>David Valadares | Certifications</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="certifications-page">
 
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
-            <!-- Brand/Logo -->
             <a class="navbar-brand" href="index.html">David Valadares</a>
-
-            <!-- Hamburger Menu Button -->
             <button class="navbar-toggler" aria-label="Toggle navigation" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
             </button>
-
-            <!-- Navbar Links -->
             <nav class="navbar-links" id="navbarLinks">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -40,41 +36,57 @@
     </header>
 
     <!-- Certifications Section -->
-    <main class="certifications">
-        <h1>Certifications</h1>
-        <div class="certification-list">
+    <main class="certifications-section">
+        <h1 class="title">My Certifications</h1>
+        <div class="container">
+
             <!-- Microsoft Certified: Azure Fundamentals -->
-            <div class="certification-item">
-                <h2>Microsoft Certified: Azure Fundamentals</h2>
-                <p>Issued by Microsoft</p>
-                <p>Earned: 13/01/25</p>
-                <a href="https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/images/azure-fundamentals-badge.png" alt="Azure Fundamentals Badge" class="badge-image">
-                </a>
-                <p>Validate foundational knowledge of cloud services and how they are provided with Microsoft Azure.</p>
-            </div>
+<article class="item">
+    <div class="box">
+        <img src="assets/images/azure-fundamentals-badge.png" alt="Azure Fundamentals Badge" class="badge-image">
+        <h2 class="heading">Microsoft Certified: Azure Fundamentals</h2>
+        <p class="date">📅 Earned: 13/01/2025</p>
+        <ul class="list">
+            <li>Issued by Microsoft</li>
+            <li>Validates foundational knowledge of cloud services and Microsoft Azure.</li>
+        </ul>
+        <a href="https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url" target="_blank" rel="noopener noreferrer" class="btn">
+            View Badge <i class="fas fa-external-link-alt"></i>
+        </a>
+    </div>
+</article>
 
-            <!-- Microsoft Office Specialist: Word Associate -->
-            <div class="certification-item">
-                <h2>Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)</h2>
-                <p>Issued by Microsoft</p>
-                <p>Earned: 17/12/24</p>
-                <a href="https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/images/word-associate-badge.png" alt="Word Associate Badge" class="badge-image">
-                </a>
-                <p>Demonstrates expertise in using Microsoft Word for creating and managing professional documents.</p>
-            </div>
+<!-- Microsoft Office Specialist: Word Associate -->
+<article class="item">
+    <div class="box">
+        <img src="assets/images/word-associate-badge.png" alt="Word Associate Badge" class="badge-image">
+        <h2 class="heading">Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)</h2>
+        <p class="date">📅 Earned: 17/12/2024</p>
+        <ul class="list">
+            <li>Issued by Microsoft</li>
+            <li>Demonstrates expertise in using Microsoft Word for creating professional documents.</li>
+        </ul>
+        <a href="https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url" target="_blank" rel="noopener noreferrer" class="btn">
+            View Badge <i class="fas fa-external-link-alt"></i>
+        </a>
+    </div>
+</article>
 
-            <!-- Microsoft Office Specialist: PowerPoint Associate -->
-            <div class="certification-item">
-                <h2>Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)</h2>
-                <p>Issued by Microsoft</p>
-                <p>Earned: 22/10/24</p>
-                <a href="https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/images/powerpoint-associate-badge.png" alt="PowerPoint Associate Badge" class="badge-image">
-                </a>
-                <p>Validates skills in creating, managing, and delivering professional presentations using Microsoft PowerPoint.</p>
-            </div>
+<!-- Microsoft Office Specialist: PowerPoint Associate -->
+<article class="item">
+    <div class="box">
+        <img src="assets/images/powerpoint-associate-badge.png" alt="PowerPoint Associate Badge" class="badge-image">
+        <h2 class="heading">Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)</h2>
+        <p class="date">📅 Earned: 22/10/2024</p>
+        <ul class="list">
+            <li>Issued by Microsoft</li>
+            <li>Validates skills in creating and managing professional PowerPoint presentations.</li>
+        </ul>
+        <a href="https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url" target="_blank" rel="noopener noreferrer" class="btn">
+            View Badge <i class="fas fa-external-link-alt"></i>
+        </a>
+    </div>
+</article>
         </div>
     </main>
 
@@ -82,8 +94,8 @@
     <footer class="footer">
         <p>&copy; 2024 David Valadares. All rights reserved.</p>
         <ul class="social-links">
-            <li><a href="https://www.linkedin.com/in/david-valadares" aria-label="LinkedIn">LinkedIn</a></li>
-            <li><a href="https://github.com/panda-eating-banana" aria-label="GitHub">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/david-valadares" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/panda-eating-banana" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
 

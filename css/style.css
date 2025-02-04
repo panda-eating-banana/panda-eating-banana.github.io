@@ -292,3 +292,18 @@ h1 span {
 .social-links a:hover {
     color: var(--primary-color);
 }
+/* Badge Image Styles */
+.badge-image {
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    float: left; /* Align to the left */
+    margin-right: 1rem; /* Add some spacing between the image and text */
+    margin-bottom: 1rem; /* Add spacing below the image */
+}
+
+/* Clear floats to prevent layout issues */
+.box::after {
+    content: "";
+    display: table;
+    clear: both;
+}
