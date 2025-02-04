@@ -1,5 +1,7 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
 
 /* Reset & Global Styles */
 :root {
@@ -192,12 +194,12 @@ h1 span {
 }
 
 /* Experience/Projects Section */
-.experience-section, .projects-section {
+.main-section{
     padding: 2rem;
     flex-grow: 1;
 }
 
-.title, .title {
+.title{
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -292,7 +294,7 @@ h1 span {
 .social-links a:hover {
     color: var(--primary-color);
 }
-/* Badge Image Styles */
+/* Ensure the badge images are aligned consistently */
 .badge-image {
     width: 100px; /* Adjust the size as needed */
     height: auto; /* Maintain aspect ratio */
@@ -306,4 +308,64 @@ h1 span {
     content: "";
     display: table;
     clear: both;
+}
+/* Certifications Page Specific Styles */
+.certifications-page .list li::before {
+    content: none; /* Remove the "✔" */
+}
+
+.certifications-page .list li {
+    font-size: 1.1rem;
+    padding-left: 0; /* Remove padding to align text with the title */
+    margin-bottom: 10px;
+    list-style-type: none; /* Remove bullet points */
+}
+
+.certifications-page .box {
+    display: flex; /* Ensures image and text are in one row */
+    align-items: center; /* Aligns image perfectly with text */
+    padding: 1.5rem; /* Keep spacing consistent */
+    background: #222; /* Keep your dark theme style */
+    border-radius: 10px;
+}
+
+/* Default (Desktop View) */
+.certifications-page .badge-image {
+    width: 160px; /* Large image for desktop */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.certifications-page .badge-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px; /* Ensure proper spacing */
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+    .certifications-page .box {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center align content */
+        text-align: center; /* Align text properly */
+        padding: 1rem; /* Adjust padding */
+    }
+
+    .certifications-page .badge-container {
+        min-width: auto; /* Remove fixed width */
+        margin-bottom: 1rem; /* Add space below the image */
+    }
+
+    .certifications-page .badge-image {
+        width: 120px; /* Slightly smaller badge for mobile */
+    }
+
+    .certifications-page .text-container {
+        width: 100%; /* Make text full width */
+    }
+}
+
+
+.certifications-page .text-container {
+    flex-grow: 1; /* Ensures text takes up remaining space */
 }
