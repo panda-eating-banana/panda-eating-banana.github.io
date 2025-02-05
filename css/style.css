@@ -1,18 +1,18 @@
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 /* Reset & Global Styles */
 :root {
-    --background-dark: #1a1a1a;
-    --background-light: rgba(255, 255, 255, 0.05);
-    --text-color: #f5f5f5;
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
+    --background-dark: #121212;
+    --background-light: rgba(255, 255, 255, 0.1);
+    --text-color: white;
+    --primary-color: #f8d210;
+    --secondary-color: #ffb800;
     --navbar-bg: #222;
-    --hero-gradient: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    --hover-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    --hero-gradient: linear-gradient(135deg, #111, #333);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
     --transition: all 0.3s ease;
 }
 
@@ -20,7 +20,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 html, body {
@@ -35,7 +35,6 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    line-height: 1.6;
 }
 
 h1 span, p span {
@@ -54,7 +53,6 @@ h1 span, p span {
     width: 100%;
     z-index: 1000;
     height: 70px;
-    box-shadow: var(--card-shadow);
 }
 
 .navbar .container {
@@ -69,7 +67,7 @@ h1 span, p span {
     font-size: 1.5rem;
     color: var(--text-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .navbar-links {
@@ -80,7 +78,7 @@ h1 span, p span {
 .navbar-links ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 0;
     padding: 0;
 }
@@ -113,7 +111,6 @@ h1 span, p span {
     width: 100%;
     height: 3px;
     background-color: var(--text-color);
-    transition: var(--transition);
 }
 
 /* Mobile Styles */
@@ -169,48 +166,32 @@ h1 span, p span {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
-    color: var(--background-dark);
+    color: black;
     padding: 0.75rem 1.5rem;
-    font-weight: 600;
+    font-weight: bold;
     text-decoration: none;
     transition: var(--transition);
     border-radius: 5px;
-    animation: fadeIn 2.5s ease-in-out;
 }
 
 .btn:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: var(--hover-shadow);
+    color: black;
 }
-
 .projects-page .btn {
     display: block;
     width: fit-content;
@@ -219,7 +200,7 @@ h1 span, p span {
     font-size: 1.2rem;
     font-weight: bold;
     background-color: var(--primary-color);
-    color: var(--background-dark);
+    color: #121212;
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -228,12 +209,11 @@ h1 span, p span {
 
 .projects-page .btn:hover {
     background-color: var(--secondary-color);
-    color: var(--background-dark);
+    color: black;
 }
-
 /* Main Sections */
 .main-section {
-    padding: 2rem 1rem; /* Reduced padding */
+    padding: 2rem;
     flex-grow: 1;
 }
 
@@ -241,7 +221,7 @@ h1 span, p span {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 1rem; /* Reduced margin */
+    margin-bottom: 2rem;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -249,13 +229,13 @@ h1 span, p span {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
 .item {
-    margin-bottom: 1rem; /* Reduced margin */
+    margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -268,8 +248,8 @@ h1 span, p span {
 
 .box {
     background: var(--background-light);
-    padding: 1rem; /* Reduced padding */
-    border-radius: 10px; /* Reduced border radius */
+    padding: 1.5rem;
+    border-radius: 15px;
     box-shadow: var(--card-shadow);
     backdrop-filter: blur(10px);
     transition: var(--transition);
@@ -282,16 +262,16 @@ h1 span, p span {
 }
 
 .heading {
-    font-size: 1.5rem; /* Reduced font size */
+    font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .date {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--secondary-color);
-    margin-bottom: 0.5rem; /* Reduced margin */
+    margin-bottom: 1rem;
 }
 
 .list {
@@ -300,10 +280,10 @@ h1 span, p span {
 }
 
 .list li {
-    font-size: 1rem; /* Reduced font size */
-    padding-left: 20px; /* Reduced padding */
+    font-size: 1.1rem;
+    padding-left: 30px;
     position: relative;
-    margin-bottom: 8px; /* Reduced margin */
+    margin-bottom: 10px;
 }
 
 .list li::before {
@@ -311,7 +291,7 @@ h1 span, p span {
     position: absolute;
     left: 0;
     color: var(--secondary-color);
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.3rem;
 }
 
 /* Footer */
@@ -327,7 +307,7 @@ h1 span, p span {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 0.5rem;
 }
 
@@ -349,22 +329,22 @@ h1 span, p span {
 }
 
 .certifications-page .list li {
-    font-size: 1rem; /* Reduced font size */
+    font-size: 1.1rem;
     padding-left: 0;
-    margin-bottom: 8px; /* Reduced margin */
+    margin-bottom: 10px;
     list-style-type: none;
 }
 
 .certifications-page .box {
     display: flex;
     align-items: center;
-    padding: 1rem; /* Reduced padding */
+    padding: 1.5rem;
     background: #222;
-    border-radius: 8px; /* Reduced border radius */
+    border-radius: 10px;
 }
 
 .certifications-page .badge-image {
-    width: 120px; /* Reduced width */
+    width: 160px;
     height: auto;
 }
 
@@ -372,7 +352,7 @@ h1 span, p span {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 140px; /* Reduced min-width */
+    min-width: 180px;
 }
 
 .certifications-page .text-container {
@@ -393,7 +373,7 @@ h1 span, p span {
     }
 
     .certifications-page .badge-image {
-        width: 100px; /* Further reduced width for mobile */
+        width: 120px;
     }
 
     .certifications-page .text-container {
@@ -407,9 +387,9 @@ h1 span, p span {
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
-    padding: 1.5rem; /* Reduced padding */
+    padding: 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px; /* Reduced border radius */
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
 }
@@ -424,15 +404,15 @@ h1 span, p span {
 .cv-page .box .date {
     display: block;
     text-align: center;
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--primary-color);
 }
 
 .contact-page .box p,
 .cv-page .box p {
-    font-size: 1.1rem; /* Reduced font size */
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.8;
     text-align: left;
     color: #f1f1f1;
 }
@@ -455,11 +435,11 @@ h1 span, p span {
     display: block;
     width: fit-content;
     margin: 1rem auto 0;
-    padding: 0.8rem 1.5rem; /* Reduced padding */
-    font-size: 1.1rem; /* Reduced font size */
+    padding: 0.9rem 1.7rem;
+    font-size: 1.2rem;
     font-weight: bold;
     background-color: var(--primary-color);
-    color: var(--background-dark);
+    color: #121212;
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -469,29 +449,29 @@ h1 span, p span {
 .contact-page .box .btn:hover,
 .cv-page .box .btn:hover {
     background-color: var(--secondary-color);
-    color: var(--background-dark);
+    color: black;
 }
 
-/* Skills & Interests Section */
+/* Skills Page Specific Styles */
 .skills-page .list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 15px; /* Reduced gap */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .skills-page .list li {
-    font-size: 1rem; /* Reduced font size */
-    padding: 8px; /* Reduced padding */
-    margin-bottom: 8px; /* Reduced margin */
+    font-size: 1.1rem;
+    padding: 10px;
+    margin-bottom: 10px;
     color: var(--text-color);
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px; /* Reduced border radius */
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Reduced gap */
+    gap: 10px;
     transition: var(--transition);
 }
 
@@ -501,12 +481,61 @@ h1 span, p span {
 }
 
 .skills-page .list li span {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.2rem;
     color: var(--primary-color);
 }
 
 .skills-page .list li strong {
-    min-width: 100px; /* Reduced min-width */
+    min-width: 120px;
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-page .list {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-page .language-list .list li[data-item="german"] {
+        grid-column: span 1;
+    }
+}
+/* Skills & Interests Section */
+.skills-page .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px; /* Spacing between items */
+}
+
+.skills-page .list li {
+    font-size: 1.1rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between icon and text */
+    transition: var(--transition);
+}
+
+.skills-page .list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skills-page .list li span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.skills-page .list li strong {
+    min-width: 120px; /* Fixed width for language names */
     display: inline-block;
     color: var(--primary-color);
 }
@@ -560,16 +589,16 @@ h1 span, p span {
 .skills-page .technical-list .list {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 10px; /* Reduced gap */
+    gap: 15px; /* Spacing between items */
 }
 
 .skills-page .technical-list .list li {
     display: flex;
     align-items: center;
-    gap: 8px; /* Reduced gap */
-    padding: 10px; /* Reduced padding */
+    gap: 10px; /* Spacing between icon and text */
+    padding: 15px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px; /* Reduced border radius */
+    border-radius: 8px;
     transition: var(--transition);
 }
 
@@ -579,12 +608,12 @@ h1 span, p span {
 }
 
 .skills-page .technical-list .list li span {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.2rem;
     color: var(--primary-color);
 }
 
 .skills-page .technical-list .list li strong {
-    min-width: 100px; /* Reduced min-width */
+    min-width: 120px; /* Fixed width for skill names */
     display: inline-block;
     color: var(--primary-color);
 }
@@ -594,4 +623,27 @@ h1 span, p span {
     .skills-page .technical-list .list {
         grid-template-columns: 1fr; /* One column */
     }
+}
+.go-to {
+    text-align: center;
+    margin-top: 2rem; /* Adds space before footer */
+    margin-bottom: 2rem; /* Adds space below the button */
+}
+
+.go-to .btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    padding: 0.9rem 1.7rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.go-to .btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
 }
