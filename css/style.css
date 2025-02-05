@@ -1,8 +1,6 @@
-/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
-/* Reset & Global Styles */
 :root {
     --background-dark: #121212;
     --background-light: rgba(255, 255, 255, 0.1);
@@ -41,7 +39,6 @@ h1 span, p span {
     color: var(--secondary-color);
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: center;
@@ -94,7 +91,6 @@ h1 span, p span {
     color: var(--primary-color);
 }
 
-/* Hamburger Menu Button */
 .navbar-toggler {
     display: none;
     flex-direction: column;
@@ -113,7 +109,6 @@ h1 span, p span {
     background-color: var(--text-color);
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
     .navbar-toggler {
         display: flex;
@@ -146,7 +141,6 @@ h1 span, p span {
     }
 }
 
-/* Hero Section */
 .hero {
     height: calc(100vh - 70px);
     display: flex;
@@ -176,7 +170,6 @@ h1 span, p span {
     margin-bottom: 2rem;
 }
 
-/* Buttons */
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
@@ -211,7 +204,7 @@ h1 span, p span {
     background-color: var(--secondary-color);
     color: black;
 }
-/* Main Sections */
+
 .main-section {
     padding: 2rem;
     flex-grow: 1;
@@ -294,7 +287,6 @@ h1 span, p span {
     font-size: 1.3rem;
 }
 
-/* Footer */
 .footer {
     text-align: center;
     padding: 1rem;
@@ -321,7 +313,6 @@ h1 span, p span {
     color: var(--primary-color);
 }
 
-/* Page-Specific Styles */
 .certifications-page .list li::before,
 .education-page .list li::before,
 .skills-page .list li::before {
@@ -381,7 +372,6 @@ h1 span, p span {
     }
 }
 
-/* Contact & CV Page Styles */
 .contact-page .box,
 .cv-page .box {
     max-width: 600px;
@@ -452,7 +442,6 @@ h1 span, p span {
     color: black;
 }
 
-/* Skills Page Specific Styles */
 .skills-page .list {
     list-style: none;
     padding: 0;
@@ -491,7 +480,6 @@ h1 span, p span {
     color: var(--primary-color);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .skills-page .list {
         grid-template-columns: 1fr;
@@ -501,14 +489,13 @@ h1 span, p span {
         grid-column: span 1;
     }
 }
-/* Skills & Interests Section */
 .skills-page .list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 20px; /* Spacing between items */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
 }
 
 .skills-page .list li {
@@ -520,7 +507,7 @@ h1 span, p span {
     border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Spacing between icon and text */
+    gap: 10px; 
     transition: var(--transition);
 }
 
@@ -535,15 +522,14 @@ h1 span, p span {
 }
 
 .skills-page .list li strong {
-    min-width: 120px; /* Fixed width for language names */
+    min-width: 120px; 
     display: inline-block;
     color: var(--primary-color);
 }
 
-/* Align proficiency levels (e.g., C1, B2) to the right */
 .skills-page .language-list .list li {
     display: flex;
-    justify-content: space-between; /* Align text and proficiency levels */
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -552,50 +538,45 @@ h1 span, p span {
     font-weight: bold;
 }
 
-/* Center German box in Language Skills */
 .skills-page .language-list .list li[data-item="german"] {
-    grid-column: span 2; /* Span across both columns */
-    justify-content: center; /* Center-align text */
-    text-align: center;
+    grid-column: span 2; 
+    justify-content: center; 
 }
 
-/* Responsive Design: Switch to one column on smaller screens */
 @media (max-width: 768px) {
     .skills-page .list {
-        grid-template-columns: 1fr; /* One column */
+        grid-template-columns: 1fr; 
     }
 
     .skills-page .language-list .list li[data-item="german"] {
-        grid-column: span 1; /* Reset to one column on smaller screens */
+        grid-column: span 1; 
     }
 
     .skills-page .language-list .list li {
-        flex-direction: column; /* Stack text and proficiency levels vertically */
-        align-items: flex-start; /* Align items to the left */
+        flex-direction: column; 
+        align-items: flex-start; 
     }
 
     .skills-page .language-list .list li span {
-        align-self: flex-end; /* Align proficiency levels to the right */
+        align-self: flex-end; 
     }
 }
 
-/* Hobbies & Interests: Center-align text */
 .skills-page .hobbies-list .list li {
-    justify-content: center; /* Center-align text */
+    justify-content: center; 
     text-align: center;
 }
 
-/* Technical Skills: Two columns for larger screens */
 .skills-page .technical-list .list {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 15px; /* Spacing between items */
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
 }
 
 .skills-page .technical-list .list li {
     display: flex;
     align-items: center;
-    gap: 10px; /* Spacing between icon and text */
+    gap: 10px; 
     padding: 15px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
@@ -613,21 +594,20 @@ h1 span, p span {
 }
 
 .skills-page .technical-list .list li strong {
-    min-width: 120px; /* Fixed width for skill names */
+    min-width: 120px; 
     display: inline-block;
     color: var(--primary-color);
 }
 
-/* Responsive Design: Switch to one column on smaller screens */
 @media (max-width: 768px) {
     .skills-page .technical-list .list {
-        grid-template-columns: 1fr; /* One column */
+        grid-template-columns: 1fr; 
     }
 }
 .go-to {
     text-align: center;
-    margin-top: 2rem; /* Adds space before footer */
-    margin-bottom: 2rem; /* Adds space below the button */
+    margin-top: 2rem; 
+    margin-bottom: 2rem;
 }
 
 .go-to .btn {
@@ -646,4 +626,13 @@ h1 span, p span {
     background-color: var(--secondary-color);
     transform: translateY(-3px);
     box-shadow: var(--hover-shadow);
+}
+.go-to {
+    display: none; 
+}
+
+@media (max-width: 768px) {
+    .go-to {
+        display: block; 
+    }
 }

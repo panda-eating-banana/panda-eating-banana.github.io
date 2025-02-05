@@ -7,25 +7,18 @@
     <meta name="keywords" content="David Valadares, IT Technician, Cloud Computing, Education, Portfolio">
     <meta name="author" content="David Valadares">
     <title>David Valadares | Education</title>
-    <!-- Preload CSS for faster rendering -->
     <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body class="education-page">
-    <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
-            <!-- Brand/Logo -->
             <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
-
-            <!-- Hamburger Menu Button -->
             <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
             </button>
-
-            <!-- Navbar Links -->
             <nav class="navbar-links" id="navbarLinks">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -40,12 +33,9 @@
             </nav>
         </div>
     </header>
-
-    <!-- Education Section -->
     <main class="main-section">
         <h1 class="title">Education</h1>
         <div class="container">
-            <!-- BTS Cloud Computing -->
             <article class="item">
                 <div class="box">
                     <h2 class="heading">BTS Cloud Computing</h2>
@@ -64,8 +54,6 @@
                     </ul>
                 </div>
             </article>
-
-            <!-- IT Technician's Diploma -->
             <article class="item">
                 <div class="box">
                     <h2 class="heading">IT Technician's Diploma</h2>
@@ -83,8 +71,6 @@
                     </ul>
                 </div>
             </article>
-
-            <!-- General Secondary Education -->
             <article class="item">
                 <div class="box">
                     <h2 class="heading">General Secondary Education</h2>
@@ -102,23 +88,19 @@
             </article>
         </div>
     </main>
-<!-- Button to Go to Certifications Page -->
-<div class="go-to">
-    <a href="certifications.html" class="btn" aria-label="Go to Certifications Page">Go to Certifications <i class="fas fa-arrow-right"></i></a>
-</div>
-    <!-- Footer -->
+    <div class="go-to">
+        <a href="certifications.html" class="btn" aria-label="Go to Certifications Page">Go to Certifications <i class="fas fa-arrow-right"></i></a>
+    </div>
     <footer class="footer">
         <ul class="social-links">
             <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
-<script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
+            <script>
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
             <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
-
-    <!-- Load JavaScript defer to avoid render-blocking -->
     <script src="js/script.js" defer></script>
 </body>
 </html>

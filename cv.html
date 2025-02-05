@@ -7,13 +7,10 @@
     <meta name="keywords" content="David Valadares, CV, Resume, IT Technician, Cloud Computing, Software Development">
     <meta name="author" content="David Valadares">
     <title>David Valadares | CV</title>
-    <!-- Preload CSS for faster rendering -->
     <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-    <!-- Load Font Awesome asynchronously -->
 </head>
 <body class="cv-page">
-    <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
@@ -36,8 +33,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- CV Section -->
     <main class="main-section">
         <h1 class="title">My CV</h1>
         <div class="container">
@@ -45,33 +40,25 @@
                 <div class="box">
                     <p class="date">📅 Updated: February 2024</p>
                     <p>Welcome to my CV page. <br>Below, you can find my professional experience, skills, and education.<br>You can also download or view my full CV using the buttons below.</p>
-                    
-                    <!-- English CV Button -->
                     <a href="docs/CV-eng.pdf" target="_blank" rel="noopener noreferrer" class="btn" aria-label="View CV in English">View CV (English) <i class="fas fa-external-link-alt"></i></a>
-                    
-                    <!-- French CV Button -->
                     <a href="docs/CV-fr.pdf" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Voir le CV en Français">Voir CV (Français) <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </article>
         </div>
     </main>
-<!-- Button to Go to Contact Page -->
 <div class="go-to">
     <a href="contact.html" class="btn" aria-label="Go to Contact Page">Go to Contact <i class="fas fa-arrow-right"></i></a>
 </div>
-    <!-- Footer -->
     <footer class="footer">
         <ul class="social-links">
             <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
-<script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
+            <script>
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
             <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
-
-    <!-- Load JavaScript defer to avoid render-blocking -->
     <script src="js/script.js" defer></script>
 </body>
 </html>

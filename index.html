@@ -7,26 +7,19 @@
     <meta name="keywords" content="David Valadares, IT Technician, Cloud Computing, Portfolio">
     <meta name="author" content="David Valadares">
     <title>David Valadares | Portfolio</title>
-    <!-- Combine preload and stylesheet link -->
     <link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <div class="container">
-            <!-- Brand/Logo -->
             <a class="navbar-brand" href="index.html" aria-label="Home">David Valadares</a>
-
-            <!-- Hamburger Menu Button -->
             <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarLinks" onclick="toggleNav()">
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
                 <span class="toggler-icon"></span>
             </button>
-
-            <!-- Navbar Links -->
             <nav class="navbar-links" id="navbarLinks">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -42,7 +35,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <main class="hero">
         <div class="hero-content">
             <h1>Hi, I'm <span>David Valadares</span></h1>
@@ -54,19 +46,17 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <ul class="social-links">
             <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
-<script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
+            <script>
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
             <li><a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
         </ul>
     </footer>
 
-    <!-- Load JavaScript asynchronously -->
     <script src="js/script.js" async></script>
 </body>
 </html>
