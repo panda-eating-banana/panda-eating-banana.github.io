@@ -9,6 +9,30 @@ async function loadPortfolioData() {
     }
 }
 
+// Initialize intersection observer for animations
+function initAnimations() {
+    const items = document.querySelectorAll('.item');
+    const observerOptions = { threshold: 0.1 };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    items.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = 'translateY(20px)';
+        observer.observe(item);
+    });
+}
+
 // Load Projects
 async function loadProjects() {
     const data = await loadPortfolioData();
@@ -42,6 +66,9 @@ async function loadProjects() {
 
         container.appendChild(article);
     });
+
+    // Initialize animations after content is loaded
+    initAnimations();
 }
 
 // Load Experience
@@ -76,6 +103,9 @@ async function loadExperience() {
 
         container.appendChild(article);
     });
+
+    // Initialize animations after content is loaded
+    initAnimations();
 }
 
 // Load Education
@@ -110,6 +140,9 @@ async function loadEducation() {
 
         container.appendChild(article);
     });
+
+    // Initialize animations after content is loaded
+    initAnimations();
 }
 
 // Load Certifications
@@ -147,6 +180,9 @@ async function loadCertifications() {
 
         container.appendChild(article);
     });
+
+    // Initialize animations after content is loaded
+    initAnimations();
 }
 
 // Load Skills
@@ -221,6 +257,9 @@ async function loadSkills() {
 
         container.appendChild(hobbiesArticle);
     }
+
+    // Initialize animations after content is loaded
+    initAnimations();
 }
 
 // Initialize based on current page
