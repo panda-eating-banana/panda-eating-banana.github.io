@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git restore:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd dynamic content management system\n\n- Add data.json with all portfolio content\n- Add data-loader.js to dynamically load content from JSON\n- Update HTML pages to load content dynamically\n- Add .gitignore to keep admin panel local only\n- Add robots.txt to prevent search engine indexing of admin files\n\nAdmin panel (admin.html) kept local for security.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(python -m http.server:*)",
+      "Bash(git commit:*)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
