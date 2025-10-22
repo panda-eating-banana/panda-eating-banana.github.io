@@ -171,20 +171,40 @@
   "skills": {
     "technical": [
       {
+        "category": "Cloud & Virtualization",
+        "items": "Microsoft Azure, AWS, VirtualBox, Docker, Docker Swarm, Microsoft Certified: Azure Fundamentals"
+      },
+      {
+        "category": "Networking",
+        "items": "CCNA1-3, IT Network Management"
+      },
+      {
+        "category": "System Administration",
+        "items": "Windows Server, Active Directory, Office 365, Linux CLI, Bash Scripting, Windows PowerShell"
+      },
+      {
+        "category": "Development & Databases",
+        "items": "Python, PHP, HTML, CSS, JavaScript, SQL, Database Management and Optimization"
+      },
+      {
+        "category": "Project & Productivity Tools",
+        "items": "ClickUp, Microsoft Office Specialist (Word & PowerPoint), Canva"
+      },
+      {
+        "category": "Power Platform",
+        "items": "Power Apps, Power Automate, Power BI"
+      },
+      {
+        "category": "Learning",
+        "items": "Ansible, Kubernetes, Network Monitoring, Business Accounting"
+      },
+      {
         "category": "Operating Systems",
         "items": "Windows, Linux CLI"
       },
       {
-        "category": "Coding",
-        "items": "JavaScript, PHP, HTML, CSS"
-      },
-      {
         "category": "IT Tools",
         "items": "Windows PowerShell, Office 365"
-      },
-      {
-        "category": "Networking",
-        "items": "Basic Network Configuration"
       }
     ],
     "languages": [
@@ -227,5 +247,15 @@
         "name": "Sport Shooting"
       }
     ]
+  },
+  "contact": {
+    "name": "David Durães Valadares",
+    "email": "daviddaladres2003@gmail.com",
+    "phone": "+352 621 288 717",
+    "address": "16, rue des Remparts, L-4303 Esch-sur-Alzette, Luxembourg",
+    "birthdate": "02/12/2003",
+    "drivingLicense": "B (with car)",
+    "linkedin": "https://www.linkedin.com/in/david-valadares",
+    "portfolio": "https://your-portfolio-link.example.com"
   }
 }
