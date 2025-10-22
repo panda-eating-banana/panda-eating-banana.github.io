@@ -1,0 +1,231 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Stock Management APP",
+      "date": "January 2025",
+      "description": [
+        "Designed and implemented a barcode-based stock management system, Stockly.",
+        "Streamlined inventory tracking, automated notifications, and barcode scanning for efficient stock management."
+      ],
+      "technologies": "Power Automate, Excel",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/stock_management_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "NextCloud Private Cloud",
+      "date": "December 2024",
+      "description": [
+        "Developed a secure private cloud storage solution using Raspberry Pi, Docker, and NextCloud.",
+        "Ensured data privacy and accessibility for personal and small business use."
+      ],
+      "technologies": "Raspberry Pi, Docker, NextCloud, Linux",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/nextcloud_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Python Snake Game",
+      "date": "September 2024",
+      "description": [
+        "Built a classic Snake game using Python and Pygame.",
+        "Features include dynamic difficulty levels, poison blocks, and a high-score system."
+      ],
+      "technologies": "Python, Pygame",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/snake_game_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        },
+        {
+          "text": "Play the Game!",
+          "url": "https://github.com/panda-eating-banana/snake-game.git",
+          "icon": "fas fa-external-link-alt"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Eco Weighing System",
+      "date": "May 2024",
+      "description": [
+        "Developed an IoT-integrated weighing system for tracking recycled materials.",
+        "Implemented QR code authentication for secure user identification.",
+        "Designed a web platform with database-driven analytics and secure login."
+      ],
+      "technologies": "ESP32, PHP, MySQL, JavaScript, Apache",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/eco-weighing_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "IT Intern",
+      "date": "September - October 2023 (6 weeks)",
+      "location": "BorgWarner, Bascharage, LU",
+      "description": [
+        "Reimaged servers.",
+        "Improved stock management processes in Excel.",
+        "Disassembled and recycled unused hardware, reducing waste."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Electronics Repair Technician (Vacation Job)",
+      "date": "August - September 2023 (6 weeks)",
+      "location": "MMS, Esch-sur-Alzette, LU",
+      "description": [
+        "Managed store inventory and stock, ensuring accurate tracking.",
+        "Repaired hardware, including laptops and smartphones.",
+        "Personalized smartphones for clients."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "title": "BTS Cloud Computing",
+      "date": "2024 - to date",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Currently pursuing a degree in Cloud Computing.",
+        "Focus on cloud infrastructure, virtualization, and network security.",
+        "Developing expertise in automation, containerization, and DevOps.",
+        "Hands-on experience with AWS, Azure, and other cloud service providers.",
+        "Training in cybersecurity, system administration, and cloud orchestration.",
+        "Engaging in real-world projects and industry-led workshops."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "IT Technician's Diploma",
+      "date": "2020 - 2024",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Comprehensive training in IT infrastructure, system administration, and technical support.",
+        "Expertise in hardware and software installation, configuration, and maintenance.",
+        "Hands-on experience in network setup, troubleshooting, and security implementation.",
+        "Proficiency in scripting, database management, and web development.",
+        "Strong foundation in IT security strategies and enterprise-level solutions."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "General Secondary Education",
+      "date": "2017 - 2020",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Acquired a strong foundation in general education across multiple disciplines.",
+        "Developed critical thinking, problem-solving, and communication skills.",
+        "Prepared for further academic and professional pathways based on individual strengths and interests."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Microsoft Certified: Azure Fundamentals",
+      "date": "13/01/2025",
+      "issuer": "Microsoft",
+      "description": "Validates foundational knowledge of cloud services and Microsoft Azure.",
+      "badgeImage": "assets/images/azure-fundamentals-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url"
+    },
+    {
+      "id": 2,
+      "title": "Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)",
+      "date": "17/12/2024",
+      "issuer": "Microsoft",
+      "description": "Demonstrates expertise in using Microsoft Word for creating professional documents.",
+      "badgeImage": "assets/images/word-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url"
+    },
+    {
+      "id": 3,
+      "title": "Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)",
+      "date": "22/10/2024",
+      "issuer": "Microsoft",
+      "description": "Validates skills in creating and managing professional PowerPoint presentations.",
+      "badgeImage": "assets/images/powerpoint-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url"
+    }
+  ],
+  "skills": {
+    "technical": [
+      {
+        "category": "Operating Systems",
+        "items": "Windows, Linux CLI"
+      },
+      {
+        "category": "Coding",
+        "items": "JavaScript, PHP, HTML, CSS"
+      },
+      {
+        "category": "IT Tools",
+        "items": "Windows PowerShell, Office 365"
+      },
+      {
+        "category": "Networking",
+        "items": "Basic Network Configuration"
+      }
+    ],
+    "languages": [
+      {
+        "language": "Portuguese",
+        "level": "C2 (Fluent)"
+      },
+      {
+        "language": "French",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "English",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "Luxembourgish",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "German",
+        "level": "B2 (Upper-Intermediate)"
+      }
+    ],
+    "hobbies": [
+      {
+        "icon": "🥊",
+        "name": "Boxing"
+      },
+      {
+        "icon": "🏋️",
+        "name": "Weightlifting"
+      },
+      {
+        "icon": "✈️",
+        "name": "Travelling"
+      },
+      {
+        "icon": "🔫",
+        "name": "Sport Shooting"
+      }
+    ]
+  }
+}

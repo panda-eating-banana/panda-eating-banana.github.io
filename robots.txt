@@ -1,0 +1,5 @@
+# Robots.txt - Prevent search engines from indexing admin page
+User-agent: *
+Disallow: /admin.html
+Disallow: /js/admin.js
+Disallow: /css/admin.css

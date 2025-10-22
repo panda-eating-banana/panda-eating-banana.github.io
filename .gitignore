@@ -1,0 +1,8 @@
+# Admin Panel - Keep Local Only (Not on GitHub)
+admin.html
+js/admin.js
+css/admin.css
+ADMIN_README.md
+
+# Optional: Keep robots.txt local too (since admin won't be public)
+# robots.txt
