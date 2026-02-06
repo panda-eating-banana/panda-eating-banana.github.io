@@ -1,0 +1,18 @@
+# Admin Panel - Keep Local Only (Not on GitHub)
+admin.html
+js/admin.js
+css/admin.css
+ADMIN_README.md
+
+# Claude Code files
+.claude/
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor files
+.vscode/
+*.swp
+*.swo

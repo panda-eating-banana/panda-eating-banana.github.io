@@ -1,0 +1,1443 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Stock Management APP",
+      "date": "January 2025",
+      "description": [
+        "Designed and implemented a barcode-based stock management system, Stockly.",
+        "Streamlined inventory tracking, automated notifications, and barcode scanning for efficient stock management."
+      ],
+      "technologies": "Power Automate, Excel",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/stock_management_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ],
+      "thumbnail": "assets/images/projects/stock-management-thumb.jpg",
+      "modal": {
+        "detailedDescription": "Stockly is a comprehensive barcode-based stock management system designed to streamline inventory operations for small to medium-sized businesses. The application integrates Power Automate workflows with Excel to provide real-time inventory tracking, automated low-stock notifications, and efficient barcode scanning capabilities.",
+        "features": [
+          "Barcode scanning integration for quick product identification",
+          "Automated low-stock alerts via email notifications",
+          "Real-time inventory tracking and reporting",
+          "Excel-based database for easy data management",
+          "Power Automate workflows for process automation",
+          "User-friendly interface for non-technical users"
+        ],
+        "challenges": [
+          "Integrating barcode scanning hardware with Power Automate",
+          "Ensuring data accuracy across multiple Excel sheets",
+          "Designing efficient notification triggers without overwhelming users",
+          "Optimizing performance for large inventory databases"
+        ],
+        "outcomes": [
+          "Reduced inventory checking time by 70%",
+          "Eliminated manual data entry errors",
+          "Improved stock replenishment response time",
+          "Successfully deployed in school IT department"
+        ],
+        "images": [
+          {
+            "url": "assets/images/projects/stock-management-1.jpg",
+            "caption": "Stockly Dashboard Overview"
+          },
+          {
+            "url": "assets/images/projects/stock-management-2.jpg",
+            "caption": "Barcode Scanning Interface"
+          },
+          {
+            "url": "assets/images/projects/stock-management-3.jpg",
+            "caption": "Automated Notification System"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "title": "NextCloud Private Cloud",
+      "date": "December 2024",
+      "description": [
+        "Developed a secure private cloud storage solution using Raspberry Pi, Docker, and NextCloud.",
+        "Ensured data privacy and accessibility for personal and small business use."
+      ],
+      "technologies": "Raspberry Pi, Docker, NextCloud, Linux",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/nextcloud_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ],
+      "thumbnail": "assets/images/projects/nextcloud-thumb.jpg",
+      "modal": {
+        "detailedDescription": "A self-hosted private cloud storage solution built on Raspberry Pi 4, leveraging Docker containerization and NextCloud to provide secure, accessible file storage and collaboration features. The system offers complete data ownership and privacy while maintaining enterprise-level functionality.",
+        "features": [
+          "Self-hosted cloud storage with full data ownership",
+          "Docker containerization for easy deployment and updates",
+          "SSL/TLS encryption for secure remote access",
+          "File synchronization across multiple devices",
+          "Collaborative document editing and sharing",
+          "Automated backup and versioning system",
+          "Mobile app integration for iOS and Android"
+        ],
+        "challenges": [
+          "Configuring secure external access through home network",
+          "Optimizing performance on Raspberry Pi hardware limitations",
+          "Setting up automated SSL certificate renewal",
+          "Implementing reliable backup strategies",
+          "Managing Docker container updates without downtime"
+        ],
+        "outcomes": [
+          "Successfully replaced commercial cloud subscriptions",
+          "Achieved 99.5% uptime over 3 months",
+          "Reduced cloud storage costs to zero after initial investment",
+          "Provided secure file access for family members",
+          "Gained hands-on experience with Docker and Linux server administration"
+        ],
+        "images": [
+          {
+            "url": "assets/images/projects/nextcloud-1.jpg",
+            "caption": "NextCloud Web Interface"
+          },
+          {
+            "url": "assets/images/projects/nextcloud-2.jpg",
+            "caption": "Docker Container Setup"
+          },
+          {
+            "url": "assets/images/projects/nextcloud-3.jpg",
+            "caption": "Raspberry Pi Hardware Configuration"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Python Snake Game",
+      "date": "September 2024",
+      "description": [
+        "Built a classic Snake game using Python and Pygame.",
+        "Features include dynamic difficulty levels, poison blocks, and a high-score system."
+      ],
+      "technologies": "Python, Pygame",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/snake_game_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        },
+        {
+          "text": "Play the Game!",
+          "url": "https://github.com/panda-eating-banana/snake-game.git",
+          "icon": "fas fa-external-link-alt"
+        }
+      ],
+      "thumbnail": "assets/images/projects/snake-game-thumb.jpg",
+      "modal": {
+        "detailedDescription": "A modern take on the classic Snake game developed with Python and Pygame, featuring enhanced gameplay mechanics, dynamic difficulty scaling, and a comprehensive scoring system. The game includes unique elements like poison blocks and power-ups to increase replay value and challenge.",
+        "features": [
+          "Smooth animation and responsive controls",
+          "Dynamic difficulty system that adapts to player performance",
+          "Poison blocks mechanic for added challenge",
+          "Power-ups including speed boost and invincibility",
+          "High-score persistence using JSON file storage",
+          "Multiple color themes and visual effects",
+          "Pause and restart functionality",
+          "Game over statistics and performance tracking"
+        ],
+        "challenges": [
+          "Implementing collision detection with pixel-perfect accuracy",
+          "Balancing game difficulty to maintain engagement",
+          "Optimizing frame rate for smooth gameplay",
+          "Designing an intuitive UI with Pygame's limited GUI tools",
+          "Managing game state transitions cleanly"
+        ],
+        "outcomes": [
+          "Successfully implemented all planned features",
+          "Achieved stable 60 FPS performance",
+          "Received positive feedback from beta testers",
+          "Published on GitHub with comprehensive documentation",
+          "Gained proficiency in game development principles and Pygame library"
+        ],
+        "images": [
+          {
+            "url": "assets/images/projects/snake-game-1.jpg",
+            "caption": "Main Gameplay Screen"
+          },
+          {
+            "url": "assets/images/projects/snake-game-2.jpg",
+            "caption": "Poison Blocks and Power-ups"
+          },
+          {
+            "url": "assets/images/projects/snake-game-3.jpg",
+            "caption": "High Score System"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Eco Weighing System",
+      "date": "May 2024",
+      "description": [
+        "Developed an IoT-integrated weighing system for tracking recycled materials.",
+        "Implemented QR code authentication for secure user identification.",
+        "Designed a web platform with database-driven analytics and secure login."
+      ],
+      "technologies": "ESP32, PHP, MySQL, JavaScript, Apache",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/eco-weighing_documentation.pdf",
+          "icon": "fas fa-external-link-alt"
+        }
+      ],
+      "thumbnail": "assets/images/projects/eco-weighing-thumb.jpg",
+      "modal": {
+        "detailedDescription": "An IoT-enabled weighing system designed to track and incentivize recycling efforts in educational institutions. The system combines ESP32 microcontrollers, load cells, QR code authentication, and a web-based analytics platform to provide real-time tracking of recycled materials, user contributions, and environmental impact metrics.",
+        "features": [
+          "ESP32-based IoT weighing stations with load cell integration",
+          "QR code authentication for secure user identification",
+          "Real-time weight data transmission to web server",
+          "MySQL database for persistent data storage",
+          "Web dashboard with analytics and visualizations",
+          "User leaderboard to gamify recycling efforts",
+          "Admin panel for system management and reporting",
+          "RESTful API for data exchange between hardware and web platform"
+        ],
+        "challenges": [
+          "Calibrating load cells for accurate weight measurements",
+          "Ensuring reliable WiFi connectivity in various locations",
+          "Designing a secure authentication system with QR codes",
+          "Implementing real-time data synchronization between ESP32 and server",
+          "Creating an intuitive web interface for both users and administrators",
+          "Handling concurrent requests from multiple weighing stations"
+        ],
+        "outcomes": [
+          "Successfully deployed in school environment with 3 weighing stations",
+          "Tracked over 500kg of recycled materials in first month",
+          "Increased student participation in recycling programs by 65%",
+          "Achieved 99% accuracy in weight measurements",
+          "Reduced administrative overhead for recycling tracking",
+          "Won school project competition for innovation and environmental impact"
+        ],
+        "images": [
+          {
+            "url": "assets/images/projects/eco-weighing-1.jpg",
+            "caption": "ESP32 Weighing Station Hardware"
+          },
+          {
+            "url": "assets/images/projects/eco-weighing-2.jpg",
+            "caption": "Web Dashboard Analytics"
+          },
+          {
+            "url": "assets/images/projects/eco-weighing-3.jpg",
+            "caption": "QR Code Authentication System"
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "title": "Clockly – AWS Employee Attendance System",
+      "date": "June 2025",
+      "description": [
+        "Built a cloud-based employee attendance tracking system on AWS for small and medium-sized companies.",
+        "Implemented secure authentication, automated reporting, and overtime management using multiple AWS services."
+      ],
+      "technologies": "AWS (EC2, Cognito, RDS, S3, Lambda, SNS, CloudWatch, EventBridge), Flask, PostgreSQL, DuckDNS, Let's Encrypt",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/clockly_documentation.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/images/projects/clockly-thumb.jpg",
+      "modal": {
+        "detailedDescription": "Clockly is a cloud-based employee attendance tracking system designed for small and medium-sized companies. It allows employees to clock in and out through a secure web application hosted on AWS, demonstrating a real-world, enterprise-style cloud architecture with Flask backend on EC2 integrated with multiple AWS services.",
+        "features": [
+          "AWS Cognito for secure authentication and role-based access (Worker, Team Leader, Admin)",
+          "AWS RDS (PostgreSQL) for storing users, teams, and attendance data",
+          "AWS S3 for daily attendance reports with Glacier for long-term archival",
+          "AWS Lambda for automation (auto clock-out and daily reporting)",
+          "AWS SNS for email notifications and alerts",
+          "AWS CloudWatch for logging, monitoring, and cost protection",
+          "Web-based clock-in/out with break tracking and accurate work-hour calculations",
+          "Automatic overtime management (warnings at 8 hours, auto clock-out at 10 hours)",
+          "Daily team attendance reports generated automatically and emailed to team leaders",
+          "Luxembourg timezone handling for consistent time calculations",
+          "DuckDNS + Let's Encrypt for HTTPS-secured external access"
+        ],
+        "challenges": [
+          "Configuring VPC networking for Lambda access",
+          "IAM permission troubleshooting",
+          "SSL certificate setup and HTTPS redirection",
+          "Secure inter-service communication",
+          "Private subnets for RDS with restricted security groups"
+        ],
+        "outcomes": [
+          "Successfully demonstrates a scalable, secure, and automated AWS-based attendance system",
+          "Reflects real enterprise cloud practices",
+          "Combines authentication, monitoring, automation, reporting, and cost-efficient storage",
+          "Complete production-style solution with health check API and systemctl-managed backend"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "ITMOS – Network Monitoring with Zabbix",
+      "date": "January 2026",
+      "description": [
+        "Designed and deployed a complete network and infrastructure monitoring solution using Zabbix.",
+        "Implemented centralized monitoring for network devices, servers, storage systems, and printers."
+      ],
+      "technologies": "Zabbix, Ubuntu Server, Proxmox, MariaDB, SNMP, VPN",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/itmos_documentation.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/images/projects/itmos-thumb.jpg",
+      "modal": {
+        "detailedDescription": "This project focuses on the design, deployment, and validation of a complete network and infrastructure monitoring solution using Zabbix. Its goal was to ensure continuous availability, performance, and reliability of IT services in a virtualized environment while applying real-world monitoring best practices.",
+        "features": [
+          "Zabbix Server with MariaDB database and web frontend",
+          "Zabbix Agents for server monitoring",
+          "SNMP monitoring for network devices, storage, and printers",
+          "HTTP/API checks for Proxmox and web services",
+          "Global NOC overview dashboard",
+          "Network & firewall monitoring dashboard",
+          "Servers & virtualization monitoring",
+          "Storage monitoring (Synology NAS)",
+          "Printers & consumables tracking",
+          "Zabbix server health monitoring",
+          "Fault, performance, availability, security, and capacity monitoring"
+        ],
+        "challenges": [
+          "SNMP configuration across different device types",
+          "VPN-related connectivity issues",
+          "Proxmox API permissions setup",
+          "Zabbix's steep learning curve",
+          "Template customization and community template integration"
+        ],
+        "outcomes": [
+          "Successfully validated through controlled tests (host failures, CPU load, SNMP misconfiguration)",
+          "Zabbix detected incidents, generated alerts, and confirmed automatic recovery",
+          "Demonstrates enterprise-ready monitoring solution",
+          "Improved understanding of real-world monitoring environments and troubleshooting techniques"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": 7,
+      "title": "GCP AI Invoice Processing System",
+      "date": "January 2026",
+      "description": [
+        "Implemented a serverless, AI-driven document processing pipeline on Google Cloud Platform.",
+        "Automatically extracts structured data from PDF invoices and stores it for analysis."
+      ],
+      "technologies": "Google Cloud (Cloud Storage, Cloud Functions, Document AI, BigQuery, Cloud Run), Python",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/gcp_invoice_documentation.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/images/projects/gcp-invoice-thumb.jpg",
+      "modal": {
+        "detailedDescription": "This project implements a serverless, AI-driven document processing pipeline on Google Cloud Platform that automatically extracts structured data from PDF invoices and stores it for analysis. The solution demonstrates how multiple managed GCP services can be combined to build a scalable, real-world application with minimal infrastructure management.",
+        "features": [
+          "Cloud Storage as the ingestion point for invoice PDFs",
+          "Cloud Functions (2nd gen) to orchestrate processing",
+          "Document AI (Invoice Parser) to extract structured invoice data",
+          "BigQuery to store and analyze extracted information",
+          "Cloud Run to host a web dashboard for uploads and data visualization",
+          "Fully event-driven and serverless architecture",
+          "Automatic extraction of invoice fields (invoice number, dates, supplier, totals, line items)",
+          "Fully automated after upload with no manual intervention required"
+        ],
+        "challenges": [
+          "Using the correct Document AI processor",
+          "Misconfigured processor paths (project number vs. project ID)",
+          "Inconsistent date formats causing BigQuery insertion failures",
+          "Cloud Run revisions not receiving traffic by default",
+          "Cloud Logging and incremental testing for debugging"
+        ],
+        "outcomes": [
+          "Successfully demonstrated practical, scalable, and automated invoice processing",
+          "Validated using public Cloud Run dashboard",
+          "Extracted invoice details correctly displayed and queryable in BigQuery",
+          "Highlights power of combining serverless services and AI"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": 8,
+      "title": "RASP – Remote Access Student Portal",
+      "date": "January 2026",
+      "description": [
+        "Built a Kubernetes-based remote desktop platform providing students instant access to virtual lab environments.",
+        "Replaced traditional physical PC labs with centrally managed virtual machines using Raspberry Pi kiosk clients."
+      ],
+      "technologies": "Kubernetes (k3s), Docker, Proxmox, Apache Guacamole, PostgreSQL, Raspberry Pi, Python",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/rasp_documentation.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/images/projects/rasp-thumb.jpg",
+      "modal": {
+        "detailedDescription": "RASP is a Kubernetes-based remote desktop platform that provides students with instant access to virtual lab environments through Raspberry Pi kiosk clients. The system replaces traditional physical PC labs with centrally managed virtual machines, reducing long-term hardware costs and administrative overhead.",
+        "features": [
+          "Session Broker - Central orchestrator for session requests and VM assignment",
+          "Pool Manager - Maintains pre-cloned VMs for instant startup",
+          "Cleanup Service - Removes inactive sessions and performs end-of-day cleanup",
+          "VM Controller - REST API gateway to Proxmox for VM operations",
+          "Teachers Portal - Web dashboard for monitoring and manual session control",
+          "Proxmox integration for VM lifecycle management",
+          "Apache Guacamole for browser-based VNC access",
+          "PostgreSQL for session and pool state",
+          "Raspberry Pi kiosks as thin clients",
+          "Instant VM provisioning using pre-warmed pool",
+          "Automated session cleanup and VM recycling"
+        ],
+        "challenges": [
+          "Microservices architecture design and orchestration",
+          "k3s cluster configuration and namespace isolation",
+          "Proxmox API integration for VM management",
+          "Session state synchronization between services",
+          "Docker containerization of all services"
+        ],
+        "outcomes": [
+          "Demonstrates production-grade Kubernetes deployment",
+          "Cost-efficient compared to maintaining physical PCs",
+          "Scalable and resilient through Kubernetes",
+          "Centralized control and monitoring",
+          "Minimal client requirements with Raspberry Pi kiosks"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": 9,
+      "title": "ICode – Terraform Minecraft LAN Deployment",
+      "date": "February 2026",
+      "description": [
+        "Automated the deployment of a Minecraft LAN environment using Terraform and Proxmox virtualization.",
+        "Compared Terraform providers and deployment strategies (on-premises vs. cloud) with team members Maksim Bogomolov and David Duraes."
+      ],
+      "technologies": "Terraform, Proxmox, Cloud-init, QEMU Agent, Ansible, Java 21, Paper, Geyser, Floodgate, Prism Launcher",
+      "links": [
+        {
+          "text": "Read Documentation",
+          "url": "docs/projects/Icode_minecraft.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/images/projects/icode-terraform-thumb.jpg",
+      "modal": {
+        "detailedDescription": "This team project (with Maksim Bogomolov and David Duraes) automates the deployment of a complete Minecraft LAN environment using Terraform and Proxmox virtualization. The project compares two Proxmox Terraform providers — bpg/proxmox (better maintained, frequent updates) and telmate/proxmox (more downloads but less actively maintained) — and evaluates on-premises vs. cloud deployment strategies for infrastructure-as-code workflows.",
+        "features": [
+          "Automated VM provisioning with Terraform on Proxmox",
+          "Comparison of bpg/proxmox and telmate/proxmox Terraform providers",
+          "On-premises vs. cloud deployment analysis",
+          "Minecraft server running Java 21 with Paper server software",
+          "Geyser and Floodgate plugins for cross-platform (Java & Bedrock) compatibility",
+          "Windows and Linux client VMs with Prism Launcher",
+          "Cloud-init templates for automated VM configuration",
+          "QEMU Guest Agent integration for VM management"
+        ],
+        "challenges": [
+          "Terraform compatibility issues on Windows with virtualization",
+          "VM lock timeouts during provisioning",
+          "Slow disk performance impacting deployment speed",
+          "Required parallelism=1 to avoid resource conflicts",
+          "Ansible limitations and workarounds on Windows hosts"
+        ],
+        "outcomes": [
+          "Successfully deployed a fully automated Minecraft LAN environment",
+          "Documented provider comparison to guide future Terraform-Proxmox projects",
+          "Demonstrated infrastructure-as-code principles in a practical, reproducible setup",
+          "Identified and documented workarounds for Windows-based Terraform workflows"
+        ],
+        "images": []
+      }
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "IT Intern",
+      "date": "September - October 2023 (6 weeks)",
+      "location": "BorgWarner, Bascharage, LU",
+      "description": [
+        "Reimaged servers.",
+        "Improved stock management processes in Excel.",
+        "Disassembled and recycled unused hardware, reducing waste."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Electronics Repair Technician (Vacation Job)",
+      "date": "August - September 2023 (6 weeks)",
+      "location": "MMS, Esch-sur-Alzette, LU",
+      "description": [
+        "Managed store inventory and stock, ensuring accurate tracking.",
+        "Repaired hardware, including laptops and smartphones.",
+        "Personalized smartphones for clients."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "title": "BTS Cloud Computing",
+      "date": "2024 - to date",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Currently pursuing a degree in Cloud Computing.",
+        "Focus on cloud infrastructure, virtualization, and network security.",
+        "Developing expertise in automation, containerization, and DevOps.",
+        "Hands-on experience with AWS, Azure, and other cloud service providers.",
+        "Training in cybersecurity, system administration, and cloud orchestration.",
+        "Engaging in real-world projects and industry-led workshops."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "IT Technician's Diploma",
+      "date": "2020 - 2024",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Comprehensive training in IT infrastructure, system administration, and technical support.",
+        "Expertise in hardware and software installation, configuration, and maintenance.",
+        "Hands-on experience in network setup, troubleshooting, and security implementation.",
+        "Proficiency in scripting, database management, and web development.",
+        "Strong foundation in IT security strategies and enterprise-level solutions."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "General Secondary Education",
+      "date": "2017 - 2020",
+      "location": "Lycée Guillaume Kroll, Esch-sur-Alzette, LU",
+      "description": [
+        "Acquired a strong foundation in general education across multiple disciplines.",
+        "Developed critical thinking, problem-solving, and communication skills.",
+        "Prepared for further academic and professional pathways based on individual strengths and interests."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      "date": "13/01/2025",
+      "issuer": "Microsoft",
+      "description": "Validates foundational knowledge of cloud services and Microsoft Azure.",
+      "grade": "820/1000",
+      "badgeImage": "assets/images/azure-fundamentals-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/fa34e702-6f47-4de3-807a-0a102186e23b/public_url"
+    },
+    {
+      "id": 2,
+      "title": "Microsoft Office Specialist: Word Expert (Microsoft 365 Apps)",
+      "date": "01/02/2025",
+      "issuer": "Microsoft",
+      "description": "Advanced expertise in Microsoft Word including mail merge, macros, and document collaboration.",
+      "grade": "850/1000",
+      "badgeImage": "assets/images/word-expert-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/ec337894-4cce-420d-a596-ccb8eaae7c6e"
+    },
+    {
+      "id": 3,
+      "title": "Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)",
+      "date": "17/12/2024",
+      "issuer": "Microsoft",
+      "description": "Demonstrates expertise in using Microsoft Word for creating professional documents.",
+      "grade": "890/1000",
+      "badgeImage": "assets/images/word-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/d6933c8d-ec90-4634-b95b-179c1a0c05f8/public_url"
+    },
+    {
+      "id": 4,
+      "title": "Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)",
+      "date": "22/10/2024",
+      "issuer": "Microsoft",
+      "description": "Validates skills in creating and managing professional PowerPoint presentations.",
+      "grade": "875/1000",
+      "badgeImage": "assets/images/powerpoint-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/26dda68e-143b-4d6b-9575-6a6c9a4a5d88/public_url"
+    },
+    {
+      "id": 5,
+      "title": "Microsoft Office Specialist: Excel Associate (Microsoft 365 Apps)",
+      "date": "01/04/2025",
+      "issuer": "Microsoft",
+      "description": "Validates skills in creating and managing spreadsheets, applying formulas, and visualizing data in Microsoft Excel.",
+      "grade": "https://www.credly.com/badges/10116cde-5ccc-4f9b-8014-48b695369a7c",
+      "badgeImage": "assets/images/excel-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/10116cde-5ccc-4f9b-8014-48b695369a7c"
+    },
+    {
+      "id": 6,
+      "title": "Microsoft Office Specialist: Associate (Microsoft 365 Apps)",
+      "date": "01/04/2025",
+      "issuer": "Microsoft",
+      "description": "Demonstrates broad proficiency across Microsoft 365 applications including Word, Excel, and PowerPoint.",
+      "grade": "",
+      "badgeImage": "assets/images/mos-associate-badge.png",
+      "badgeUrl": "https://www.credly.com/badges/6d3771ce-5b53-4314-8a2a-93a55cbb3463"
+    }
+  ],
+  "pluralsight": {
+    "title": "Pluralsight Learning Progress",
+    "description": "Continuous learning through Pluralsight courses and labs",
+    "courses": [
+      {
+        "id": 1,
+        "title": "AZ-104: Microsoft Azure Administrator",
+        "type": "path",
+        "status": "planned",
+        "progress": 0,
+        "date": ""
+      },
+      {
+        "id": 2,
+        "title": "AZ-500: Microsoft Azure Security Technologies",
+        "type": "path",
+        "status": "planned",
+        "progress": 0,
+        "date": ""
+      },
+      {
+        "id": 4,
+        "title": "Maintaining, Monitoring and Troubleshooting Kubernetes",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "1h 32m",
+        "date": "October 2025"
+      },
+      {
+        "id": 5,
+        "title": "Certified Kubernetes Administrator: Kubernetes Foundations",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "49m",
+        "date": "October 2025"
+      },
+      {
+        "id": 7,
+        "title": "Cloud Computing Fundamentals: Cloud Concepts",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "1h 9m",
+        "date": "April 2025"
+      },
+      {
+        "id": 8,
+        "title": "Cloud Computing Foundations",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "7m",
+        "date": "April 2025"
+      },
+      {
+        "id": 9,
+        "title": "Overview of AWS",
+        "type": "course",
+        "status": "in-progress",
+        "progress": 39,
+        "duration": "36m",
+        "date": "April 2025"
+      },
+      {
+        "id": 10,
+        "title": "Cloud Computing Foundations",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "31m",
+        "date": "April 2025"
+      },
+      {
+        "id": 11,
+        "title": "The System Administrator's Guide to Bash Scripting",
+        "type": "course",
+        "status": "in-progress",
+        "progress": 4,
+        "duration": "14m",
+        "date": "March 2025"
+      },
+      {
+        "id": 12,
+        "title": "Microsoft Azure Fundamentals (AZ-900): Exam Preparation",
+        "type": "course",
+        "status": "in-progress",
+        "progress": 13,
+        "duration": "7m",
+        "date": "December 2024"
+      },
+      {
+        "id": 13,
+        "title": "Microsoft Azure Fundamentals (AZ-900): Identity, Deployment, and Management",
+        "type": "course",
+        "status": "in-progress",
+        "progress": 69,
+        "duration": "1h 19m",
+        "date": "December 2024"
+      },
+      {
+        "id": 14,
+        "title": "Microsoft Azure Fundamentals (AZ-900): Foundational Cloud Concepts",
+        "type": "course",
+        "status": "completed",
+        "progress": 100,
+        "duration": "2h 24m",
+        "date": "December 2024"
+      }
+    ]
+  },
+  "certificationPath": {
+    "title": "Azure Security Engineer Certification Path",
+    "description": "Journey toward becoming a Microsoft Certified Azure Security Engineer",
+    "milestones": [
+      {
+        "id": 1,
+        "title": "AZ-900: Azure Fundamentals",
+        "status": "completed",
+        "progress": 100,
+        "completedDate": "13/01/2025",
+        "description": "Foundation knowledge of cloud services and Microsoft Azure",
+        "color": "#10b981"
+      },
+      {
+        "id": 2,
+        "title": "AZ-104: Azure Administrator",
+        "status": "in-progress",
+        "progress": 0,
+        "targetDate": "June 2026",
+        "description": "Exam preparation via Pluralsight learning path",
+        "details": [
+          "Pluralsight courses in progress",
+          "Hands-on labs completed: 12/25",
+          "Practice exams: 3/5 completed"
+        ],
+        "color": "#6b7280"
+      },
+      {
+        "id": 3,
+        "title": "AZ-500: Azure Security Engineer",
+        "status": "planned",
+        "progress": 0,
+        "targetDate": "Semester 4 (2026-2027)",
+        "description": "Final certification goal - Azure Security Engineer Associate",
+        "details": [
+          "Prerequisites: AZ-104 completion",
+          "Planned start: After AZ-104 certification",
+          "Study materials: Microsoft Learn + Pluralsight"
+        ],
+        "color": "#6b7280"
+      }
+    ]
+  },
+  "workshops": [
+    {
+      "id": 1,
+      "title": "Cyberday at Belval",
+      "date": "October 2024",
+      "type": "External Expert",
+      "organizer": "Restena",
+      "location": "Belval",
+      "description": [
+        "Cybersecurity awareness event organized by Restena",
+        "Overview of current cyber threats and defense strategies",
+        "Networking with cybersecurity professionals"
+      ],
+      "keyTakeaways": [
+        "Current cybersecurity threat landscape",
+        "Best practices for personal and organizational security",
+        "Resources available through Restena"
+      ],
+      "duration": "Half day (4.5 hours)"
+    },
+    {
+      "id": 2,
+      "title": "Job Interview Preparation (French)",
+      "date": "October - December 2024",
+      "type": "External Expert",
+      "organizer": "Schlüter Yves",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Professional interview preparation sessions in French",
+        "Individual mock interviews with personalized feedback",
+        "Tips for presenting technical skills to recruiters"
+      ],
+      "keyTakeaways": [
+        "Professional communication skills in French",
+        "How to present technical projects effectively",
+        "Interview techniques and body language"
+      ],
+      "duration": "Multiple sessions (3 hours each)"
+    },
+    {
+      "id": 3,
+      "title": "Interview Preparation Workshop",
+      "date": "October 2024",
+      "type": "External Expert",
+      "organizer": "Hornick Maryse",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Comprehensive interview preparation session",
+        "CV review and optimization techniques",
+        "Strategies for answering common interview questions"
+      ],
+      "keyTakeaways": [
+        "CV formatting and content optimization",
+        "STAR method for behavioral questions",
+        "Follow-up etiquette after interviews"
+      ],
+      "duration": "3 hours"
+    },
+    {
+      "id": 4,
+      "title": "AZ-900 Azure Fundamentals Preparation",
+      "date": "November 2024",
+      "type": "External Expert",
+      "organizer": "NIX Xavier (Deep/Elgon)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Full-day intensive preparation for Microsoft AZ-900 certification",
+        "Comprehensive coverage of Azure cloud concepts and services",
+        "Practice questions and exam strategies"
+      ],
+      "keyTakeaways": [
+        "Core Azure services and architecture",
+        "Azure pricing, SLAs, and support",
+        "Cloud security and compliance fundamentals"
+      ],
+      "duration": "Full day (8 hours)"
+    },
+    {
+      "id": 5,
+      "title": "Phishing Awareness Workshop",
+      "date": "December 2024",
+      "type": "External Expert",
+      "organizer": "Denim Latic & Denis Otté (Restena)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Interactive session on identifying and preventing phishing attacks",
+        "Real-world examples of phishing techniques",
+        "Hands-on exercises to recognize suspicious emails and links"
+      ],
+      "keyTakeaways": [
+        "How to identify phishing attempts",
+        "Reporting procedures for suspicious activities",
+        "Tools and browser extensions for protection"
+      ],
+      "duration": "2 hours"
+    },
+    {
+      "id": 6,
+      "title": "PL-900 Power Platform Fundamentals",
+      "date": "December 2024",
+      "type": "External Expert",
+      "organizer": "NIX Xavier (Deep/Elgon)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Full-day preparation for Microsoft PL-900 certification",
+        "Introduction to Power Apps, Power Automate, Power BI, and Power Virtual Agents",
+        "Hands-on labs building low-code solutions"
+      ],
+      "keyTakeaways": [
+        "Power Platform components and capabilities",
+        "Building canvas apps and model-driven apps",
+        "Automating workflows with Power Automate"
+      ],
+      "duration": "Full day (8 hours)"
+    },
+    {
+      "id": 7,
+      "title": "ITIL Foundation Training",
+      "date": "December 2024 - March 2025",
+      "type": "External Expert",
+      "organizer": "Michael Bünte (QPark)",
+      "location": "Lycée Guillaume Kroll, Salle de Projection",
+      "description": [
+        "Comprehensive ITIL 4 Foundation training course",
+        "IT service management principles and practices",
+        "Preparation for ITIL certification exam"
+      ],
+      "keyTakeaways": [
+        "ITIL service value system and chain",
+        "The four dimensions of service management",
+        "ITIL guiding principles and practices"
+      ],
+      "duration": "Multiple sessions (3 hours each)"
+    },
+    {
+      "id": 8,
+      "title": "Sustainable Cloud Computing",
+      "date": "January 2025",
+      "type": "External Expert",
+      "organizer": "Christian Stemmler (ARHS)",
+      "location": "Lycée Guillaume Kroll, BT1 (3rd floor bloc A)",
+      "description": [
+        "Two-part workshop on sustainable practices in cloud computing",
+        "Environmental impact of data centers and cloud services",
+        "Strategies for green cloud architecture"
+      ],
+      "keyTakeaways": [
+        "Carbon footprint of cloud services",
+        "Optimization techniques for energy efficiency",
+        "Sustainable architecture design patterns"
+      ],
+      "duration": "2 sessions (3.5 hours each)"
+    },
+    {
+      "id": 9,
+      "title": "AWS Architecture Recap",
+      "date": "January 2025",
+      "type": "External Expert",
+      "organizer": "ARHS",
+      "location": "Belval",
+      "description": [
+        "Full-day AWS architecture review and best practices",
+        "Hands-on labs with AWS services",
+        "Real-world architecture case studies"
+      ],
+      "keyTakeaways": [
+        "AWS Well-Architected Framework",
+        "Cost optimization strategies",
+        "Security best practices in AWS"
+      ],
+      "duration": "Full day (9 hours)"
+    },
+    {
+      "id": 10,
+      "title": "M365 Administration",
+      "date": "March 2025",
+      "type": "External Expert",
+      "organizer": "Quentin Bihay (Computerland)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Three-session workshop on Microsoft 365 administration",
+        "User and license management in M365 admin center",
+        "Security and compliance features"
+      ],
+      "keyTakeaways": [
+        "M365 tenant configuration",
+        "Exchange Online and Teams administration",
+        "Security policies and compliance center"
+      ],
+      "duration": "3 sessions (4 hours each)"
+    },
+    {
+      "id": 11,
+      "title": "AZ-040 PowerShell Automation",
+      "date": "March 2025",
+      "type": "External Expert",
+      "organizer": "NIX Xavier (Deep/Elgon)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "5-day intensive workshop on PowerShell for Azure administration",
+        "Automating Azure resource management",
+        "Scripting best practices and error handling"
+      ],
+      "keyTakeaways": [
+        "PowerShell fundamentals and Azure modules",
+        "Automating VM deployment and management",
+        "Azure AD and resource group automation"
+      ],
+      "duration": "5 days (8 hours each)"
+    },
+    {
+      "id": 12,
+      "title": "Entra ID Connect",
+      "date": "April 2025",
+      "type": "External Expert",
+      "organizer": "Arnaud Charlier (Devoteam)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Hybrid identity implementation with Entra ID Connect",
+        "Synchronizing on-premises Active Directory with Azure AD",
+        "Authentication methods and security considerations"
+      ],
+      "keyTakeaways": [
+        "Entra ID Connect installation and configuration",
+        "Password hash sync vs. pass-through authentication",
+        "Troubleshooting synchronization issues"
+      ],
+      "duration": "4 hours"
+    },
+    {
+      "id": 13,
+      "title": "AWS Solutions Architect Training",
+      "date": "May - June 2025",
+      "type": "External Expert",
+      "organizer": "Arnaud Charlier (ARHS)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Multi-session AWS Solutions Architect preparation",
+        "Designing resilient and scalable architectures",
+        "Hands-on labs with EC2, S3, VPC, and more"
+      ],
+      "keyTakeaways": [
+        "Designing highly available systems",
+        "AWS networking and security",
+        "Database services and storage solutions"
+      ],
+      "duration": "8 sessions (4 hours each)"
+    },
+    {
+      "id": 14,
+      "title": "Exchange Online Administration",
+      "date": "May 2025",
+      "type": "External Expert",
+      "organizer": "Arnaud Charlier (Devoteam)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Two-session workshop on Exchange Online basics",
+        "Mailbox management and mail flow configuration",
+        "Security features and compliance"
+      ],
+      "keyTakeaways": [
+        "Exchange Online administration center",
+        "Transport rules and mail flow",
+        "Data loss prevention policies"
+      ],
+      "duration": "2 sessions (4 hours each)"
+    },
+    {
+      "id": 15,
+      "title": "PKI (Public Key Infrastructure)",
+      "date": "June 2025",
+      "type": "External Expert",
+      "organizer": "Eric Bonin & François Lamalice (NTT Data)",
+      "location": "Lycée Guillaume Kroll, BT1",
+      "description": [
+        "Fundamentals of Public Key Infrastructure",
+        "Certificate management and deployment",
+        "PKI in enterprise environments"
+      ],
+      "keyTakeaways": [
+        "Asymmetric cryptography principles",
+        "Certificate authorities and trust chains",
+        "SSL/TLS implementation"
+      ],
+      "duration": "3 hours"
+    },
+    {
+      "id": 16,
+      "title": "ITIL Advanced (Year 2)",
+      "date": "October 2025",
+      "type": "External Expert",
+      "organizer": "Michael Bünte (QPark)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Advanced ITIL practices for second-year students",
+        "Deep dive into service management processes",
+        "Case studies and practical applications"
+      ],
+      "keyTakeaways": [
+        "Advanced incident and problem management",
+        "Change enablement and release management",
+        "Continual improvement practices"
+      ],
+      "duration": "2 days (7 hours each)"
+    },
+    {
+      "id": 17,
+      "title": "Cloud Regulation & Compliance",
+      "date": "November - December 2025",
+      "type": "External Expert",
+      "organizer": "Cyril Cassagnes (MAQIT)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Overview of cloud regulations and compliance requirements",
+        "GDPR, data residency, and sovereignty considerations",
+        "Industry-specific compliance frameworks"
+      ],
+      "keyTakeaways": [
+        "EU data protection regulations",
+        "Cloud compliance certifications (ISO, SOC)",
+        "Risk management in cloud environments"
+      ],
+      "duration": "3 sessions (3 hours each)"
+    },
+    {
+      "id": 18,
+      "title": "Ansible Automation",
+      "date": "November 2025",
+      "type": "External Expert",
+      "organizer": "Noah Gallo (Devoteam)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Infrastructure automation with Ansible",
+        "Writing playbooks and managing inventories",
+        "Integration with cloud platforms"
+      ],
+      "keyTakeaways": [
+        "Ansible architecture and components",
+        "Idempotent configuration management",
+        "Ansible roles and best practices"
+      ],
+      "duration": "4 sessions (3 hours each)"
+    },
+    {
+      "id": 19,
+      "title": "Emma.ms Workshop",
+      "date": "November 2025",
+      "type": "External Expert",
+      "organizer": "Dmitry Panenkov",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Hands-on workshop with Emma.ms platform",
+        "Endpoint management and monitoring solutions",
+        "Real-world implementation scenarios"
+      ],
+      "keyTakeaways": [
+        "Endpoint management best practices",
+        "Monitoring and alerting configuration",
+        "Integration with existing infrastructure"
+      ],
+      "duration": "6 hours"
+    },
+    {
+      "id": 20,
+      "title": "AI Workshop",
+      "date": "December 2025",
+      "type": "External Expert",
+      "organizer": "NTT",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Introduction to AI and machine learning concepts",
+        "Practical applications of AI in enterprise environments",
+        "Hands-on exercises with AI tools"
+      ],
+      "keyTakeaways": [
+        "AI/ML fundamentals and terminology",
+        "Use cases for AI in IT operations",
+        "Ethical considerations in AI"
+      ],
+      "duration": "5 hours"
+    },
+    {
+      "id": 21,
+      "title": "DevOps Fundamentals",
+      "date": "December 2025",
+      "type": "External Expert",
+      "organizer": "Noah Gallo (Devoteam)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Three-day intensive DevOps training",
+        "CI/CD pipelines and automation",
+        "Containerization and orchestration"
+      ],
+      "keyTakeaways": [
+        "DevOps culture and principles",
+        "Git workflows and branching strategies",
+        "Docker and container fundamentals"
+      ],
+      "duration": "3 days (7 hours each)"
+    },
+    {
+      "id": 22,
+      "title": "AZ-104 Azure Administrator",
+      "date": "January 2026",
+      "type": "External Expert",
+      "organizer": "NIX Xavier (Deep)",
+      "location": "Lycée Guillaume Kroll, BT2",
+      "description": [
+        "4-day intensive AZ-104 certification preparation",
+        "Managing Azure identities, governance, storage, and compute",
+        "Hands-on labs and practice exams"
+      ],
+      "keyTakeaways": [
+        "Azure resource management and governance",
+        "Virtual networking and load balancing",
+        "Monitoring and backup strategies"
+      ],
+      "duration": "4 days (9 hours each)"
+    },
+    {
+      "id": 23,
+      "title": "AZ-500 Azure Security",
+      "date": "January 2026",
+      "type": "External Expert",
+      "organizer": "Stéphane David (NTT)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Azure security technologies overview",
+        "Identity protection and access management",
+        "Platform protection and data security"
+      ],
+      "keyTakeaways": [
+        "Azure Security Center and Defender",
+        "Key Vault and encryption services",
+        "Security monitoring and incident response"
+      ],
+      "duration": "2 sessions (3.5 hours each)"
+    },
+    {
+      "id": 24,
+      "title": "Blockchain Introduction",
+      "date": "January 2026",
+      "type": "External Expert",
+      "organizer": "Wim Stalmans (The Blockchain Academy)",
+      "location": "Lycée Guillaume Kroll",
+      "description": [
+        "Fundamentals of blockchain technology",
+        "Cryptocurrency and decentralized applications",
+        "Enterprise blockchain use cases"
+      ],
+      "keyTakeaways": [
+        "How blockchain works (consensus, mining, validation)",
+        "Smart contracts basics",
+        "Real-world blockchain applications"
+      ],
+      "duration": "2 hours"
+    },
+    {
+      "id": 25,
+      "title": "AZ-500 Security Engineer Certification",
+      "date": "February - March 2026",
+      "type": "External Expert",
+      "organizer": "Said Amchart (Devoteam)",
+      "location": "Lycée Guillaume Kroll, BT2",
+      "description": [
+        "3-day intensive AZ-500 certification preparation",
+        "Implementing security controls and threat protection",
+        "Managing identity, access, and security operations"
+      ],
+      "keyTakeaways": [
+        "Azure AD security features",
+        "Network security and application security",
+        "Security operations and governance"
+      ],
+      "duration": "3 days (9 hours each)"
+    },
+    {
+      "id": 26,
+      "title": "Room#42 Cyber Crisis Simulation",
+      "date": "April 2025",
+      "type": "Workshop",
+      "organizer": "Luxembourg House of Cybersecurity",
+      "location": "Room#42, Luxembourg",
+      "description": [
+        "Immersive cyber crisis simulation experience",
+        "Real-time decision-making under pressure during simulated attacks",
+        "Team-based incident response and crisis management"
+      ],
+      "keyTakeaways": [
+        "Crisis communication and coordination",
+        "Incident response prioritization",
+        "Decision-making under time pressure"
+      ],
+      "duration": "Half day"
+    },
+    {
+      "id": 27,
+      "title": "LuxConnect Data Center Visit",
+      "date": "January 2026",
+      "type": "Industry Visit",
+      "organizer": "LuxConnect & Lycée Guillaume Kroll",
+      "location": "LuxConnect Data Centers, Bettembourg",
+      "description": [
+        "Guided tour of professional data center facilities",
+        "Exploration of infrastructure supporting cloud environments",
+        "Insight into physical security, cooling, and power systems"
+      ],
+      "keyTakeaways": [
+        "Data center physical infrastructure and design",
+        "Power and cooling systems for high-density computing",
+        "Security measures and redundancy in enterprise data centers"
+      ],
+      "duration": "Half day"
+    }
+  ],
+  "skills": {
+    "technical": [
+      {
+        "category": "Cloud & Virtualization",
+        "items": "Microsoft Azure, AWS, VirtualBox, Docker, Docker Swarm, Microsoft Certified: Azure Fundamentals"
+      },
+      {
+        "category": "Networking",
+        "items": "CCNA1-3, IT Network Management"
+      },
+      {
+        "category": "System Administration",
+        "items": "Windows Server, Active Directory, Office 365, Linux CLI, Bash Scripting, Windows PowerShell"
+      },
+      {
+        "category": "Development & Databases",
+        "items": "Python, PHP, HTML, CSS, JavaScript, SQL, Database Management and Optimization"
+      },
+      {
+        "category": "Project & Productivity Tools",
+        "items": "ClickUp, Microsoft Office Specialist (Word & PowerPoint), Canva"
+      },
+      {
+        "category": "Power Platform",
+        "items": "Power Apps, Power Automate, Power BI"
+      },
+      {
+        "category": "Learning",
+        "items": "Ansible, Kubernetes, Network Monitoring, Business Accounting"
+      },
+      {
+        "category": "Operating Systems",
+        "items": "Windows, Linux CLI"
+      },
+      {
+        "category": "IT Tools",
+        "items": "Windows PowerShell, Office 365"
+      }
+    ],
+    "languages": [
+      {
+        "language": "Portuguese",
+        "level": "C2 (Fluent)"
+      },
+      {
+        "language": "French",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "English",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "Luxembourgish",
+        "level": "C1 (Advanced)"
+      },
+      {
+        "language": "German",
+        "level": "B2 (Upper-Intermediate)"
+      }
+    ],
+    "hobbies": [
+      {
+        "icon": "🥊",
+        "name": "Boxing"
+      },
+      {
+        "icon": "🏋️",
+        "name": "Weightlifting"
+      },
+      {
+        "icon": "✈️",
+        "name": "Travelling"
+      },
+      {
+        "icon": "🔫",
+        "name": "Sport Shooting"
+      }
+    ]
+  },
+  "contact": {
+    "name": "David Durães Valadares",
+    "email": "daviddaladres2003@gmail.com",
+    "address": "16, rue des Remparts, L-4303 Esch-sur-Alzette, Luxembourg",
+    "birthdate": "02/12/2003",
+    "drivingLicense": "B (with car)",
+    "linkedin": "https://www.linkedin.com/in/david-valadares",
+    "portfolio": "https://your-portfolio-link.example.com"
+  },
+  "qrcodes": [
+    {
+      "id": 1,
+      "label": "Email",
+      "data": "mailto:davidvaladares2003@gmail.com",
+      "icon": "fas fa-envelope",
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "label": "LinkedIn",
+      "data": "https://www.linkedin.com/in/david-valadares",
+      "icon": "fab fa-linkedin",
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "label": "GitHub",
+      "data": "https://github.com/panda-eating-banana",
+      "icon": "fab fa-github",
+      "enabled": true
+    },
+    {
+      "id": 4,
+      "label": "Portfolio",
+      "data": "https://panda-eating-banana.github.io",
+      "icon": "fas fa-globe",
+      "enabled": true
+    }
+  ],
+  "reflection": {
+    "title": "My Semester 3 Journey",
+    "introduction": "This semester has been a transformative period in my development as an IT professional. Through challenging projects, certifications, and hands-on experiences, I've grown both technically and personally.",
+    "sections": [
+      {
+        "id": 1,
+        "title": "Progress & Key Moments",
+        "icon": "fa-rocket",
+        "content": [
+          "At the beginning of the semester, I set ambitious goals: complete multiple Microsoft certifications, build impactful projects, and deepen my understanding of cloud technologies. Looking back, I'm proud to say I've exceeded many of these expectations.",
+          "A defining 'Aha!' moment came during the AZ-900 preparation when I finally understood how Azure's identity management connects with on-premises Active Directory. This conceptual breakthrough made everything click and boosted my confidence significantly.",
+          "The Stock Management project taught me the value of automation and how Power Automate can transform repetitive tasks. Seeing the system work in a real environment validated months of design and testing work."
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Strengths Demonstrated",
+        "icon": "fa-star",
+        "content": [
+          "Problem-Solving: The Eco Weighing System project showcased my ability to integrate hardware (ESP32), software (PHP/MySQL), and user experience design into a cohesive solution. When the load cells gave inconsistent readings, I researched calibration techniques and implemented a software-based solution.",
+          "Self-Directed Learning: My Pluralsight journey demonstrates my commitment to continuous improvement. Without external pressure, I've completed courses and practice exams, consistently pushing toward the AZ-104 certification.",
+          "Adaptability: Whether configuring Docker containers for NextCloud or writing Python games with Pygame, I've shown I can quickly learn new technologies and apply them effectively.",
+          "Documentation: All my projects include comprehensive documentation, making them maintainable and shareable with others."
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Challenges & Areas for Improvement",
+        "icon": "fa-mountain",
+        "content": [
+          "Time Management: Balancing multiple certifications, projects, and coursework was challenging. I sometimes underestimated task complexity, leading to rushed finishes. I'm implementing better estimation techniques using task breakdown and buffer time.",
+          "Networking Deep Dive: While I understand networking fundamentals (CCNA 1-3), I want to develop more advanced troubleshooting skills. My plan includes more hands-on lab work with packet analysis and network simulation.",
+          "Public Speaking: Presenting technical concepts to non-technical audiences remains challenging. I'm working on this by explaining my projects to family and friends, practicing clear communication without jargon.",
+          "Perfectionism: I sometimes spend too much time optimizing code that's already functional. Learning when 'good enough' truly is enough is an ongoing lesson."
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Looking Forward",
+        "icon": "fa-road",
+        "content": [
+          "Next semester, my primary goal is completing the AZ-104 certification, building on the solid foundation I've established this semester.",
+          "I want to contribute to open-source projects, putting my skills to use in the broader developer community.",
+          "Exploring cybersecurity more deeply is a priority, as it aligns with my ultimate goal of becoming an Azure Security Engineer (AZ-500).",
+          "I'm committed to improving my soft skills, particularly communication and teamwork, as these are essential for any IT professional."
+        ]
+      }
+    ],
+    "conclusion": "Semester 3 has been a journey of discovery, challenge, and growth. Every certification earned, every project completed, and every obstacle overcome has shaped me into a more capable IT professional. I'm grateful for the experiences, the lessons learned, and excited for what lies ahead. The path to becoming an Azure Security Engineer is clearer than ever, and I'm ready for the next steps."
+  }
+}
