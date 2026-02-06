@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="David Valadares' CV - Explore my professional experience, education, and skills.">
+    <meta name="keywords" content="David Valadares, CV, Resume, IT Technician, Cloud Computing, Software Development">
+    <meta name="author" content="David Valadares">
+    <title>David Valadares | CV</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="cv-page">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">David Valadares</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workshops.html">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skill.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cv.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reflection.html">Reflection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">My CV</h1>
+            <p class="page-subtitle">Professional resume and quick access links</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- CV Download Section -->
+                    <div class="cv-card mb-4 fade-in">
+                        <div class="cv-card-header">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Download CV</span>
+                        </div>
+                        <div class="cv-card-body">
+                            <p class="cv-date"><i class="fas fa-calendar-alt"></i> Updated: February 2025</p>
+                            <p>Welcome to my CV page. Below, you can find my professional experience, skills, and education. You can also download or view my full CV using the buttons below.</p>
+                            <div class="cv-buttons">
+                                <a href="docs/cv/CV-eng.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="View CV in English">
+                                    <i class="fas fa-external-link-alt"></i> View CV (English)
+                                </a>
+                                <a href="docs/cv/CV-fr.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Voir le CV en Français">
+                                    <i class="fas fa-external-link-alt"></i> Voir CV (Français)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Codes Section -->
+                    <div class="cv-card fade-in" style="animation-delay: 0.1s">
+                        <div class="cv-card-header">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Quick Access QR Codes</span>
+                        </div>
+                        <div class="cv-card-body">
+                            <p>Scan to connect with me or save my contact information</p>
+                            <div class="qr-codes-grid" id="qrCodesContainer">
+                                <!-- QR codes will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Page Navigation -->
+    <nav class="page-nav" aria-label="Page navigation">
+        <div class="container">
+            <a href="skill.html" class="page-nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>
+                    <span class="page-nav-label">Previous</span>
+                    <span class="page-nav-title">Skills</span>
+                </span>
+            </a>
+            <a href="reflection.html" class="page-nav-link next">
+                <span>
+                    <span class="page-nav-label">Next</span>
+                    <span class="page-nav-title">Reflection</span>
+                </span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p>&copy; <span id="currentYear"></span> David Valadares. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="social-links justify-content-center justify-content-md-end">
+                        <li>
+                            <a href="https://www.linkedin.com/in/david-valadares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/panda-eating-banana" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/qrcode-generator.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
