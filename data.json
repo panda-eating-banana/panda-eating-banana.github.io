@@ -41,16 +41,8 @@
         ],
         "images": [
           {
-            "url": "assets/images/projects/stock-management-1.jpg",
-            "caption": "Stockly Dashboard Overview"
-          },
-          {
-            "url": "assets/images/projects/stock-management-2.jpg",
-            "caption": "Barcode Scanning Interface"
-          },
-          {
-            "url": "assets/images/projects/stock-management-3.jpg",
-            "caption": "Automated Notification System"
+            "url": "assets/projects/stockly.png",
+            "caption": "Stockly - Stock Management System"
           }
         ]
       }
@@ -99,16 +91,8 @@
         ],
         "images": [
           {
-            "url": "assets/images/projects/nextcloud-1.jpg",
-            "caption": "NextCloud Web Interface"
-          },
-          {
-            "url": "assets/images/projects/nextcloud-2.jpg",
-            "caption": "Docker Container Setup"
-          },
-          {
-            "url": "assets/images/projects/nextcloud-3.jpg",
-            "caption": "Raspberry Pi Hardware Configuration"
+            "url": "assets/projects/nextcloud.png",
+            "caption": "NextCloud Private Cloud"
           }
         ]
       }
@@ -163,16 +147,8 @@
         ],
         "images": [
           {
-            "url": "assets/images/projects/snake-game-1.jpg",
-            "caption": "Main Gameplay Screen"
-          },
-          {
-            "url": "assets/images/projects/snake-game-2.jpg",
-            "caption": "Poison Blocks and Power-ups"
-          },
-          {
-            "url": "assets/images/projects/snake-game-3.jpg",
-            "caption": "High Score System"
+            "url": "assets/projects/snake.png",
+            "caption": "Python Snake Game"
           }
         ]
       }
@@ -225,16 +201,8 @@
         ],
         "images": [
           {
-            "url": "assets/images/projects/eco-weighing-1.jpg",
-            "caption": "ESP32 Weighing Station Hardware"
-          },
-          {
-            "url": "assets/images/projects/eco-weighing-2.jpg",
-            "caption": "Web Dashboard Analytics"
-          },
-          {
-            "url": "assets/images/projects/eco-weighing-3.jpg",
-            "caption": "QR Code Authentication System"
+            "url": "assets/projects/eco-weighing.png",
+            "caption": "Eco Weighing System"
           }
         ]
       }
@@ -284,7 +252,12 @@
           "Combines authentication, monitoring, automation, reporting, and cost-efficient storage",
           "Complete production-style solution with health check API and systemctl-managed backend"
         ],
-        "images": []
+        "images": [
+          {
+            "url": "assets/projects/clockly.png",
+            "caption": "Clockly - AWS Employee Attendance System"
+          }
+        ]
       }
     },
     {
@@ -332,7 +305,12 @@
           "Demonstrates enterprise-ready monitoring solution",
           "Improved understanding of real-world monitoring environments and troubleshooting techniques"
         ],
-        "images": []
+        "images": [
+          {
+            "url": "assets/projects/zabbix.png",
+            "caption": "ITMOS - Network Monitoring with Zabbix"
+          }
+        ]
       }
     },
     {
@@ -377,7 +355,12 @@
           "Extracted invoice details correctly displayed and queryable in BigQuery",
           "Highlights power of combining serverless services and AI"
         ],
-        "images": []
+        "images": [
+          {
+            "url": "assets/projects/gcp_invoice.png",
+            "caption": "GCP AI Invoice Processing System"
+          }
+        ]
       }
     },
     {
@@ -426,7 +409,12 @@
           "Centralized control and monitoring",
           "Minimal client requirements with Raspberry Pi kiosks"
         ],
-        "images": []
+        "images": [
+          {
+            "url": "assets/projects/rasp.png",
+            "caption": "RASP - Remote Access Student Portal"
+          }
+        ]
       }
     },
     {
@@ -471,7 +459,12 @@
           "Demonstrated infrastructure-as-code principles in a practical, reproducible setup",
           "Identified and documented workarounds for Windows-based Terraform workflows"
         ],
-        "images": []
+        "images": [
+          {
+            "url": "assets/projects/minecraft.png",
+            "caption": "ICode - Terraform Minecraft LAN Deployment"
+          }
+        ]
       }
     }
   ],
@@ -1275,7 +1268,7 @@
     "technical": [
       {
         "category": "Cloud & Virtualization",
-        "items": "Microsoft Azure, AWS, VirtualBox, Docker, Docker Swarm, Microsoft Certified: Azure Fundamentals"
+        "items": "Microsoft Azure, AWS, VirtualBox, Docker, Microsoft Certified: Azure Fundamentals"
       },
       {
         "category": "Networking",
@@ -1287,7 +1280,7 @@
       },
       {
         "category": "Development & Databases",
-        "items": "Python, PHP, HTML, CSS, JavaScript, SQL, Database Management and Optimization"
+        "items": "Python, PHP, HTML, CSS, JavaScript, SQL, Database Management"
       },
       {
         "category": "Project & Productivity Tools",
