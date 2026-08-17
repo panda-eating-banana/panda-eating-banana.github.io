@@ -232,6 +232,9 @@ function renderExperience() {
         item.style.animationDelay = `${index * 0.15}s`;
 
         const descriptionHTML = exp.description.map(desc => `<li>${desc}</li>`).join('');
+        const linksHTML = (exp.links || []).map(link =>
+            `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm"><i class="${link.icon} me-1"></i>${link.text}</a>`
+        ).join('');
 
         item.innerHTML = `
             <div class="timeline-marker">
@@ -246,6 +249,7 @@ function renderExperience() {
                 <ul class="custom-list">
                     ${descriptionHTML}
                 </ul>
+                ${linksHTML ? `<div class="mt-3">${linksHTML}</div>` : ''}
             </div>
         `;
 
@@ -1000,54 +1004,8 @@ document.addEventListener('DOMContentLoaded', () => {
         loadWorkshops();
     } else if (body.classList.contains('skills-page')) {
         loadSkills();
-    } else if (body.classList.contains('reflection-page')) {
-        loadReflection();
     }
 });
-
-// ===============================
-// REFLECTION PAGE FUNCTIONS
-// ===============================
-
-async function loadReflection() {
-    const data = await loadPortfolioData();
-    if (!data || !data.reflection) return;
-
-    const container = document.getElementById('reflectionContainer');
-    if (!container) return;
-
-    const reflection = data.reflection;
-
-    const sectionsHTML = reflection.sections.map(section => `
-        <div class="reflection-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas ${section.icon}"></i>
-                </div>
-                <h2>${section.title}</h2>
-            </div>
-            <div class="section-content">
-                ${section.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = `
-        <div class="reflection-intro">
-            <h2><i class="fas fa-quote-left"></i> ${reflection.title}</h2>
-            <p class="intro-text">${reflection.introduction}</p>
-        </div>
-
-        <div class="reflection-sections">
-            ${sectionsHTML}
-        </div>
-
-        <div class="reflection-conclusion">
-            <h2><i class="fas fa-flag-checkered"></i> Final Thoughts</h2>
-            <p>${reflection.conclusion}</p>
-        </div>
-    `;
-}
 
 // ===============================
 // PROJECT MODAL FUNCTIONS

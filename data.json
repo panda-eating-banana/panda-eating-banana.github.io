@@ -466,9 +466,81 @@
           }
         ]
       }
+    },
+    {
+      "id": 10,
+      "title": "Recap - AI-Powered Meeting & Lecture Summarizer",
+      "date": "March 2026",
+      "description": [
+        "Built a full-stack SaaS application that turns audio, video, text, and YouTube content into transcripts, summaries, key points, and action items.",
+        "Deployed the platform on hybrid Azure and Proxmox infrastructure with automated provisioning, monitoring, security, and disaster recovery."
+      ],
+      "technologies": "Azure, AKS, Proxmox, Next.js, FastAPI, PostgreSQL, OpenAI Whisper, Google Gemini, Docker, Kubernetes, Terraform, Ansible, Prometheus, Grafana, WireGuard",
+      "links": [
+        {
+          "text": "Read Technical Report",
+          "url": "docs/projects/recap_technical_report.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ],
+      "thumbnail": "assets/projects/recap.png",
+      "modal": {
+        "detailedDescription": "Recap is an AI-powered meeting and lecture summarizer built as a production-style full-stack SaaS application. Users can upload media, record in the browser, paste text, or submit YouTube links, then receive timestamped transcripts, concise summaries, key points, action items, and an AI chat grounded in each recording. The application runs on a secure hybrid architecture spanning Azure and an on-premise Proxmox environment.",
+        "features": [
+          "Four input methods: file upload, browser recording, YouTube link, and text paste",
+          "Self-hosted OpenAI Whisper transcription on Azure Kubernetes Service",
+          "Google Gemini summaries, key points, action items, and per-recording AI chat",
+          "Microsoft Entra ID and local email/password authentication",
+          "Hybrid Azure and Proxmox architecture connected through WireGuard",
+          "PostgreSQL streaming replication, automated backups, and automatic failover",
+          "Prometheus monitoring with six Grafana dashboards and 32 alert rules",
+          "Reproducible deployment through Terraform, Ansible, Docker, and Kubernetes"
+        ],
+        "challenges": [
+          "Running the complete stack within limited Azure student resources",
+          "Connecting AKS securely to an on-premise PostgreSQL cluster",
+          "Building a reliable AI pipeline around free-tier API limits",
+          "Implementing high availability, monitoring, and zero-trust network policies",
+          "Automating a full environment deployment from an empty subscription"
+        ],
+        "outcomes": [
+          "Delivered a working multi-user application with transcription, summarization, and AI chat",
+          "Automated a full deployment in approximately 16 minutes",
+          "Validated PostgreSQL replication, backups, monitoring, and automatic failover",
+          "Achieved 27 monitored targets online with no active alerts during final validation",
+          "Applied enterprise cloud, DevOps, security, and disaster-recovery practices"
+        ],
+        "images": [
+          {
+            "url": "assets/projects/recap.png",
+            "caption": "Recap - AI-Powered Meeting & Lecture Summarizer"
+          }
+        ]
+      }
     }
   ],
   "experience": [
+    {
+      "id": 3,
+      "title": "Cloud Engineer Intern",
+      "date": "30 March - 19 June 2026 (12 weeks)",
+      "location": "ARHS Developments, Belval, LU",
+      "description": [
+        "Joined the Cloud Competence Centre and contributed to its Project Delivery stream.",
+        "Designed and deployed a highly available Drupal platform across two AWS Availability Zones.",
+        "Automated infrastructure and reusable application images with Terraform, Packer, and Ansible.",
+        "Built a GitLab CI/CD pipeline with validation, image-build, planning, and controlled deployment stages.",
+        "Implemented security and observability with IAM, Secrets Manager, WAF, S3, Kinesis Firehose, and CloudWatch.",
+        "Created an operations dashboard for monitoring, common actions, and failure-scenario testing."
+      ],
+      "links": [
+        {
+          "text": "Read Internship Report",
+          "url": "docs/internship/arhs_cloud_engineer_internship_report.pdf",
+          "icon": "fas fa-file-pdf"
+        }
+      ]
+    },
     {
       "id": 1,
       "title": "IT Intern",
@@ -1382,55 +1454,5 @@
       "icon": "fas fa-globe",
       "enabled": true
     }
-  ],
-  "reflection": {
-    "title": "My Semester 3 Journey",
-    "introduction": "This semester has been a transformative period in my development as an IT professional. Through challenging projects, certifications, and hands-on experiences, I've grown both technically and personally.",
-    "sections": [
-      {
-        "id": 1,
-        "title": "Progress & Key Moments",
-        "icon": "fa-rocket",
-        "content": [
-          "At the beginning of the semester, I set ambitious goals: complete multiple Microsoft certifications, build impactful projects, and deepen my understanding of cloud technologies. Looking back, I'm proud to say I've exceeded many of these expectations.",
-          "A defining 'Aha!' moment came during the AZ-900 preparation when I finally understood how Azure's identity management connects with on-premises Active Directory. This conceptual breakthrough made everything click and boosted my confidence significantly.",
-          "The Stock Management project taught me the value of automation and how Power Automate can transform repetitive tasks. Seeing the system work in a real environment validated months of design and testing work."
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Strengths Demonstrated",
-        "icon": "fa-star",
-        "content": [
-          "Problem-Solving: The Eco Weighing System project showcased my ability to integrate hardware (ESP32), software (PHP/MySQL), and user experience design into a cohesive solution. When the load cells gave inconsistent readings, I researched calibration techniques and implemented a software-based solution.",
-          "Self-Directed Learning: My Pluralsight journey demonstrates my commitment to continuous improvement. Without external pressure, I've completed courses and practice exams, consistently pushing toward the AZ-104 certification.",
-          "Adaptability: Whether configuring Docker containers for NextCloud or writing Python games with Pygame, I've shown I can quickly learn new technologies and apply them effectively.",
-          "Documentation: All my projects include comprehensive documentation, making them maintainable and shareable with others."
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Challenges & Areas for Improvement",
-        "icon": "fa-mountain",
-        "content": [
-          "Time Management: Balancing multiple certifications, projects, and coursework was challenging. I sometimes underestimated task complexity, leading to rushed finishes. I'm implementing better estimation techniques using task breakdown and buffer time.",
-          "Networking Deep Dive: While I understand networking fundamentals (CCNA 1-3), I want to develop more advanced troubleshooting skills. My plan includes more hands-on lab work with packet analysis and network simulation.",
-          "Public Speaking: Presenting technical concepts to non-technical audiences remains challenging. I'm working on this by explaining my projects to family and friends, practicing clear communication without jargon.",
-          "Perfectionism: I sometimes spend too much time optimizing code that's already functional. Learning when 'good enough' truly is enough is an ongoing lesson."
-        ]
-      },
-      {
-        "id": 4,
-        "title": "Looking Forward",
-        "icon": "fa-road",
-        "content": [
-          "Next semester, my primary goal is completing the AZ-104 certification, building on the solid foundation I've established this semester.",
-          "I want to contribute to open-source projects, putting my skills to use in the broader developer community.",
-          "Exploring cybersecurity more deeply is a priority, as it aligns with my ultimate goal of becoming an Azure Security Engineer (AZ-500).",
-          "I'm committed to improving my soft skills, particularly communication and teamwork, as these are essential for any IT professional."
-        ]
-      }
-    ],
-    "conclusion": "Semester 3 has been a journey of discovery, challenge, and growth. Every certification earned, every project completed, and every obstacle overcome has shaped me into a more capable IT professional. I'm grateful for the experiences, the lessons learned, and excited for what lies ahead. The path to becoming an Azure Security Engineer is clearer than ever, and I'm ready for the next steps."
-  }
+  ]
 }
