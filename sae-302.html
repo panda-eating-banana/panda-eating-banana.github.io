@@ -156,8 +156,8 @@
                             <li><strong>UDP</strong> garde les frontières : un datagramme = un message, sans <code>\n</code>. Pas de connexion ni de garantie : un datagramme perdu ne doit rien bloquer.</li>
                             <li><strong>Choix des deux :</strong> TCP pour le serveur (ville, trajets, historique : rien ne doit se perdre), UDP pour les demandes de feu vert du véhicule aux carrefours (courtes, fréquentes), comme un vrai système V2I de préemption des feux.</li>
                         </ul>
-                        <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d'un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
-                        <p class="mb-0">Chaque ligne <em>Must</em> et <em>Should</em> du tableau MoSCoW est devenue une fonctionnalité visible du client (carte, 3 trajets, feux, priorité, graphique). Le 14/10, j'ai vérifié ligne par ligne ce qui était fait, partiel ou manquant. Limite : c'est une appli de bureau, pas Web ni mobile, donc je retiens surtout la partie « à partir d'un cahier des charges ».</p>
+                        <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
+                        <p class="mb-0">Les lignes <em>Must</em> et <em>Should</em> du tableau MoSCoW qui concernent le client sont devenues des fonctionnalités visibles (interface, carte, 3 trajets, feux, priorité, comparaison des temps). Le 14/10, j'ai vérifié ligne par ligne ce qui était fait, partiel ou manquant. Limite : c'est une appli de bureau, pas Web ni mobile, donc je retiens surtout la partie « à partir d'un cahier des charges ».</p>
                         <div class="sae-ac mt-3"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
                         <p class="mb-0">Le bouton Historique du client demande au serveur les dernières simulations (<code>GET_HISTORY</code>) et les affiche. Les données sont dans une base SQLite (<code>simulations.db</code>) côté serveur : le client y accède à travers le protocole, sans jamais ouvrir la base lui-même. Limite : au 14/10 la base était encore vide, l'historique n'a été testé qu'avec le faux serveur.</p>
                     </div>
@@ -309,7 +309,7 @@
                         <p>Je n'ai pas seulement suivi le cahier des charges, je l'ai interrogé à plusieurs moments :</p>
                         <ul class="mb-0">
                             <li><strong>Avant :</strong> analyse du besoin en QQOQCP (qui utilise l'appli ? le régulateur des véhicules d'urgence), puis priorités MoSCoW, complexité et coût (94 h, ~47 h chacun).</li>
-                            <li><strong>Pendant :</strong> remise en cause du périmètre (grille → vraie carte de Colmar), questions ouvertes (l'ambulance peut-elle prendre un sens unique à contresens ?), outils non prévus (Docker, Grafana) validés avec l'enseignant avant de les utiliser.</li>
+                            <li><strong>Pendant :</strong> remise en cause du périmètre (grille → vraie carte de Colmar), questions ouvertes (l'ambulance peut-elle prendre un sens unique à contresens ?), outils non prévus (Docker, Grafana) : demande d'autorisation à l'enseignant avant de les intégrer.</li>
                             <li><strong>Contrôle :</strong> le 14/10, comparaison ligne par ligne cahier des charges / code, avec ce qui est fait, partiel ou manquant.</li>
                         </ul>
                     </div>
@@ -322,7 +322,7 @@
                             <li><strong>Découpage :</strong> client pour moi, serveur pour Youssef, protocole écrit à deux.</li>
                             <li><strong>Périmètre :</strong> grille remplacée par Colmar, présenté comme le <em>Should</em> « Déploiement dans une ville ».</li>
                             <li><strong>Décalage :</strong> au 14/10, le client était en avance sur le planning mais le serveur réel n'existait pas encore dans le dépôt. Pour ne pas bloquer, j'ai écrit un faux serveur et proposé par écrit les nouveaux messages JSON à Youssef (<code>ROUTES</code>, <code>TRAFFIC</code>, <code>HISTORY</code>…). Erreur de ma part : je les ai ajoutés au client avant qu'on les valide ensemble. <span class="sae-todo">À COMPLÉTER : comment ça s'est réglé</span></li>
-                            <li><strong>Hors cahier des charges :</strong> Docker et Grafana, validés avec l'enseignant avant.</li>
+                            <li><strong>Hors cahier des charges :</strong> Docker et Grafana, avec demande d'autorisation à l'enseignant. <span class="sae-todo">À COMPLÉTER : sa réponse</span></li>
                         </ul>
                         <h4>Appris</h4>
                         <p class="mb-0">Le cahier des charges ne sert pas qu'au départ : c'est aussi l'outil pour contrôler où on en est. Un contrat d'interface (le protocole) permet de travailler en parallèle, à condition de le mettre à jour ensemble. Un écart se signale et s'argumente, il ne se cache pas.</p>
@@ -371,9 +371,9 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC21.06</span><q>Travailler en équipe pour développer ses compétences professionnelles</q></div>
-                        <p>Binôme organisé autour d'un contrat commun (le protocole JSON), une branche Git chacun. Chacun devait pouvoir expliquer la partie de l'autre à l'oral : j'ai dû comprendre le Dijkstra et la boucle <code>select</code> du serveur, et Youssef mon client.</p>
+                        <p>Binôme organisé autour d'un contrat commun (le protocole JSON) et une branche Git chacun. J'ai fourni à Youssef un faux serveur qui lui sert de spécification, et je lui ai proposé les nouveaux messages par écrit. À l'oral, chacun doit pouvoir expliquer la partie de l'autre. <span class="sae-todo">À COMPLÉTER : comment vous vous êtes expliqué vos parties</span></p>
                         <div class="sae-ac"><span class="code">AC21.03</span><q>Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</q></div>
-                        <p class="mb-0">Situation : une démo sur deux machines. Appli installée sur deux VM Linux, client lancé vers le serveur avec <code>make client HOTE=&lt;ip&gt;</code>. Bonus : Grafana dans Docker pour suivre les simulations. <em>Cet AC ne fait pas partie de la fiche officielle de la SAÉ 3.02, mais il a été mobilisé ici.</em></p>
+                        <p class="mb-0">Situation : une démo sur deux machines. Makefile et guide d'installation pour deux VM Linux, client lancé vers le serveur avec <code>make client HOTE=&lt;ip&gt;</code>. <span class="sae-todo">À COMPLÉTER : confirmer que le test sur deux VM a été fait</span> Bonus : Grafana dans Docker pour suivre les simulations. <em>Cet AC ne fait pas partie de la fiche officielle de la SAÉ 3.02, mais il a été mobilisé ici.</em></p>
                     </div>
                 </div>
 
