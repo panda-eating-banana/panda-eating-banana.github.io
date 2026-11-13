@@ -86,7 +86,7 @@
         .sae-code { background: #0d0d14; color: #e6e6ef; border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.1rem; font-size: .82rem; line-height: 1.55; overflow-x: auto; margin: .5rem 0 .4rem; }
         .sae-code-src { font-size: .8rem; color: var(--text-muted); margin-bottom: 1.25rem; }
         .sae-fig { margin: 0 0 1.5rem; }
-        .sae-fig img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); }
+        .sae-fig img, .sae-fig video { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         .sae-fig figcaption { font-size: .88rem; color: var(--text-secondary); margin-top: .5rem; line-height: 1.6; }
         .sae-quote { border-left: 3px solid var(--border-color); padding-left: 1rem; color: var(--text-secondary); font-style: italic; }
         .sae-todo { display: inline-block; background: rgba(255, 80, 80, .12); color: #ff6b6b; border: 1px dashed #ff6b6b; border-radius: 6px; padding: .05rem .45rem; font-size: .8rem; font-weight: 700; font-style: normal; }
@@ -353,8 +353,12 @@
         self.afficher_erreur(f"message {message['type']} incomplet ({e})")</code></pre>
                         <p class="sae-code-src"><code>client/fenetre.py</code> (extrait)</p>
 
-                        <h4><i class="fas fa-image me-2"></i>Captures de l'application</h4>
-                        <p class="sae-code-src">Version actuelle (commit <code>adbf0a8</code>), captures du 13/11/2026 avec le faux serveur. Scénario : Hôpital Pasteur → Petite Venise à 8 h.</p>
+                        <h4><i class="fas fa-image me-2"></i>L'application en fonctionnement</h4>
+                        <p class="sae-code-src">Version actuelle (commit <code>adbf0a8</code>), enregistrée le 13/11/2026 avec le faux serveur. Scénario : Hôpital Pasteur → Petite Venise à 8 h.</p>
+                        <figure class="sae-fig">
+                            <video src="assets/sae302/animation.mp4" poster="assets/sae302/animation-poster.jpg" width="1280" height="720" autoplay loop muted playsinline controls preload="metadata"></video>
+                            <figcaption><strong>Vidéo</strong> Une simulation complète (21 s) : je clique sur « Calculer », le client envoie la demande au serveur en TCP, les trois trajets s'affichent, puis les trois véhicules roulent en même temps jusqu'à la Petite Venise. Le véhicule bleu demande la priorité aux feux en UDP sur son chemin.</figcaption>
+                        </figure>
                         <figure class="sae-fig">
                             <img src="assets/sae302/trajets.jpg" width="1600" height="900" alt="Les trois trajets tracés sur la carte de Colmar avec le graphique de comparaison" loading="lazy">
                             <figcaption><strong>Fig. 1</strong> Après « Calculer » : trajet classique en noir (1 949 m, 4 min 56 s), adapté au trafic en violet (4 min 14 s), avec priorité aux feux en bleu (4 min 13 s). Les rues sont colorées selon le trafic à 8 h (vert fluide, orange chargé, rouge bouché). En bas à gauche, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne.</figcaption>
