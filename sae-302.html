@@ -86,7 +86,7 @@
         .sae-code { background: #0d0d14; color: #e6e6ef; border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.1rem; font-size: .82rem; line-height: 1.55; overflow-x: auto; margin: .5rem 0 .4rem; }
         .sae-code-src { font-size: .8rem; color: var(--text-muted); margin-bottom: 1.25rem; }
         .sae-fig { margin: 0 0 1.5rem; }
-        .sae-fig img { width: 100%; border-radius: 12px; border: 1px solid var(--border-color); }
+        .sae-fig img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         .sae-fig figcaption { font-size: .88rem; color: var(--text-secondary); margin-top: .5rem; line-height: 1.6; }
         .sae-quote { border-left: 3px solid var(--border-color); padding-left: 1rem; color: var(--text-secondary); font-style: italic; }
         .sae-todo { display: inline-block; background: rgba(255, 80, 80, .12); color: #ff6b6b; border: 1px dashed #ff6b6b; border-radius: 6px; padding: .05rem .45rem; font-size: .8rem; font-weight: 700; font-style: normal; }
@@ -98,6 +98,7 @@
         [data-bs-theme="light"] .sae-code { background: #f4f6fb; color: #1d2433; }
         [data-bs-theme="light"] .sae-todo { color: #c62828; border-color: #c62828; background: rgba(198, 40, 40, .07); }
         @media (max-width: 576px) { .reflection-card-body { padding: 1.1rem; } .sae-code { font-size: .75rem; } }
+        .sae-page [id] { scroll-margin-top: 90px; }
         .sae-note { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin: .5rem 0 0; }
         .sae-note a, .sae-comp-sub a, td a { color: var(--bs-primary); }
         sup a { text-decoration: none; color: var(--bs-primary); font-weight: 700; }
@@ -146,7 +147,7 @@
             <!-- ============ LE PROJET ============ -->
             <div class="content-card">
                 <h2 class="h4 fw-bold mb-3"><i class="fas fa-ambulance text-accent me-2"></i>Le projet</h2>
-                <p class="text-secondary-custom">Lors d'une intervention, une ambulance ou un camion de pompiers perd du temps dans le trafic et aux feux rouges. La SAÉ 3.02 nous place dans le rôle d'un cabinet de développement qui répond à une ville : construire une maquette logicielle pour mesurer combien de temps on peut gagner.</p>
+                <p class="text-secondary-custom">Lors d'une intervention, une ambulance ou un camion de pompiers perd du temps dans le trafic et aux feux rouges. Dans la SAÉ 3.02, nous jouons le rôle d'un cabinet de développement sollicité par une ville : elle veut une maquette logicielle qui montre combien de temps un véhicule d'urgence peut gagner grâce à un meilleur itinéraire et à la priorité aux feux, avant d'envisager un déploiement réel.</p>
                 <p class="text-secondary-custom">Notre application, développée en binôme avec Youssef Jabrane, calcule et compare trois itinéraires sur le réseau routier réel du centre de Colmar : le trajet <strong>classique</strong> (le plus court), le trajet <strong>adapté au trafic</strong> selon l'heure, et le trajet avec <strong>priorité aux feux</strong>, où le véhicule demande le vert aux carrefours à son approche. Les trois véhicules sont animés sur la carte et leurs temps sont comparés.</p>
                 <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, carte, animation, communication réseau) et le déploiement. <strong>Youssef :</strong> le serveur (modèle de la ville, calcul des itinéraires, feux, base de données).</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
@@ -183,13 +184,13 @@
                         <text x="380" y="171" text-anchor="middle" class="a-lab">UDP · 1 datagramme = 1 message</text>
                         <text x="380" y="199" text-anchor="middle" class="a-sub">PRIORITY_REQUEST / GRANT</text>
                     </svg>
-                    <figcaption>Le client parle au serveur en TCP pour tout ce qui doit arriver sans perte, et le véhicule parle aux carrefours en UDP pour demander le feu vert.</figcaption>
+                    <figcaption>Le client échange avec le serveur en TCP : la carte et les trajets doivent arriver complets et dans l'ordre, et TCP renvoie automatiquement ce qui se perd en route. Le véhicule demande le feu vert aux carrefours en UDP : des messages courts, envoyés sans connexion.</figcaption>
                 </figure>
 
                 <h3 class="h6 fw-bold mb-2">Compétences travaillées</h3>
                 <div class="table-responsive">
                 <table class="sae-table sae-toc mb-1">
-                    <thead><tr><th>Compétence du BUT R&amp;T<sup><a href="#note-1">1</a></sup></th><th>Apprentissages critiques (AC)</th></tr></thead>
+                    <thead><tr><th>Compétence du BUT R&amp;T</th><th>Apprentissages critiques (AC)</th></tr></thead>
                     <tbody>
                         <tr><td><a href="#programmer"><strong>Programmer</strong> : Créer des outils et applications informatiques pour les R&amp;T</a></td><td>AC23.03, AC23.02, AC23.05</td></tr>
                         <tr><td><a href="#connecter"><strong>Connecter</strong> : Connecter les entreprises et les usagers</a></td><td>AC22.05</td></tr>
@@ -197,25 +198,32 @@
                     </tbody>
                 </table>
                 </div>
-                <p class="sae-note" id="note-1"><sup>1</sup> Intitulés des compétences et des AC recopiés du <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/r-seaux-et-t-l-communications-30876.pdf" target="_blank" rel="noopener noreferrer">Programme national du BUT Réseaux &amp; Télécommunications</a> (ministère de l'Enseignement supérieur, 2022, annexe 22) : compétences de niveau 2 et fiche « SAÉ 3.02 : Développer des applications communicantes », p. 118. Le niveau 2 correspond aux compétences visées en deuxième année de BUT.<br>
+                <p class="sae-note" id="note-1"><sup>1</sup> Intitulés des compétences et des AC recopiés du <a href="docs/sae302/referentiel-but-rt-2022.pdf" target="_blank">Programme national du BUT Réseaux &amp; Télécommunications</a> (ministère de l'Enseignement supérieur, 2022, annexe 22 ; <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/r-seaux-et-t-l-communications-30876.pdf" target="_blank" rel="noopener noreferrer">version en ligne</a>) : compétences de niveau 2 et fiche « SAÉ 3.02 : Développer des applications communicantes », p. 118. Le niveau 2 correspond aux compétences visées en deuxième année de BUT.<br>
                 <span id="note-2"><sup>2</sup> La fiche officielle de la SAÉ 3.02 cible AC21.06, AC22.05, AC23.02, AC23.03, AC23.04 et AC23.05. J'ajoute AC21.03 parce que le déploiement sur machines virtuelles faisait partie de mon travail. Je ne revendique pas AC23.04 (installer et administrer la base de données), qui relève de la partie serveur.</span></p>
             </div>
 
             <!-- ============ PROGRAMMER ============ -->
             <section id="programmer" class="pt-4">
                 <h2 class="sae-comp-title"><i class="fas fa-code text-accent me-2"></i>Programmer</h2>
-                <p class="sae-comp-sub">Compétence « Créer des outils et applications informatiques pour les R&amp;T » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
+                <p class="sae-comp-sub">Compétence « Créer des outils et applications informatiques pour les R&amp;T » · niveau 2 (BUT 2)</p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p>J'ai développé le client de l'application en suivant notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (rendu le 24/09/2026). Le sujet imposait trois contraintes : une interface en PyQt6, une communication écrite directement avec les sockets de Python, et une règle de sécurité : aucun thread ne doit modifier l'interface lui-même, il doit passer par les signaux de Qt.</p>
-                        <p class="mb-2">Les fichiers que j'ai écrits :</p>
+                        <p>J'ai développé le client de l'application en suivant notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (rendu le 24/09/2026). Le sujet imposait trois contraintes :</p>
+                        <ul>
+                            <li>une interface en PyQt6 ;</li>
+                            <li>une communication écrite directement avec les sockets de Python ;</li>
+                            <li>une règle de sécurité sur les <strong>threads</strong>. Un thread est une tâche qui tourne en parallèle de la fenêtre, ici pour écouter le réseau. Il n'a pas le droit de modifier la fenêtre lui-même, car Qt n'est pas prévu pour ça et l'application peut planter. Il envoie un <strong>signal</strong> (« un message est arrivé »), et c'est la fenêtre qui se met à jour.</li>
+                        </ul>
+                        <p class="mb-2">Mes principaux fichiers :</p>
                         <ul class="mb-0">
                             <li><code>client/fenetre.py</code> : la fenêtre (choix du départ, de l'arrivée par liste, adresse, coordonnées GPS ou clic, et de l'heure).</li>
                             <li><code>client/carte.py</code> : la carte de Colmar, le trafic en couleur, les 86 feux et l'animation des véhicules.</li>
                             <li><code>client/reseau.py</code> : les deux liaisons réseau, TCP vers le serveur et UDP vers les carrefours, chacune dans son propre thread.</li>
-                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun.</li>
+                            <li><code>outils/faux_serveur.py</code> : un faux serveur pour tester le client (voir plus bas).</li>
+                            <li><code>outils/extraire_osm.py</code> : l'extraction de la carte de Colmar depuis OpenStreetMap.</li>
+                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun, et le <code>Makefile</code> et le guide d'installation (voir <a href="#administrer">Administrer</a>).</li>
                         </ul>
                     </div>
                 </div>
@@ -227,11 +235,11 @@
                         <p>Le sujet interdisait les bibliothèques qui gèrent le réseau à notre place : il fallait tout écrire avec les sockets. J'ai donc programmé moi-même la connexion, la découpe des messages et la gestion des erreurs, ce qui correspond directement à cet AC.</p>
                         <ul>
                             <li><strong>En TCP</strong>, les données arrivent en continu, sans séparation entre les messages : une lecture peut contenir la moitié d'un message, ou deux messages collés. Nous avons donc terminé chaque message JSON par un retour à la ligne, et le client recolle les morceaux jusqu'à trouver ce retour à la ligne.</li>
-                            <li><strong>En UDP</strong>, chaque envoi arrive entier ou pas du tout. Pas besoin de séparateur, mais il faut accepter qu'un message se perde sans bloquer l'application.</li>
-                            <li><strong>Pourquoi les deux :</strong> TCP pour les échanges avec le serveur (la ville, les trajets), où rien ne doit se perdre ; UDP pour les demandes de feu vert, courtes et répétées. C'est le principe de la <a href="https://www.standards.its.dot.gov/ApplicationArea/29" target="_blank" rel="noopener noreferrer">priorité aux feux pour véhicules d'urgence</a> (communication véhicule-infrastructure, ou V2I), où le véhicule demande le vert au contrôleur du carrefour.</li>
+                            <li><strong>En UDP</strong>, il n'y a pas de connexion : chaque message part seul, dans un paquet (un « datagramme »). Il arrive entier ou pas du tout, donc pas besoin de séparateur. En revanche, UDP ne renvoie rien en cas de perte : l'application doit continuer même si une demande se perd.</li>
+                            <li><strong>Pourquoi pas tout en TCP ?</strong> Pour le serveur, TCP est le bon choix : la carte et les trajets doivent arriver en entier. Pour les feux, UDP colle mieux à la situation : le véhicule envoie une courte demande à chaque carrefour qu'il approche, et il y a 86 feux sur la carte. En TCP, il faudrait ouvrir une connexion avec chaque carrefour pour un seul message. Et si une demande se perd, une réponse en retard ne sert plus à rien une fois le carrefour passé : mieux vaut un message rapide qu'un message garanti. C'est le principe des systèmes réels de <a href="https://en.wikipedia.org/wiki/Traffic_signal_preemption" target="_blank" rel="noopener noreferrer">priorité aux feux pour véhicules d'urgence</a>, où le véhicule demande le vert au carrefour par radio (communication véhicule-infrastructure, ou V2I).</li>
                         </ul>
                         <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
-                        <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Notre application est un logiciel pour ordinateur, pas une application Web ou mobile : c'est surtout la partie « à partir d'un cahier des charges » de cet AC que je mets en avant.</p>
+                        <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Cet AC parle d'applications Web ou mobiles, alors que la nôtre est une application pour ordinateur. Ce qui correspond ici, c'est la démarche : partir d'un cahier des charges et le respecter.</p>
                         <div class="sae-ac"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
                         <p class="mb-0">Le bouton <strong>Historique</strong> du client affiche les dernières simulations enregistrées. Le client ne lit pas la base lui-même : il envoie la demande <code>GET_HISTORY</code> au serveur, qui interroge sa base SQLite et renvoie les résultats. Pour l'instant, c'est mon faux serveur qui fournit ces données.</p>
                     </div>
@@ -241,7 +249,7 @@
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
                         <h4 class="mt-0">Démarche</h4>
-                        <p>J'ai avancé par petites étapes, en testant chacune avant de passer à la suivante. J'ai commencé par une carte de test très simple : une grille de 36 carrefours nommés de A1 à F6, sur laquelle je traçais un trajet donné (par exemple A1 → A2 → B2) pour vérifier l'affichage. Ensuite sont venus la connexion au serveur, les trois trajets, les feux, l'animation, et enfin les demandes de feu vert.</p>
+                        <p>J'ai avancé par petites étapes, en testant chacune avant de passer à la suivante. J'ai commencé par une carte de test très simple : une grille de 36 carrefours nommés de A1 à F6, sur laquelle je traçais un trajet donné (par exemple A1 → A2 → B2) pour vérifier l'affichage. Après une remarque de l'enseignant à toute la classe sur le manque d'originalité des projets, j'ai décidé de remplacer cette grille par la vraie carte de Colmar. Ensuite sont venus la connexion au serveur, les trois trajets, les feux, l'animation, et enfin les demandes de feu vert.</p>
                         <p>Comme le serveur de Youssef n'était pas encore prêt, j'ai écrit un <strong>faux serveur</strong> qui répond aux mêmes messages que le vrai. Ça m'a permis de tester tout le client sans attendre, et ce faux serveur montrait aussi à Youssef exactement ce que le client attendait.</p>
 
                         <h4>Problèmes rencontrés</h4>
@@ -249,11 +257,11 @@
                         <table class="sae-table">
                             <thead><tr><th>Problème</th><th>Cause</th><th>Ma solution</th></tr></thead>
                             <tbody>
-                                <tr><td>La fenêtre se figeait pendant les échanges</td><td>L'attente de données réseau bloque le programme tant que rien n'arrive</td><td>Mettre le réseau dans un thread séparé, qui prévient la fenêtre par un signal</td></tr>
+                                <tr><td>La fenêtre ne répondait plus (impossible de cliquer) pendant les échanges réseau</td><td>L'attente de données réseau bloque le programme tant que rien n'arrive</td><td>Mettre le réseau dans un thread séparé, qui prévient la fenêtre par un signal</td></tr>
                                 <tr><td>L'application ne se fermait pas proprement</td><td>Le thread restait bloqué en attente de données</td><td>Vérifier toutes les 0,2 s s'il faut s'arrêter (<code>select</code> avec un délai)</td></tr>
                                 <tr><td>Un message mal formé fermait toute l'application</td><td>Avec PyQt6, une erreur dans une fonction appelée par un signal arrête le programme</td><td>Intercepter l'erreur et afficher un message au lieu de planter</td></tr>
                                 <tr><td>Erreurs UDP sous Windows</td><td>Windows refuse d'écouter une socket UDP non attachée à un port</td><td>Attacher la socket à un port libre choisi par le système</td></tr>
-                                <tr><td>La grille de test était jugée trop simple par l'enseignant</td><td>Pas assez réaliste ni original</td><td>Importer le vrai réseau routier de Colmar depuis OpenStreetMap (2 715 carrefours, 2 944 tronçons) et convertir les coordonnées GPS en mètres</td></tr>
+                                <tr><td>Passer de la grille de test à une vraie ville</td><td>Une carte réelle compte des milliers de rues, et les positions sont en coordonnées GPS, pas en mètres</td><td>Extraire le réseau routier de Colmar depuis OpenStreetMap (2 715 carrefours, 2 944 tronçons) et convertir les coordonnées GPS en mètres pour les dessiner</td></tr>
                             </tbody>
                         </table>
                         </div>
@@ -262,10 +270,10 @@
                             <h4><i class="fas fa-balance-scale me-2"></i>Ce qui n'est pas parfait</h4>
                             <ul class="mb-0">
                                 <li><strong>Tout est testé avec mon faux serveur.</strong> Le vrai serveur n'est pas encore dans le dépôt : les captures et les tests de cette page utilisent le faux serveur que j'ai écrit.</li>
-                                <li><strong>Le gain de la priorité est calculé à l'avance.</strong> Le serveur (ici le faux) calcule le temps du trajet « priorité » en supposant que tous les feux passeront au vert. Si un carrefour refusait la demande, le temps affiché ne changerait pas. Pour bien faire, le temps devrait dépendre des vraies réponses des carrefours.</li>
-                                <li><strong>La règle des feux est écrite deux fois.</strong> Le rythme des feux (30 s vert, 30 s rouge) est codé à la fois dans le client, pour l'affichage, et dans le serveur. Si l'un des deux change, l'écran ne correspond plus au calcul.</li>
+                                <li><strong>Le gain de la priorité est calculé à l'avance.</strong> Le serveur (ici le faux) calcule le temps du trajet « priorité » en supposant que tous les feux passeront au vert. Si un carrefour refusait la demande, le temps affiché ne changerait pas. <em>Pourquoi :</em> calculer les trois trajets d'un coup, avant l'animation, était le moyen le plus simple d'obtenir vite les trois temps à comparer. Faire dépendre le temps des vraies réponses aurait demandé une simulation en temps réel entre le serveur et les carrefours, que nous n'avons pas eu le temps de faire.</li>
+                                <li><strong>La règle des feux est écrite deux fois.</strong> Le rythme des feux (30 s vert, 30 s rouge) est codé à la fois dans le client, pour l'affichage, et dans le serveur. Si l'un des deux change, l'écran ne correspond plus au calcul. <em>Pourquoi :</em> pendant l'animation, le client recolore les 86 feux plusieurs fois par seconde. Demander l'état de chaque feu au serveur à chaque fois aurait saturé le réseau, alors j'ai recopié la règle dans le client. La bonne solution serait que le serveur envoie la règle (durées et décalage de chaque feu) une seule fois, avec la carte.</li>
                                 <li><strong>J'ai ajouté des messages sans les valider à deux.</strong> Le fichier de protocole commun liste 5 types de messages ; le client en utilise 5 de plus (trafic, trajets multiples, historique…). Nous aurions dû les ajouter ensemble au protocole au fur et à mesure.</li>
-                                <li><span class="sae-todo">À COMPLÉTER</span> J'ai utilisé une IA pour m'aider sur une partie du code (détaillé dans <code>IAGraphie.pdf</code>). J'ai ensuite relu et simplifié ce code pour pouvoir en expliquer chaque ligne.</li>
+                                <li><strong>J'ai utilisé une IA, surtout pour la carte réelle.</strong> Elle m'a aidé à extraire les rues de Colmar depuis OpenStreetMap et à convertir les coordonnées GPS. Le détail est dans <code>IAGraphie.pdf</code>. J'ai relu ce code pour être capable de l'expliquer.</li>
                             </ul>
                         </div>
 
@@ -353,26 +361,27 @@
                         <p class="sae-code-src"><code>client/fenetre.py</code> (extrait)</p>
 
                         <h4><i class="fas fa-image me-2"></i>Captures de l'application</h4>
+                        <p class="sae-code-src">Captures prises les 7 et 8 octobre 2026, avec le faux serveur.</p>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/halo.jpg" alt="Trois trajets tracés sur la carte de Colmar" loading="lazy">
+                            <img src="assets/sae302/halo.jpg" width="1300" height="800" alt="Trois trajets tracés sur la carte de Colmar" loading="lazy">
                             <figcaption><strong>Fig. 1</strong> Test du trajet Hôpital Pasteur → Petite Venise à 8 h. Trajet classique en noir, adapté au trafic en violet, avec priorité en bleu ; les rues sont colorées selon le trafic. En bas, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne, et « Feux : 1 demandes, 1 accordées » que l'échange UDP avec un carrefour a réussi.</figcaption>
                         </figure>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/feux-milieu.jpg" alt="Mission en cours, trois feux passés au vert" loading="lazy">
+                                    <img src="assets/sae302/feux-milieu.jpg" width="1300" height="800" alt="Mission en cours, trois feux passés au vert" loading="lazy">
                                     <figcaption><strong>Fig. 2</strong> Pendant le trajet : 3 feux demandés, 3 passés au vert. Gain affiché : 1 min 14 s.</figcaption>
                                 </figure>
                             </div>
                             <div class="col-md-6">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/gps.jpg" alt="Arrivée saisie en coordonnées GPS" loading="lazy">
+                                    <img src="assets/sae302/gps.jpg" width="1300" height="800" alt="Arrivée saisie en coordonnées GPS" loading="lazy">
                                     <figcaption><strong>Fig. 3</strong> Arrivée saisie en coordonnées GPS. Un point hors de la carte est refusé avec un message, sans planter.</figcaption>
                                 </figure>
                             </div>
                         </div>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/fin.jpg" alt="Version intermédiaire de l'interface" loading="lazy">
+                            <img src="assets/sae302/fin.jpg" width="1300" height="800" alt="Version intermédiaire de l'interface" loading="lazy">
                             <figcaption><strong>Fig. 4</strong> Une version de début octobre (temps encore en secondes), pour montrer l'évolution de l'interface.</figcaption>
                         </figure>
 
@@ -385,7 +394,7 @@
             <!-- ============ CONNECTER ============ -->
             <section id="connecter" class="pt-5">
                 <h2 class="sae-comp-title"><i class="fas fa-handshake text-accent me-2"></i>Connecter</h2>
-                <p class="sae-comp-sub">Compétence « Connecter les entreprises et les usagers » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
+                <p class="sae-comp-sub">Compétence « Connecter les entreprises et les usagers » · niveau 2 (BUT 2)</p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
@@ -401,7 +410,7 @@
                         <p>Je n'ai pas seulement appliqué le cahier des charges, je l'ai remis en question à trois moments :</p>
                         <ul class="mb-0">
                             <li><strong>Au départ :</strong> nous avons analysé le besoin avec un QQOQCP (Qui ? Quoi ? Où ? Quand ? Comment ? Pourquoi ?), puis classé les fonctionnalités par priorité avec la méthode MoSCoW et estimé le temps de chacune.</li>
-                            <li><strong>En cours de route :</strong> nous avons remplacé la grille de test par la vraie carte de Colmar, et soulevé des questions que le cahier des charges ne réglait pas (une ambulance peut-elle prendre un sens unique à contresens ?).</li>
+                            <li><strong>En cours de route :</strong> après une remarque de l'enseignant à toute la classe sur l'originalité des projets, j'ai proposé de remplacer la grille de test par la vraie carte de Colmar, et soulevé des questions que le cahier des charges ne réglait pas (une ambulance peut-elle prendre un sens unique à contresens ?).</li>
                             <li><strong>À mi-parcours :</strong> le 14/10, j'ai comparé chaque ligne du cahier des charges avec le code réel, pour savoir ce qui était fini, partiel ou manquant.</li>
                         </ul>
                     </div>
@@ -461,8 +470,8 @@
 
                         <h4>Analyse du besoin (QQOQCP)</h4>
                         <figure class="sae-fig sae-fig-narrow">
-                            <img src="assets/sae302/qqoqcp.jpg" alt="Feuille manuscrite d'analyse QQOQCP du projet" loading="lazy">
-                            <figcaption><strong>Fig. 5</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet. Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
+                            <img src="assets/sae302/qqoqcp.jpg" width="1000" height="1492" alt="Feuille manuscrite d'analyse QQOQCP du projet" loading="lazy">
+                            <figcaption><strong>Fig. 5</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet (<a href="docs/sae302/qqoqcp.jpeg" target="_blank">voir en grand</a>). Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
                         </figure>
 
                         <h4>Bilan à mi-parcours (14/10/2026)</h4>
@@ -478,7 +487,7 @@
             <!-- ============ ADMINISTRER ============ -->
             <section id="administrer" class="pt-5">
                 <h2 class="sae-comp-title"><i class="fas fa-server text-accent me-2"></i>Administrer</h2>
-                <p class="sae-comp-sub">Compétence « Administrer les réseaux et l'Internet » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
+                <p class="sae-comp-sub">Compétence « Administrer les réseaux et l'Internet » · niveau 2 (BUT 2)</p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
