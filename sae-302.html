@@ -98,6 +98,38 @@
         [data-bs-theme="light"] .sae-code { background: #f4f6fb; color: #1d2433; }
         [data-bs-theme="light"] .sae-todo { color: #c62828; border-color: #c62828; background: rgba(198, 40, 40, .07); }
         @media (max-width: 576px) { .reflection-card-body { padding: 1.1rem; } .sae-code { font-size: .75rem; } }
+        .sae-note { font-size: .82rem; color: var(--text-muted); line-height: 1.6; margin: .5rem 0 0; }
+        .sae-note a, .sae-comp-sub a, td a { color: var(--bs-primary); }
+        sup a { text-decoration: none; color: var(--bs-primary); font-weight: 700; }
+        .sae-archi { width: 100%; height: auto; display: block; }
+        .sae-archi .a-box { fill: var(--bg-card); stroke: var(--border-color); stroke-width: 1.5; }
+        .sae-archi .a-mine { stroke: var(--bs-primary); stroke-width: 2; }
+        .sae-archi .a-in { fill: rgba(var(--bs-primary-rgb), .07); stroke: var(--border-color); }
+        .sae-archi text { font-family: var(--font-family); }
+        .sae-archi .a-title { fill: var(--text-primary); font-size: 17px; font-weight: 800; }
+        .sae-archi .a-txt { fill: var(--text-primary); font-size: 14px; font-weight: 600; }
+        .sae-archi .a-sub { fill: var(--text-secondary); font-size: 11.5px; }
+        .sae-archi .a-lab { fill: var(--bs-primary); font-size: 12px; font-weight: 700; }
+        .sae-archi .a-line { stroke: var(--bs-primary); stroke-width: 2.2; }
+        .sae-archi .a-dash { stroke-dasharray: 7 5; }
+        .sae-archi .a-fill { fill: var(--bs-primary); }
+        .sae-badge { display: inline-block; font-size: .75rem; font-weight: 700; padding: .12rem .55rem; border-radius: 20px; }
+        .sae-badge.must { background: rgba(229, 57, 53, .15); color: #ef5350; }
+        .sae-badge.should { background: rgba(255, 167, 38, .15); color: #ffa726; }
+        .sae-badge.could { background: rgba(66, 165, 245, .15); color: #42a5f5; }
+        .sae-dots { display: inline-block; width: 60px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--bs-primary) calc(var(--n) * 20%), rgba(127,127,127,.2) 0); vertical-align: middle; }
+        .sae-moscow td.moi { color: var(--bs-primary); font-weight: 700; }
+        .sae-moscow tfoot td { border-bottom: 0; color: var(--text-primary); }
+        .sae-legend { font-size: .85rem; color: var(--text-secondary); }
+        .sae-steps { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: .5rem; counter-reset: none; }
+        .sae-steps li { background: rgba(var(--bs-primary-rgb), .06); border: 1px solid var(--border-color); border-radius: 10px; padding: .6rem .7rem; font-size: .85rem; color: var(--text-primary); line-height: 1.35; }
+        .sae-steps li span { display: block; font-size: .72rem; font-weight: 800; color: var(--bs-primary); text-transform: uppercase; letter-spacing: .03em; margin-bottom: .15rem; }
+        .sae-steps li small { display: block; color: var(--text-muted); margin-top: .2rem; }
+        .sae-fig-narrow { max-width: 460px; }
+        .sae-commits td:first-child { white-space: nowrap; }
+        [data-bs-theme="light"] .sae-badge.must { color: #c62828; }
+        [data-bs-theme="light"] .sae-badge.should { color: #b26a00; }
+        [data-bs-theme="light"] .sae-badge.could { color: #1565c0; }
     </style>
 
     <!-- Page Header -->
@@ -111,37 +143,79 @@
     <main class="section">
         <div class="container" style="max-width: 980px;">
 
+            <!-- ============ LE PROJET ============ -->
             <div class="content-card">
                 <h2 class="h4 fw-bold mb-3"><i class="fas fa-ambulance text-accent me-2"></i>Le projet</h2>
-                <p class="text-secondary-custom">Appli Python client / serveur qui compare 3 trajets pour un véhicule d'urgence (classique, trafic, priorité aux feux) sur le vrai réseau de rues de Colmar. Binôme avec Youssef Jabrane.</p>
-                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (PyQt6, carte, animation, réseau TCP et UDP) et le déploiement. Youssef : le serveur (ville, Dijkstra, feux, base de données).</p>
+                <p class="text-secondary-custom">Lors d'une intervention, une ambulance ou un camion de pompiers perd du temps dans le trafic et aux feux rouges. La SAÉ 3.02 nous place dans le rôle d'un cabinet de développement qui répond à une ville : construire une maquette logicielle pour mesurer combien de temps on peut gagner.</p>
+                <p class="text-secondary-custom">Notre application, développée en binôme avec Youssef Jabrane, calcule et compare trois itinéraires sur le réseau routier réel du centre de Colmar : le trajet <strong>classique</strong> (le plus court), le trajet <strong>adapté au trafic</strong> selon l'heure, et le trajet avec <strong>priorité aux feux</strong>, où le véhicule demande le vert aux carrefours à son approche. Les trois véhicules sont animés sur la carte et leurs temps sont comparés.</p>
+                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, carte, animation, communication réseau) et le déploiement. <strong>Youssef :</strong> le serveur (modèle de la ville, calcul des itinéraires, feux, base de données).</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="tech-tag">Python 3</span><span class="tech-tag">PyQt6</span><span class="tech-tag">QThread</span><span class="tech-tag">TCP / UDP</span><span class="tech-tag">JSON</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">Makefile</span><span class="tech-tag">Docker / Grafana</span>
+                    <span class="tech-tag">Python 3</span><span class="tech-tag">PyQt6</span><span class="tech-tag">QThread</span><span class="tech-tag">Sockets TCP / UDP</span><span class="tech-tag">JSON</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">Makefile</span>
                 </div>
-                <table class="sae-table sae-toc">
-                    <thead><tr><th>Compétence</th><th>AC</th></tr></thead>
+
+                <h3 class="h6 fw-bold mb-2">Architecture</h3>
+                <figure class="sae-fig mb-4">
+                    <svg class="sae-archi" viewBox="0 0 760 250" role="img" aria-label="Le client PyQt6 échange en TCP avec le serveur, et le véhicule échange en UDP avec les carrefours">
+                        <defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="a-fill"/></marker></defs>
+                        <rect x="10" y="20" width="270" height="210" rx="14" class="a-box a-mine"/>
+                        <text x="145" y="48" text-anchor="middle" class="a-title">Client PyQt6</text>
+                        <text x="145" y="68" text-anchor="middle" class="a-sub">ma partie</text>
+                        <rect x="30" y="85" width="230" height="50" rx="10" class="a-in"/>
+                        <text x="145" y="108" text-anchor="middle" class="a-txt">Fenêtre + carte</text>
+                        <text x="145" y="125" text-anchor="middle" class="a-sub">fenetre.py, carte.py</text>
+                        <rect x="30" y="150" width="230" height="62" rx="10" class="a-in"/>
+                        <text x="145" y="172" text-anchor="middle" class="a-txt">2 threads réseau</text>
+                        <text x="145" y="190" text-anchor="middle" class="a-sub">ClientReseau (TCP)</text>
+                        <text x="145" y="205" text-anchor="middle" class="a-sub">ClientV2I (UDP)</text>
+                        <rect x="480" y="20" width="270" height="210" rx="14" class="a-box"/>
+                        <text x="615" y="48" text-anchor="middle" class="a-title">Serveur</text>
+                        <text x="615" y="68" text-anchor="middle" class="a-sub">partie de Youssef</text>
+                        <rect x="500" y="85" width="230" height="50" rx="10" class="a-in"/>
+                        <text x="615" y="108" text-anchor="middle" class="a-txt">Ville, trajets, trafic</text>
+                        <text x="615" y="125" text-anchor="middle" class="a-sub">port 5050</text>
+                        <rect x="500" y="150" width="230" height="62" rx="10" class="a-in"/>
+                        <text x="615" y="178" text-anchor="middle" class="a-txt">Carrefours (feux)</text>
+                        <text x="615" y="196" text-anchor="middle" class="a-sub">port 5051</text>
+                        <line x1="262" y1="110" x2="497" y2="110" class="a-line" marker-start="url(#fl)" marker-end="url(#fl)"/>
+                        <text x="380" y="100" text-anchor="middle" class="a-lab">TCP · JSON + \n</text>
+                        <text x="380" y="128" text-anchor="middle" class="a-sub">GET_CITY, ROUTES…</text>
+                        <line x1="262" y1="181" x2="497" y2="181" class="a-line a-dash" marker-start="url(#fl)" marker-end="url(#fl)"/>
+                        <text x="380" y="171" text-anchor="middle" class="a-lab">UDP · 1 datagramme = 1 message</text>
+                        <text x="380" y="199" text-anchor="middle" class="a-sub">PRIORITY_REQUEST / GRANT</text>
+                    </svg>
+                    <figcaption>Le client parle au serveur en TCP pour tout ce qui doit arriver sans perte, et le véhicule parle aux carrefours en UDP pour demander le feu vert.</figcaption>
+                </figure>
+
+                <h3 class="h6 fw-bold mb-2">Compétences travaillées</h3>
+                <div class="table-responsive">
+                <table class="sae-table sae-toc mb-1">
+                    <thead><tr><th>Compétence du BUT R&amp;T<sup><a href="#note-1">1</a></sup></th><th>Apprentissages critiques (AC)</th></tr></thead>
                     <tbody>
                         <tr><td><a href="#programmer"><strong>Programmer</strong> : Créer des outils et applications informatiques pour les R&amp;T</a></td><td>AC23.03, AC23.02, AC23.05</td></tr>
                         <tr><td><a href="#connecter"><strong>Connecter</strong> : Connecter les entreprises et les usagers</a></td><td>AC22.05</td></tr>
-                        <tr><td><a href="#administrer"><strong>Administrer</strong> : Administrer les réseaux et l'Internet</a></td><td>AC21.06, AC21.03</td></tr>
+                        <tr><td><a href="#administrer"><strong>Administrer</strong> : Administrer les réseaux et l'Internet</a></td><td>AC21.06, AC21.03<sup><a href="#note-2">2</a></sup></td></tr>
                     </tbody>
                 </table>
+                </div>
+                <p class="sae-note" id="note-1"><sup>1</sup> Intitulés des compétences et des AC recopiés du <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/r-seaux-et-t-l-communications-30876.pdf" target="_blank" rel="noopener noreferrer">Programme national du BUT Réseaux &amp; Télécommunications</a> (ministère de l'Enseignement supérieur, 2022, annexe 22) : compétences de niveau 2 et fiche « SAÉ 3.02 : Développer des applications communicantes », p. 118. Le niveau 2 correspond aux compétences visées en deuxième année de BUT.<br>
+                <span id="note-2"><sup>2</sup> La fiche officielle de la SAÉ 3.02 cible AC21.06, AC22.05, AC23.02, AC23.03, AC23.04 et AC23.05. J'ajoute AC21.03 parce que le déploiement sur machines virtuelles faisait partie de mon travail. Je ne revendique pas AC23.04 (installer et administrer la base de données), qui relève de la partie serveur.</span></p>
             </div>
 
             <!-- ============ PROGRAMMER ============ -->
             <section id="programmer" class="pt-4">
                 <h2 class="sae-comp-title"><i class="fas fa-code text-accent me-2"></i>Programmer</h2>
-                <p class="sae-comp-sub">Créer des outils et applications informatiques pour les R&amp;T · Niveau 2</p>
+                <p class="sae-comp-sub">Compétence « Créer des outils et applications informatiques pour les R&amp;T » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p>Développement du client de l'application, à partir de notre cahier des charges (rendu le 24/09/2026). Le sujet impose PyQt6, des sockets brutes (pas de MQTT, Twisted ni Scapy), des messages JSON, et une règle stricte : aucun thread ne modifie l'interface, tout passe par les signaux et slots de Qt.</p>
+                        <p>J'ai développé le client de l'application en suivant notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (rendu le 24/09/2026). Le sujet imposait trois contraintes : une interface en PyQt6, une communication écrite directement avec les sockets de Python, et une règle de sécurité : aucun thread ne doit modifier l'interface lui-même, il doit passer par les signaux de Qt.</p>
+                        <p class="mb-2">Les fichiers que j'ai écrits :</p>
                         <ul class="mb-0">
-                            <li><code>client/fenetre.py</code> : départ, arrivée (liste, adresse, GPS, clic), heure.</li>
-                            <li><code>client/carte.py</code> : carte OpenStreetMap de Colmar, trafic, 86 feux, animation.</li>
-                            <li><code>client/reseau.py</code> : client TCP (port 5050) et UDP V2I (port 5051), chacun dans un <code>QThread</code>.</li>
-                            <li><code>encoder</code> / <code>decoder</code> du protocole commun.</li>
+                            <li><code>client/fenetre.py</code> : la fenêtre (choix du départ, de l'arrivée par liste, adresse, coordonnées GPS ou clic, et de l'heure).</li>
+                            <li><code>client/carte.py</code> : la carte de Colmar, le trafic en couleur, les 86 feux et l'animation des véhicules.</li>
+                            <li><code>client/reseau.py</code> : les deux liaisons réseau, TCP vers le serveur et UDP vers les carrefours, chacune dans son propre thread.</li>
+                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun.</li>
                         </ul>
                     </div>
                 </div>
@@ -150,16 +224,16 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC23.03</span><q>Utiliser un protocole réseau pour programmer une application client/serveur</q></div>
-                        <p>Aucune bibliothèque réseau de haut niveau n'était autorisée : j'ai écrit moi-même, sur les sockets, la connexion, le découpage des messages et la gestion des erreurs. C'est exactement ce que demande l'AC.</p>
+                        <p>Le sujet interdisait les bibliothèques qui gèrent le réseau à notre place : il fallait tout écrire avec les sockets. J'ai donc programmé moi-même la connexion, la découpe des messages et la gestion des erreurs, ce qui correspond directement à cet AC.</p>
                         <ul>
-                            <li><strong>TCP</strong> est un flux d'octets sans frontières : un <code>recv()</code> peut contenir un demi-message ou deux. D'où un protocole à trames (JSON + <code>\n</code>) et un <code>Deframeur</code> qui reconstitue les messages.</li>
-                            <li><strong>UDP</strong> garde les frontières : un datagramme = un message, sans <code>\n</code>. Pas de connexion ni de garantie : un datagramme perdu ne doit rien bloquer.</li>
-                            <li><strong>Choix des deux :</strong> TCP pour le serveur (ville, trajets, historique : rien ne doit se perdre), UDP pour les demandes de feu vert du véhicule aux carrefours (courtes, fréquentes), comme un vrai système V2I de préemption des feux.</li>
+                            <li><strong>En TCP</strong>, les données arrivent en continu, sans séparation entre les messages : une lecture peut contenir la moitié d'un message, ou deux messages collés. Nous avons donc terminé chaque message JSON par un retour à la ligne, et le client recolle les morceaux jusqu'à trouver ce retour à la ligne.</li>
+                            <li><strong>En UDP</strong>, chaque envoi arrive entier ou pas du tout. Pas besoin de séparateur, mais il faut accepter qu'un message se perde sans bloquer l'application.</li>
+                            <li><strong>Pourquoi les deux :</strong> TCP pour les échanges avec le serveur (la ville, les trajets), où rien ne doit se perdre ; UDP pour les demandes de feu vert, courtes et répétées. C'est le principe de la <a href="https://www.standards.its.dot.gov/ApplicationArea/29" target="_blank" rel="noopener noreferrer">priorité aux feux pour véhicules d'urgence</a> (communication véhicule-infrastructure, ou V2I), où le véhicule demande le vert au contrôleur du carrefour.</li>
                         </ul>
                         <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
-                        <p class="mb-0">Les lignes <em>Must</em> et <em>Should</em> du tableau MoSCoW qui concernent le client sont devenues des fonctionnalités visibles (interface, carte, 3 trajets, feux, priorité, comparaison des temps). Le 14/10, j'ai vérifié ligne par ligne ce qui était fait, partiel ou manquant. Limite : c'est une appli de bureau, pas Web ni mobile, donc je retiens surtout la partie « à partir d'un cahier des charges ».</p>
-                        <div class="sae-ac mt-3"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
-                        <p class="mb-0">Le bouton Historique du client demande au serveur les dernières simulations (<code>GET_HISTORY</code>) et les affiche. Les données sont dans une base SQLite (<code>simulations.db</code>) côté serveur : le client y accède à travers le protocole, sans jamais ouvrir la base lui-même. Limite : au 14/10 la base était encore vide, l'historique n'a été testé qu'avec le faux serveur.</p>
+                        <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Notre application est un logiciel pour ordinateur, pas une application Web ou mobile : c'est surtout la partie « à partir d'un cahier des charges » de cet AC que je mets en avant.</p>
+                        <div class="sae-ac"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
+                        <p class="mb-0">Le bouton <strong>Historique</strong> du client affiche les dernières simulations enregistrées. Le client ne lit pas la base lui-même : il envoie la demande <code>GET_HISTORY</code> au serveur, qui interroge sa base SQLite et renvoie les résultats. Pour l'instant, c'est mon faux serveur qui fournit ces données.</p>
                     </div>
                 </div>
 
@@ -167,30 +241,36 @@
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
                         <h4 class="mt-0">Démarche</h4>
-                        <p>Petites étapes, chacune testée avant la suivante, dans l'ordre du rétroplanning : grille A1-F6 avec un chemin écrit à la main, puis connexion TCP, puis les 3 trajets, les feux, l'animation et enfin la priorité en UDP.</p>
-                        <p>Le serveur de Youssef n'était pas prêt : j'ai écrit un faux serveur (<code>outils/faux_serveur.py</code>) qui répond à tous les messages du protocole. J'ai pu tester tout le client sans attendre, et ce faux serveur sert aussi de spécification de ce que le client attend.</p>
-                        <h4>Problèmes et solutions</h4>
+                        <p>J'ai avancé par petites étapes, en testant chacune avant de passer à la suivante. J'ai commencé par une carte de test très simple : une grille de 36 carrefours nommés de A1 à F6, sur laquelle je traçais un trajet donné (par exemple A1 → A2 → B2) pour vérifier l'affichage. Ensuite sont venus la connexion au serveur, les trois trajets, les feux, l'animation, et enfin les demandes de feu vert.</p>
+                        <p>Comme le serveur de Youssef n'était pas encore prêt, j'ai écrit un <strong>faux serveur</strong> qui répond aux mêmes messages que le vrai. Ça m'a permis de tester tout le client sans attendre, et ce faux serveur montrait aussi à Youssef exactement ce que le client attendait.</p>
+
+                        <h4>Problèmes rencontrés</h4>
+                        <div class="table-responsive">
                         <table class="sae-table">
-                            <thead><tr><th>Problème</th><th>Solution</th></tr></thead>
+                            <thead><tr><th>Problème</th><th>Cause</th><th>Ma solution</th></tr></thead>
                             <tbody>
-                                <tr><td><code>recv()</code> fige la fenêtre</td><td>Réseau dans un <code>QThread</code>, résultats envoyés par signal</td></tr>
-                                <tr><td>Thread impossible à arrêter</td><td><code>select()</code> avec délai de 0,2 s + drapeau <code>actif</code></td></tr>
-                                <tr><td>Une exception dans un slot ferme l'appli</td><td><code>try/except</code> autour de l'aiguillage des messages</td></tr>
-                                <tr><td>UDP sous Windows : <code>select()</code> refusé, <code>ConnectionResetError</code></td><td>Socket liée au port 0, erreur ignorée</td></tr>
-                                <tr><td>Grille pas assez originale (enseignant)</td><td>Vraie carte de Colmar : 2 715 nœuds, GPS → mètres (Mercator)</td></tr>
+                                <tr><td>La fenêtre se figeait pendant les échanges</td><td>L'attente de données réseau bloque le programme tant que rien n'arrive</td><td>Mettre le réseau dans un thread séparé, qui prévient la fenêtre par un signal</td></tr>
+                                <tr><td>L'application ne se fermait pas proprement</td><td>Le thread restait bloqué en attente de données</td><td>Vérifier toutes les 0,2 s s'il faut s'arrêter (<code>select</code> avec un délai)</td></tr>
+                                <tr><td>Un message mal formé fermait toute l'application</td><td>Avec PyQt6, une erreur dans une fonction appelée par un signal arrête le programme</td><td>Intercepter l'erreur et afficher un message au lieu de planter</td></tr>
+                                <tr><td>Erreurs UDP sous Windows</td><td>Windows refuse d'écouter une socket UDP non attachée à un port</td><td>Attacher la socket à un port libre choisi par le système</td></tr>
+                                <tr><td>La grille de test était jugée trop simple par l'enseignant</td><td>Pas assez réaliste ni original</td><td>Importer le vrai réseau routier de Colmar depuis OpenStreetMap (2 715 carrefours, 2 944 tronçons) et convertir les coordonnées GPS en mètres</td></tr>
                             </tbody>
                         </table>
+                        </div>
+
                         <div class="sae-limit">
-                            <h4><i class="fas fa-balance-scale me-2"></i>Limites</h4>
+                            <h4><i class="fas fa-balance-scale me-2"></i>Ce qui n'est pas parfait</h4>
                             <ul class="mb-0">
-                                <li>Le temps « priorité » est calculé avant la réponse UDP : un refus ne le change pas.</li>
-                                <li>Cycle des feux codé côté client et côté serveur : risque d'écart.</li>
-                                <li>Protocole : 12 messages côté client, 5 dans le fichier commun. Il fallait valider à deux plus tôt.</li>
-                                <li><span class="sae-todo">À COMPLÉTER</span> Aide d'une IA pour une partie du code (voir <code>IAGraphie.pdf</code>), puis relecture et simplification pour pouvoir tout expliquer.</li>
+                                <li><strong>Tout est testé avec mon faux serveur.</strong> Le vrai serveur n'est pas encore dans le dépôt : les captures et les tests de cette page utilisent le faux serveur que j'ai écrit.</li>
+                                <li><strong>Le gain de la priorité est calculé à l'avance.</strong> Le serveur (ici le faux) calcule le temps du trajet « priorité » en supposant que tous les feux passeront au vert. Si un carrefour refusait la demande, le temps affiché ne changerait pas. Pour bien faire, le temps devrait dépendre des vraies réponses des carrefours.</li>
+                                <li><strong>La règle des feux est écrite deux fois.</strong> Le rythme des feux (30 s vert, 30 s rouge) est codé à la fois dans le client, pour l'affichage, et dans le serveur. Si l'un des deux change, l'écran ne correspond plus au calcul.</li>
+                                <li><strong>J'ai ajouté des messages sans les valider à deux.</strong> Le fichier de protocole commun liste 5 types de messages ; le client en utilise 5 de plus (trafic, trajets multiples, historique…). Nous aurions dû les ajouter ensemble au protocole au fur et à mesure.</li>
+                                <li><span class="sae-todo">À COMPLÉTER</span> J'ai utilisé une IA pour m'aider sur une partie du code (détaillé dans <code>IAGraphie.pdf</code>). J'ai ensuite relu et simplifié ce code pour pouvoir en expliquer chaque ligne.</li>
                             </ul>
                         </div>
-                        <h4>Appris</h4>
-                        <p class="mb-0">La différence concrète entre un flux TCP et des datagrammes UDP, et pourquoi un protocole applicatif doit définir ses propres trames. La programmation concurrente avec <code>QThread</code> et les signaux, et la façon dont une erreur dans un thread peut faire tomber toute l'appli. Enfin, qu'un faux serveur permet de développer les deux côtés en parallèle.</p>
+
+                        <h4>Ce que j'en retiens</h4>
+                        <p class="mb-0">Avant ce projet, TCP et UDP étaient surtout des notions de cours. En codant moi-même, j'ai compris pourquoi TCP oblige à découper ses messages et pourquoi UDP est plus simple, mais sans garantie. J'ai aussi découvert la programmation avec plusieurs threads : c'est ce qui m'a posé le plus de problèmes, et c'est là que j'ai le plus appris. Enfin, écrire un faux serveur m'a appris à ne pas rester bloqué par le travail des autres.</p>
                     </div>
                 </div>
 
@@ -198,12 +278,20 @@
                     <div class="reflection-card-header"><span class="num">4</span> Preuves</div>
                     <div class="reflection-card-body">
                         <h4 class="mt-0"><i class="fab fa-git-alt me-2"></i>Commits</h4>
-                        <ul>
-                            <li><span class="sae-todo">À COMPLÉTER</span> client TCP (<code>client/reseau.py</code>)</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> liaison UDP V2I</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> carte de Colmar</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> ma branche</li>
-                        </ul>
+                        <p>Tous mes commits sont sur la branche <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/tree/david/client" target="_blank" rel="noopener noreferrer"><code>david/client</code></a> du dépôt du projet.</p>
+                        <div class="table-responsive">
+                        <table class="sae-table sae-commits">
+                            <thead><tr><th>Date</th><th>Commit</th><th>Contenu</th></tr></thead>
+                            <tbody>
+                                <tr><td>30/09</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/b52d16108c8318c5e49e0918a74f8dba10221545" target="_blank" rel="noopener noreferrer"><code>b52d161</code></a></td><td>Structure du projet et contrat protocole</td></tr>
+                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/ab7a546e44460e2e73a086d8d9814437adff9c77" target="_blank" rel="noopener noreferrer"><code>ab7a546</code></a></td><td>Client étapes 4 et 5 : carte, fenêtre, réseau TCP, faux serveur</td></tr>
+                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/456c1298c1b96951ea98d815d38cbbbf65d13f17" target="_blank" rel="noopener noreferrer"><code>456c129</code></a></td><td>Simplification du client : suppression du mode hors ligne</td></tr>
+                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a></td><td>Makefile</td></tr>
+                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/f69e77172b093df86b91ce94712072a925f426fe" target="_blank" rel="noopener noreferrer"><code>f69e771</code></a></td><td>Vraie carte de Colmar : extraction OSM, fond de carte, lieux, rues et clic sur la carte</td></tr>
+                                <tr><td>10/11</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a></td><td>Simplification du client, suppression de Grafana, guide d'installation Linux</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
 
                         <h4><i class="fas fa-file-code me-2"></i>Client TCP dans un thread</h4>
 <pre class="sae-code"><code>def run(self):
@@ -233,7 +321,7 @@
         self.erreur.emit(f"erreur réseau ({e})")
     finally:
         self.sock.close()</code></pre>
-                        <p class="sae-code-src"><code>client/reseau.py</code>, <code>ClientReseau</code>. Connexion TCP, lecture avec <code>select</code>, découpage des trames, détection de la fermeture côté serveur. Le thread ne touche jamais l'interface : tout passe par <code>emit</code>.</p>
+                        <p class="sae-code-src"><code>client/reseau.py</code>, classe <code>ClientReseau</code>. Le thread lit le réseau et ne touche jamais la fenêtre : il transmet chaque message par <code>emit</code>.</p>
 
                         <h4><i class="fas fa-file-code me-2"></i>Envoi UDP au carrefour</h4>
 <pre class="sae-code"><code>def envoyer(self, message):
@@ -242,9 +330,9 @@
         self.sock.sendto(json.dumps(message).encode("utf-8"), self.adresse)
     except OSError:
         pass        # UDP ne garantit rien : un datagramme perdu n'arrête pas l'appli</code></pre>
-                        <p class="sae-code-src"><code>client/reseau.py</code>, <code>ClientV2I</code></p>
+                        <p class="sae-code-src"><code>client/reseau.py</code>, classe <code>ClientV2I</code></p>
 
-                        <h4><i class="fas fa-file-code me-2"></i>Aiguillage des messages reçus</h4>
+                        <h4><i class="fas fa-file-code me-2"></i>Traitement des messages reçus</h4>
 <pre class="sae-code"><code>def traiter_message(self, message):
     """Aiguille chaque message reçu selon son "type".
 
@@ -258,33 +346,37 @@
             self.carte.colorer_trafic(message["densites"])
         elif message["type"] == "ROUTES":
             self.afficher_routes(message)
-        elif message["type"] == "HISTORY":
-            self.afficher_historique(message["simulations"])
         elif message["type"] == "ERROR":
             self.afficher_erreur(message["raison"])
     except (KeyError, ValueError, TypeError) as e:
         self.afficher_erreur(f"message {message['type']} incomplet ({e})")</code></pre>
-                        <p class="sae-code-src"><code>client/fenetre.py</code> (cas <code>ROUTE</code> omis)</p>
+                        <p class="sae-code-src"><code>client/fenetre.py</code> (extrait)</p>
 
-                        <h4><i class="fas fa-image me-2"></i>Captures</h4>
+                        <h4><i class="fas fa-image me-2"></i>Captures de l'application</h4>
                         <figure class="sae-fig">
                             <img src="assets/sae302/halo.jpg" alt="Trois trajets tracés sur la carte de Colmar" loading="lazy">
-                            <figcaption><strong>Fig. 1</strong> Recette Hôpital Pasteur → Petite Venise à 8 h. Trajets classique (noir), trafic (violet), priorité (bleu) ; rues colorées selon le trafic. La barre d'état « Connecté à 127.0.0.1:5050 » prouve la liaison TCP, « Feux : 1 demandes, 1 accordées » l'échange UDP.</figcaption>
+                            <figcaption><strong>Fig. 1</strong> Test du trajet Hôpital Pasteur → Petite Venise à 8 h. Trajet classique en noir, adapté au trafic en violet, avec priorité en bleu ; les rues sont colorées selon le trafic. En bas, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne, et « Feux : 1 demandes, 1 accordées » que l'échange UDP avec un carrefour a réussi.</figcaption>
                         </figure>
-                        <figure class="sae-fig">
-                            <img src="assets/sae302/feux-milieu.jpg" alt="Mission en cours, trois feux passés au vert" loading="lazy">
-                            <figcaption><strong>Fig. 2</strong> Mission en cours : 3 demandes, 3 feux passés au vert. Gain : 1 min 14 s.</figcaption>
-                        </figure>
-                        <figure class="sae-fig">
-                            <img src="assets/sae302/gps.jpg" alt="Arrivée saisie en coordonnées GPS" loading="lazy">
-                            <figcaption><strong>Fig. 3</strong> Arrivée saisie en coordonnées GPS (48.0760, 7.3550). Un point hors de la carte est refusé avec un message dans la barre d'état, sans plantage.</figcaption>
-                        </figure>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <figure class="sae-fig">
+                                    <img src="assets/sae302/feux-milieu.jpg" alt="Mission en cours, trois feux passés au vert" loading="lazy">
+                                    <figcaption><strong>Fig. 2</strong> Pendant le trajet : 3 feux demandés, 3 passés au vert. Gain affiché : 1 min 14 s.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6">
+                                <figure class="sae-fig">
+                                    <img src="assets/sae302/gps.jpg" alt="Arrivée saisie en coordonnées GPS" loading="lazy">
+                                    <figcaption><strong>Fig. 3</strong> Arrivée saisie en coordonnées GPS. Un point hors de la carte est refusé avec un message, sans planter.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
                         <figure class="sae-fig">
                             <img src="assets/sae302/fin.jpg" alt="Version intermédiaire de l'interface" loading="lazy">
-                            <figcaption><strong>Fig. 4</strong> Version de début octobre, temps encore en secondes : montre l'évolution de l'interface.</figcaption>
+                            <figcaption><strong>Fig. 4</strong> Une version de début octobre (temps encore en secondes), pour montrer l'évolution de l'interface.</figcaption>
                         </figure>
 
-                        <h4><i class="fas fa-clipboard me-2"></i>Compte rendu, semaine 1</h4>
+                        <h4><i class="fas fa-clipboard me-2"></i>Extrait de mon compte rendu (semaine 1)</h4>
                         <p class="sae-quote mb-0">« J'ai développé la partie réseau du client dans un QThread, pour que la fenêtre ne se bloque pas pendant les échanges avec le serveur. […] j'ai connecté le client au serveur de Youssef en local sur l'adresse 127.0.0.1:5050. Le client a envoyé le message {"type": "GET_CITY"} et la réponse du serveur a bien été reçue par le client. »</p>
                     </div>
                 </div>
@@ -293,12 +385,12 @@
             <!-- ============ CONNECTER ============ -->
             <section id="connecter" class="pt-5">
                 <h2 class="sae-comp-title"><i class="fas fa-handshake text-accent me-2"></i>Connecter</h2>
-                <p class="sae-comp-sub">Connecter les entreprises et les usagers</p>
+                <p class="sae-comp-sub">Compétence « Connecter les entreprises et les usagers » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p class="mb-0">Cadrage puis suivi du projet, du 24/09 au 15/11/2026. Dans la mise en situation, nous sommes un cabinet de développement qui répond à une ville : analyser son besoin, rédiger le cahier des charges, répartir le travail dans le binôme, suivre l'avancement et adapter le périmètre quand l'enseignant a demandé plus d'originalité.</p>
+                        <p class="mb-0">Du 24/09 au 15/11/2026, nous avons joué le rôle d'un cabinet qui répond à la demande d'une ville. Il fallait comprendre le besoin, l'écrire dans un <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a>, se répartir le travail, suivre l'avancement et adapter le projet quand les attentes ont évolué.</p>
                     </div>
                 </div>
 
@@ -306,11 +398,11 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissage critique</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC22.05</span><q>Capacité à questionner un cahier des charges RT</q></div>
-                        <p>Je n'ai pas seulement suivi le cahier des charges, je l'ai interrogé à plusieurs moments :</p>
+                        <p>Je n'ai pas seulement appliqué le cahier des charges, je l'ai remis en question à trois moments :</p>
                         <ul class="mb-0">
-                            <li><strong>Avant :</strong> analyse du besoin en QQOQCP (qui utilise l'appli ? le régulateur des véhicules d'urgence), puis priorités MoSCoW, complexité et coût (94 h, ~47 h chacun).</li>
-                            <li><strong>Pendant :</strong> remise en cause du périmètre (grille → vraie carte de Colmar), questions ouvertes (l'ambulance peut-elle prendre un sens unique à contresens ?), outils non prévus (Docker, Grafana) : demande d'autorisation à l'enseignant avant de les intégrer.</li>
-                            <li><strong>Contrôle :</strong> le 14/10, comparaison ligne par ligne cahier des charges / code, avec ce qui est fait, partiel ou manquant.</li>
+                            <li><strong>Au départ :</strong> nous avons analysé le besoin avec un QQOQCP (Qui ? Quoi ? Où ? Quand ? Comment ? Pourquoi ?), puis classé les fonctionnalités par priorité avec la méthode MoSCoW et estimé le temps de chacune.</li>
+                            <li><strong>En cours de route :</strong> nous avons remplacé la grille de test par la vraie carte de Colmar, et soulevé des questions que le cahier des charges ne réglait pas (une ambulance peut-elle prendre un sens unique à contresens ?).</li>
+                            <li><strong>À mi-parcours :</strong> le 14/10, j'ai comparé chaque ligne du cahier des charges avec le code réel, pour savoir ce qui était fini, partiel ou manquant.</li>
                         </ul>
                     </div>
                 </div>
@@ -319,37 +411,65 @@
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
                         <ul>
-                            <li><strong>Découpage :</strong> client pour moi, serveur pour Youssef, protocole écrit à deux.</li>
-                            <li><strong>Périmètre :</strong> grille remplacée par Colmar, présenté comme le <em>Should</em> « Déploiement dans une ville ».</li>
-                            <li><strong>Décalage :</strong> au 14/10, le client était en avance sur le planning mais le serveur réel n'existait pas encore dans le dépôt. Pour ne pas bloquer, j'ai écrit un faux serveur et proposé par écrit les nouveaux messages JSON à Youssef (<code>ROUTES</code>, <code>TRAFFIC</code>, <code>HISTORY</code>…). Erreur de ma part : je les ai ajoutés au client avant qu'on les valide ensemble. <span class="sae-todo">À COMPLÉTER : comment ça s'est réglé</span></li>
-                            <li><strong>Hors cahier des charges :</strong> Docker et Grafana, avec demande d'autorisation à l'enseignant. <span class="sae-todo">À COMPLÉTER : sa réponse</span></li>
+                            <li><strong>Répartition :</strong> le client pour moi, le serveur pour Youssef, et un seul fichier écrit à deux : le protocole, la liste des messages échangés. Une fois ce contrat fixé, chacun pouvait avancer seul.</li>
+                            <li><strong>Changement de périmètre :</strong> passer à la carte de Colmar n'était pas un caprice. Le cahier des charges prévoyait déjà un « Déploiement dans une ville » (priorité <em>Should</em>), nous l'avons simplement avancé.</li>
+                            <li><strong>Avancement inégal :</strong> à mi-parcours, le client était en avance mais le vrai serveur n'existait pas encore. Plutôt que d'attendre, j'ai écrit un faux serveur et proposé par écrit à Youssef les nouveaux messages dont le client avait besoin. Mon erreur : je les ai utilisés avant qu'on les valide ensemble. <span class="sae-todo">À COMPLÉTER : comment ça s'est réglé</span></li>
                         </ul>
-                        <h4>Appris</h4>
-                        <p class="mb-0">Le cahier des charges ne sert pas qu'au départ : c'est aussi l'outil pour contrôler où on en est. Un contrat d'interface (le protocole) permet de travailler en parallèle, à condition de le mettre à jour ensemble. Un écart se signale et s'argumente, il ne se cache pas.</p>
+                        <h4>Ce que j'en retiens</h4>
+                        <p class="mb-0">Je pensais qu'un cahier des charges servait surtout au début du projet. En fait, c'est lui qui nous a permis de savoir où nous en étions, et de justifier nos changements. J'ai aussi appris qu'il vaut mieux signaler un retard ou un écart tôt plutôt que de le découvrir à la fin.</p>
                     </div>
                 </div>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">4</span> Preuves</div>
                     <div class="reflection-card-body">
-                        <h4 class="mt-0">Cahier des charges : extrait MoSCoW</h4>
+                        <h4 class="mt-0" id="moscow">Les priorités du cahier des charges (méthode MoSCoW)</h4>
+                        <p class="sae-legend"><span class="sae-badge must">Must</span> indispensable · <span class="sae-badge should">Should</span> important · <span class="sae-badge could">Could</span> bonus. Complexité de 1 à 5, coût estimé en heures.</p>
                         <div class="table-responsive">
-                        <table class="sae-table">
-                            <thead><tr><th>Fonctionnalité</th><th>Priorité</th><th>Complexité</th><th>Coût</th></tr></thead>
+                        <table class="sae-table sae-moscow">
+                            <thead><tr><th>Fonctionnalité</th><th>Priorité</th><th>Complexité</th><th>Coût</th><th>Côté</th></tr></thead>
                             <tbody>
-                                <tr><td>Communication client / serveur par socket</td><td>Must</td><td>4</td><td>10 h</td></tr>
-                                <tr><td>Gestion des communications avec threads</td><td>Must</td><td>4</td><td>8 h</td></tr>
-                                <tr><td>Contrôle des feux pour le véhicule prioritaire</td><td>Should</td><td>4</td><td>8 h</td></tr>
-                                <tr><td>Déploiement dans une ville</td><td>Should</td><td>5</td><td>10 h</td></tr>
+                                <tr><td>Interface graphique principale</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:2"></span></td><td>5 h</td><td class="moi">client</td></tr>
+                                <tr><td>Affichage des routes et intersections</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>8 h</td><td class="moi">client</td></tr>
+                                <tr><td>Simulation du véhicule d'urgence</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>8 h</td><td>les deux</td></tr>
+                                <tr><td>Simulation du trafic</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>7 h</td><td>les deux</td></tr>
+                                <tr><td>Calcul d'un itinéraire</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:4"></span></td><td>10 h</td><td>serveur</td></tr>
+                                <tr><td>Communication client / serveur par socket</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:4"></span></td><td>10 h</td><td>les deux</td></tr>
+                                <tr><td>Échange des données au format JSON</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:2"></span></td><td>4 h</td><td>les deux</td></tr>
+                                <tr><td>Gestion des communications avec threads</td><td><span class="sae-badge must">Must</span></td><td><span class="sae-dots" style="--n:4"></span></td><td>8 h</td><td>les deux</td></tr>
+                                <tr><td>Simulation des feux de circulation</td><td><span class="sae-badge should">Should</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>6 h</td><td>les deux</td></tr>
+                                <tr><td>Contrôle des feux pour le véhicule prioritaire</td><td><span class="sae-badge should">Should</span></td><td><span class="sae-dots" style="--n:4"></span></td><td>8 h</td><td>les deux</td></tr>
+                                <tr><td>Comparaison des trois temps de trajet</td><td><span class="sae-badge should">Should</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>5 h</td><td class="moi">client</td></tr>
+                                <tr><td>Déploiement dans une ville</td><td><span class="sae-badge should">Should</span></td><td><span class="sae-dots" style="--n:5"></span></td><td>10 h</td><td>les deux</td></tr>
+                                <tr><td>Statistiques / graphiques supplémentaires</td><td><span class="sae-badge could">Could</span></td><td><span class="sae-dots" style="--n:3"></span></td><td>5 h</td><td>les deux</td></tr>
                             </tbody>
+                            <tfoot><tr><td colspan="3"><strong>Charge totale estimée</strong></td><td colspan="2"><strong>94 h</strong>, soit environ 47 h chacun</td></tr></tfoot>
                         </table>
                         </div>
-                        <h4>Contrôle cahier des charges / code (14/10/2026)</h4>
+                        <p class="sae-code-src">Tableau recopié de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (partie 3). La colonne « Côté » est ajoutée ici pour montrer ma part.</p>
+
+                        <h4>Les étapes prévues</h4>
+                        <ol class="sae-steps">
+                            <li><span>Jalon 1</span>Cahier des charges <small>24/09/2026</small></li>
+                            <li><span>Jalon 2</span>Première interface</li>
+                            <li><span>Jalon 3</span>Routes, véhicule, trafic</li>
+                            <li><span>Jalon 4</span>Client / serveur</li>
+                            <li><span>Jalon 5</span>3 trajets comparés</li>
+                            <li><span>Jalon 6</span>Tests et corrections</li>
+                            <li><span>Jalon 7</span>Rendu final <small>15/11/2026</small></li>
+                        </ol>
+
+                        <h4>Analyse du besoin (QQOQCP)</h4>
+                        <figure class="sae-fig sae-fig-narrow">
+                            <img src="assets/sae302/qqoqcp.jpg" alt="Feuille manuscrite d'analyse QQOQCP du projet" loading="lazy">
+                            <figcaption><strong>Fig. 5</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet. Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
+                        </figure>
+
+                        <h4>Bilan à mi-parcours (14/10/2026)</h4>
                         <p class="sae-quote">« Côté client (David) : presque tout ce que le cahier des charges promet est déjà visible à l'écran : carte, 3 trajets, animation, feux, priorité UDP, graphique, historique. »</p>
                         <ul class="mb-0">
-                            <li><span class="sae-todo">À COMPLÉTER</span> photo QQOQCP</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> capture ClickUp</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> liens cahier des charges et comptes rendus (PDF)</li>
+                            <li><span class="sae-todo">À COMPLÉTER</span> capture du tableau ClickUp</li>
+                            <li><span class="sae-todo">À COMPLÉTER</span> liens vers les comptes rendus hebdomadaires</li>
                         </ul>
                     </div>
                 </div>
@@ -358,12 +478,12 @@
             <!-- ============ ADMINISTRER ============ -->
             <section id="administrer" class="pt-5">
                 <h2 class="sae-comp-title"><i class="fas fa-server text-accent me-2"></i>Administrer</h2>
-                <p class="sae-comp-sub">Administrer les réseaux et l'Internet · Niveau 2</p>
+                <p class="sae-comp-sub">Compétence « Administrer les réseaux et l'Internet » · niveau 2 (BUT 2)<sup><a href="#note-1">1</a></sup></p>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p class="mb-0">Déploiement sur deux VM Linux (serveur / client), installation reproductible, supervision.</p>
+                        <p class="mb-0">Pour la démonstration finale, l'application doit tourner sur deux machines : le serveur sur l'une, le client sur l'autre. Je me suis occupé de rendre l'installation simple et identique partout, sur Windows comme sur des machines virtuelles Linux, et de la coordination technique avec Youssef.</p>
                     </div>
                 </div>
 
@@ -371,35 +491,41 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC21.06</span><q>Travailler en équipe pour développer ses compétences professionnelles</q></div>
-                        <p>Binôme organisé autour d'un contrat commun (le protocole JSON) et une branche Git chacun. J'ai fourni à Youssef un faux serveur qui lui sert de spécification, et je lui ai proposé les nouveaux messages par écrit. À l'oral, chacun doit pouvoir expliquer la partie de l'autre. <span class="sae-todo">À COMPLÉTER : comment vous vous êtes expliqué vos parties</span></p>
+                        <p>Notre binôme s'est organisé autour d'un contrat commun, le protocole JSON, avec une branche Git chacun. J'ai fourni à Youssef le faux serveur comme modèle de ce que le client attendait, et je lui ai proposé les nouveaux messages par écrit. <span class="sae-todo">À COMPLÉTER : comment vous vous êtes expliqué vos parties</span></p>
                         <div class="sae-ac"><span class="code">AC21.03</span><q>Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</q></div>
-                        <p class="mb-0">Situation : une démo sur deux machines. Makefile et guide d'installation pour deux VM Linux, client lancé vers le serveur avec <code>make client HOTE=&lt;ip&gt;</code>. <span class="sae-todo">À COMPLÉTER : confirmer que le test sur deux VM a été fait</span> Bonus : Grafana dans Docker pour suivre les simulations. <em>Cet AC ne fait pas partie de la fiche officielle de la SAÉ 3.02, mais il a été mobilisé ici.</em></p>
+                        <p class="mb-0">La situation : une démonstration avec deux machines. J'ai préparé l'installation de l'application sur des machines virtuelles Linux et la possibilité de lancer le client vers l'adresse IP du serveur.<sup><a href="#note-2">2</a></sup></p>
                     </div>
                 </div>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
-                        <p>J'ai écrit un Makefile qui marche sous Windows et sous Linux (<code>make installer</code>, <code>client</code>, <code>serveur</code>, <code>faux-serveur</code>, <code>tests</code>, <code>ip</code>, <code>arreter</code>) et un guide d'installation pour deux VM. Objectif : que n'importe qui installe et lance l'appli en quelques commandes.</p>
-                        <ul>
-                            <li><strong>Windows vs Linux :</strong> <code>ifeq ($(OS),Windows_NT)</code> pour les chemins et commandes.</li>
-                            <li><strong>PyQt6 sur la VM :</strong> bibliothèques système manquantes, documentées. <span class="sae-todo">À COMPLÉTER : laquelle</span></li>
-                            <li><strong>Environnement :</strong> <code>.venv</code> réparé, versions figées dans <code>requirements.txt</code>.</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> Test 2 machines : mode réseau des VM, ports 5050/TCP et 5051/UDP.</li>
-                        </ul>
-                        <div class="sae-limit">
-                            <h4><i class="fas fa-balance-scale me-2"></i>Limite</h4>
-                            <p class="mb-0">Grafana est un bonus : utile seulement si le serveur final enregistre les simulations. <span class="sae-todo">À COMPLÉTER : état à la démo</span></p>
+                        <h4 class="mt-0">Ce que j'ai fait</h4>
+                        <p>J'ai écrit un <strong>Makefile</strong> : un fichier qui regroupe toutes les commandes du projet. Au lieu de retenir de longues commandes, il suffit de taper par exemple <code>make installer</code> pour tout installer, <code>make serveur</code> pour lancer le serveur, ou <code>make client HOTE=192.168.56.10</code> pour lancer le client vers un serveur sur une autre machine. Le même Makefile fonctionne sous Windows et sous Linux.</p>
+                        <p>J'ai aussi rédigé un guide d'installation pour deux machines virtuelles.</p>
+                        <h4>Difficultés</h4>
+                        <div class="table-responsive">
+                        <table class="sae-table">
+                            <thead><tr><th>Difficulté</th><th>Ce que j'ai fait</th></tr></thead>
+                            <tbody>
+                                <tr><td>Windows et Linux n'utilisent pas les mêmes chemins ni les mêmes commandes (par exemple <code>ipconfig</code> contre <code>hostname -I</code>)</td><td>Le Makefile détecte le système et choisit automatiquement les bonnes commandes</td></tr>
+                                <tr><td>Sur la machine virtuelle Linux, PyQt6 ne démarrait pas : il manquait des bibliothèques du système (erreur « Could not load the Qt platform plugin "xcb" »)</td><td>Je les ai identifiées et ajoutées au guide : <code>libxcb-cursor0</code>, <code>libxkbcommon-x11-0</code>, <code>libxcb-icccm4</code>, <code>libxcb-keysyms1</code>, <code>libxcb-xkb1</code></td></tr>
+                                <tr><td>L'environnement Python du projet était cassé sur mon poste</td><td>Je l'ai recréé et j'ai noté les versions exactes des bibliothèques dans <code>requirements.txt</code>, pour que tout le monde installe les mêmes</td></tr>
+                                <tr><td><span class="sae-todo">À COMPLÉTER</span> Faire communiquer deux machines virtuelles</td><td>Réglage du réseau des VM et ouverture des ports 5050 (TCP) et 5051 (UDP) dans le pare-feu</td></tr>
+                            </tbody>
+                        </table>
                         </div>
-                        <h4>Appris</h4>
-                        <p class="mb-0">Une installation qui marche sur mon PC ne prouve rien : il faut la tester sur une machine vierge en suivant uniquement le README, et corriger le README jusqu'à ce que ça marche du premier coup.</p>
+                        
+                        <h4>Ce que j'en retiens</h4>
+                        <p class="mb-0">Une application qui marche sur mon ordinateur ne prouve pas grand-chose. La vraie preuve, c'est qu'une autre personne puisse l'installer sur une machine vierge en suivant seulement le guide. C'est en préparant l'installation sur une machine virtuelle neuve que j'ai trouvé des problèmes invisibles sur mon poste, comme les bibliothèques manquantes pour PyQt6.</p>
                     </div>
                 </div>
 
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">4</span> Preuves</div>
                     <div class="reflection-card-body">
-<pre class="sae-code mt-0"><code># Changez-la ici une fois, ou donnez-la au lancement : make client HOTE=192.168.56.10
+<pre class="sae-code mt-0"><code># Adresse IP de la machine qui fait tourner le serveur
+# Changez-la ici une fois, ou donnez-la au lancement : make client HOTE=192.168.56.10
 HOTE = 127.0.0.1
 
 ifeq ($(OS),Windows_NT)
@@ -409,11 +535,10 @@ else
     PYTHON = .venv/bin/python
     AFFICHER_IP = hostname -I
 endif</code></pre>
-                        <p class="sae-code-src"><code>Makefile</code> (extrait)</p>
+                        <p class="sae-code-src"><code>Makefile</code> (extrait) : le même fichier choisit les bonnes commandes selon le système.</p>
                         <ul class="mb-0">
-                            <li><span class="sae-todo">À COMPLÉTER</span> capture Grafana</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> capture client sur VM 1 connecté au serveur sur VM 2 + <code>ip a</code></li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> commit <code>docker-compose.yml</code> et Makefile</li>
+                            <li><span class="sae-todo">À COMPLÉTER</span> capture du client sur une VM connecté au serveur sur l'autre VM, avec la commande <code>ip a</code> sur les deux</li>
+                            <li>Commits <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a> (Makefile) et <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a> (guide d'installation Linux pour deux VM)</li>
                         </ul>
                     </div>
                 </div>
@@ -424,7 +549,6 @@ endif</code></pre>
                     <h2 class="h4 fw-bold mb-3"><i class="fas fa-flag-checkered text-accent me-2"></i>Bilan</h2>
                     <p class="text-secondary-custom mb-0"><span class="sae-todo">À COMPLÉTER</span> 3 à 5 lignes, avec tes mots : ce qui a marché, ce que tu referais autrement, où tu as le plus progressé.</p>
                 </div>
-                <p class="text-secondary-custom small">Source des AC : <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/r-seaux-et-t-l-communications-30876.pdf" target="_blank" rel="noopener noreferrer">Programme national du BUT Réseaux &amp; Télécommunications</a> (ministère de l'Enseignement supérieur, 2022, annexe 22), fiche SAÉ 3.02 p. 118 et compétences de niveau 2.</p>
             </section>
         </div>
     </main>
