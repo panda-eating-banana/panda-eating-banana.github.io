@@ -121,9 +121,9 @@
                 <table class="sae-table sae-toc">
                     <thead><tr><th>Compétence</th><th>AC</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="#programmer"><strong>Programmer</strong> : Créer des outils et applications informatiques pour les R&amp;T</a></td><td>AC23.03, AC23.02</td></tr>
+                        <tr><td><a href="#programmer"><strong>Programmer</strong> : Créer des outils et applications informatiques pour les R&amp;T</a></td><td>AC23.03, AC23.02, AC23.05</td></tr>
                         <tr><td><a href="#connecter"><strong>Connecter</strong> : Connecter les entreprises et les usagers</a></td><td>AC22.05</td></tr>
-                        <tr><td><a href="#administrer"><strong>Administrer</strong> : Administrer les réseaux et l'Internet</a></td><td>AC21.03, AC21.04, AC21.06</td></tr>
+                        <tr><td><a href="#administrer"><strong>Administrer</strong> : Administrer les réseaux et l'Internet</a></td><td>AC21.06, AC21.03</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -158,6 +158,8 @@
                         </ul>
                         <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d'un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
                         <p class="mb-0">Chaque ligne <em>Must</em> et <em>Should</em> du tableau MoSCoW est devenue une fonctionnalité visible du client (carte, 3 trajets, feux, priorité, graphique). Le 14/10, j'ai vérifié ligne par ligne ce qui était fait, partiel ou manquant. Limite : c'est une appli de bureau, pas Web ni mobile, donc je retiens surtout la partie « à partir d'un cahier des charges ».</p>
+                        <div class="sae-ac mt-3"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
+                        <p class="mb-0">Le bouton Historique du client demande au serveur les dernières simulations (<code>GET_HISTORY</code>) et les affiche. Les données sont dans une base SQLite (<code>simulations.db</code>) côté serveur : le client y accède à travers le protocole, sans jamais ouvrir la base lui-même. Limite : au 14/10 la base était encore vide, l'historique n'a été testé qu'avec le faux serveur.</p>
                     </div>
                 </div>
 
@@ -303,13 +305,12 @@
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissage critique</div>
                     <div class="reflection-card-body">
-                        <div class="sae-ac"><span class="code">AC22.05</span><q>Organiser un projet pour répondre au cahier des charges</q></div>
-                        <p>Le projet a été organisé autour du cahier des charges, de l'analyse du besoin jusqu'au contrôle final :</p>
+                        <div class="sae-ac"><span class="code">AC22.05</span><q>Capacité à questionner un cahier des charges RT</q></div>
+                        <p>Je n'ai pas seulement suivi le cahier des charges, je l'ai interrogé à plusieurs moments :</p>
                         <ul class="mb-0">
-                            <li>QQOQCP : utilisateur = régulateur des véhicules d'urgence.</li>
-                            <li>Cahier des charges avec MoSCoW, complexité et coût (94 h, ~47 h chacun).</li>
-                            <li>Rétroplanning en 7 jalons, ClickUp, comptes rendus.</li>
-                            <li>Contrôle cahier des charges / code le 14/10.</li>
+                            <li><strong>Avant :</strong> analyse du besoin en QQOQCP (qui utilise l'appli ? le régulateur des véhicules d'urgence), puis priorités MoSCoW, complexité et coût (94 h, ~47 h chacun).</li>
+                            <li><strong>Pendant :</strong> remise en cause du périmètre (grille → vraie carte de Colmar), questions ouvertes (l'ambulance peut-elle prendre un sens unique à contresens ?), outils non prévus (Docker, Grafana) validés avec l'enseignant avant de les utiliser.</li>
+                            <li><strong>Contrôle :</strong> le 14/10, comparaison ligne par ligne cahier des charges / code, avec ce qui est fait, partiel ou manquant.</li>
                         </ul>
                     </div>
                 </div>
@@ -369,12 +370,10 @@
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
-                        <div class="sae-ac"><span class="code">AC21.03</span><q>Déployer des postes clients et des solutions virtualisées</q></div>
-                        <p>Appli installée sur VM, client lancé vers le serveur avec <code>make client HOTE=&lt;ip&gt;</code>.</p>
-                        <div class="sae-ac"><span class="code">AC21.04</span><q>Déployer des services réseaux avancés et systèmes de supervision</q></div>
-                        <p>Grafana (5 panneaux) via <code>docker-compose</code>, branché sur la base SQLite des simulations.</p>
-                        <div class="sae-ac"><span class="code">AC21.06</span><q>Travailler en équipe</q></div>
-                        <p class="mb-0">Protocole commun, une branche Git chacun.</p>
+                        <div class="sae-ac"><span class="code">AC21.06</span><q>Travailler en équipe pour développer ses compétences professionnelles</q></div>
+                        <p>Binôme organisé autour d'un contrat commun (le protocole JSON), une branche Git chacun. Chacun devait pouvoir expliquer la partie de l'autre à l'oral : j'ai dû comprendre le Dijkstra et la boucle <code>select</code> du serveur, et Youssef mon client.</p>
+                        <div class="sae-ac"><span class="code">AC21.03</span><q>Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</q></div>
+                        <p class="mb-0">Situation : une démo sur deux machines. Appli installée sur deux VM Linux, client lancé vers le serveur avec <code>make client HOTE=&lt;ip&gt;</code>. Bonus : Grafana dans Docker pour suivre les simulations. <em>Cet AC ne fait pas partie de la fiche officielle de la SAÉ 3.02, mais il a été mobilisé ici.</em></p>
                     </div>
                 </div>
 
@@ -425,7 +424,7 @@ endif</code></pre>
                     <h2 class="h4 fw-bold mb-3"><i class="fas fa-flag-checkered text-accent me-2"></i>Bilan</h2>
                     <p class="text-secondary-custom mb-0"><span class="sae-todo">À COMPLÉTER</span> 3 à 5 lignes, avec tes mots : ce qui a marché, ce que tu referais autrement, où tu as le plus progressé.</p>
                 </div>
-                <p class="text-secondary-custom small">AC recopiés du référentiel national du BUT R&amp;T.</p>
+                <p class="text-secondary-custom small">AC recopiés du Programme national du BUT Réseaux &amp; Télécommunications (2022, annexe 22).</p>
             </section>
         </div>
     </main>
