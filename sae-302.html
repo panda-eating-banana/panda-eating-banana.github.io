@@ -216,17 +216,7 @@
                             <li>une communication écrite directement avec les sockets de Python ;</li>
                             <li>une règle de sécurité sur les <strong>threads</strong>. Un thread est une tâche qui tourne en parallèle de la fenêtre, ici pour écouter le réseau. Il n'a pas le droit de modifier la fenêtre lui-même, car Qt n'est pas prévu pour ça et l'application peut planter. Il envoie un <strong>signal</strong> (« un message est arrivé »), et c'est la fenêtre qui se met à jour.</li>
                         </ul>
-                        <p class="mb-2">Mes principaux fichiers :</p>
-                        <ul class="mb-0">
-                            <li><code>client/fenetre.py</code> : la fenêtre. Départ depuis l'Hôpital Pasteur ou le Commissariat ; arrivée choisie dans une liste de lieux et de rues (on peut taper le nom) ou par un clic sur la carte ; choix de l'heure ; boutons Calculer, Effacer et Historique.</li>
-                            <li><code>client/carte.py</code> : la carte de Colmar, le trafic en couleur, les 86 feux et l'animation des véhicules.</li>
-                            <li><code>client/graphiques.py</code> : le graphique qui compare les trois temps.</li>
-                            <li><code>client/reseau.py</code> : les deux liaisons réseau, TCP vers le serveur et UDP vers les carrefours, chacune dans son propre thread.</li>
-                            <li><code>outils/faux_serveur.py</code> : un faux serveur, pour tester le client sans attendre le vrai.</li>
-                            <li><code>outils/extraire_osm.py</code> : l'extraction de la carte de Colmar depuis OpenStreetMap.</li>
-                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun.</li>
-                            <li>le <code>Makefile</code> et le guide d'installation.</li>
-                        </ul>
+                        <p class="mb-0">Concrètement, j'ai écrit l'interface et la carte (<code>client/fenetre.py</code>, <code>client/carte.py</code>), la partie réseau (<code>client/reseau.py</code>), un faux serveur pour tester sans attendre le vrai, et l'outil qui extrait la carte de Colmar depuis OpenStreetMap.</p>
                     </div>
                 </div>
 
