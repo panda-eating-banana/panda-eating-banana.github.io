@@ -149,7 +149,7 @@
                 <h2 class="h4 fw-bold mb-3"><i class="fas fa-ambulance text-accent me-2"></i>Le projet</h2>
                 <p class="text-secondary-custom">Lors d'une intervention, une ambulance ou un camion de pompiers perd du temps dans le trafic et aux feux rouges. Dans la SAÉ 3.02, nous jouons le rôle d'un cabinet de développement sollicité par une ville : elle veut une maquette logicielle qui montre combien de temps un véhicule d'urgence peut gagner grâce à un meilleur itinéraire et à la priorité aux feux, avant d'envisager un déploiement réel.</p>
                 <p class="text-secondary-custom">Notre application, développée en binôme avec Youssef Jabrane, calcule et compare trois itinéraires sur le réseau routier réel du centre de Colmar : le trajet <strong>classique</strong> (le plus court), le trajet <strong>adapté au trafic</strong> selon l'heure, et le trajet avec <strong>priorité aux feux</strong>, où le véhicule demande le vert aux carrefours à son approche. Les trois véhicules sont animés sur la carte et leurs temps sont comparés.</p>
-                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, carte, animation, communication réseau) et le déploiement. <strong>Youssef :</strong> le serveur (modèle de la ville, calcul des itinéraires, feux, base de données).</p>
+                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, animation, communication réseau), la carte réelle de Colmar (extraction depuis OpenStreetMap et transformation en réseau de rues utilisable), un faux serveur de test et le déploiement. <strong>Youssef :</strong> le serveur (calcul des itinéraires, feux, base de données).</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
                     <span class="tech-tag">Python 3</span><span class="tech-tag">PyQt6</span><span class="tech-tag">QThread</span><span class="tech-tag">Sockets TCP / UDP</span><span class="tech-tag">JSON</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">Makefile</span>
                 </div>
@@ -218,12 +218,14 @@
                         </ul>
                         <p class="mb-2">Mes principaux fichiers :</p>
                         <ul class="mb-0">
-                            <li><code>client/fenetre.py</code> : la fenêtre (choix du départ, de l'arrivée par liste, adresse, coordonnées GPS ou clic, et de l'heure).</li>
+                            <li><code>client/fenetre.py</code> : la fenêtre. Départ depuis l'Hôpital Pasteur ou le Commissariat ; arrivée choisie dans une liste de lieux et de rues (on peut taper le nom) ou par un clic sur la carte ; choix de l'heure ; boutons Calculer, Effacer et Historique.</li>
                             <li><code>client/carte.py</code> : la carte de Colmar, le trafic en couleur, les 86 feux et l'animation des véhicules.</li>
+                            <li><code>client/graphiques.py</code> : le graphique qui compare les trois temps.</li>
                             <li><code>client/reseau.py</code> : les deux liaisons réseau, TCP vers le serveur et UDP vers les carrefours, chacune dans son propre thread.</li>
-                            <li><code>outils/faux_serveur.py</code> : un faux serveur pour tester le client (voir plus bas).</li>
+                            <li><code>outils/faux_serveur.py</code> : un faux serveur, pour tester le client sans attendre le vrai.</li>
                             <li><code>outils/extraire_osm.py</code> : l'extraction de la carte de Colmar depuis OpenStreetMap.</li>
-                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun, et le <code>Makefile</code> et le guide d'installation (voir <a href="#administrer">Administrer</a>).</li>
+                            <li><code>encoder</code> et <code>decoder</code> dans le protocole commun.</li>
+                            <li>le <code>Makefile</code> et le guide d'installation.</li>
                         </ul>
                     </div>
                 </div>
@@ -236,7 +238,8 @@
                         <ul>
                             <li><strong>En TCP</strong>, les données arrivent en continu, sans séparation entre les messages : une lecture peut contenir la moitié d'un message, ou deux messages collés. Nous avons donc terminé chaque message JSON par un retour à la ligne, et le client recolle les morceaux jusqu'à trouver ce retour à la ligne.</li>
                             <li><strong>En UDP</strong>, il n'y a pas de connexion : chaque message part seul, dans un paquet (un « datagramme »). Il arrive entier ou pas du tout, donc pas besoin de séparateur. En revanche, UDP ne renvoie rien en cas de perte : l'application doit continuer même si une demande se perd.</li>
-                            <li><strong>Pourquoi pas tout en TCP ?</strong> Pour le serveur, TCP est le bon choix : la carte et les trajets doivent arriver en entier. Pour les feux, UDP colle mieux à la situation : le véhicule envoie une courte demande à chaque carrefour qu'il approche, et il y a 86 feux sur la carte. En TCP, il faudrait ouvrir une connexion avec chaque carrefour pour un seul message. Et si une demande se perd, une réponse en retard ne sert plus à rien une fois le carrefour passé : mieux vaut un message rapide qu'un message garanti. C'est le principe des systèmes réels de <a href="https://en.wikipedia.org/wiki/Traffic_signal_preemption" target="_blank" rel="noopener noreferrer">priorité aux feux pour véhicules d'urgence</a>, où le véhicule demande le vert au carrefour par radio (communication véhicule-infrastructure, ou V2I).</li>
+                            <li><strong>Pourquoi pas tout en TCP ?</strong> Pour le serveur, TCP est le bon choix : la carte et les trajets doivent arriver en entier. Pour les feux, UDP colle mieux à la situation : le véhicule envoie une courte demande à chaque carrefour qu'il approche, et il y a 86 feux sur la carte. En TCP, il faudrait ouvrir une connexion avec chaque carrefour pour un seul message. Et si une demande se perd, une réponse en retard ne sert plus à rien une fois le carrefour passé : mieux vaut un message rapide qu'un message garanti. </li>
+                            <li><strong>Un principe qui existe vraiment :</strong> dans les systèmes de transport coopératifs (C-ITS), le véhicule d'urgence envoie une demande de priorité au carrefour, qui lui répond et peut passer le feu au vert. C'est la communication véhicule-infrastructure, ou V2I. Ce cas d'usage, « Emergency Vehicle Approach », est décrit par le <a href="https://www.car-2-car.org/fileadmin/documents/General_Documents/C2CCC_TR_2318_Selected_C-ITS-UseCases_InCities_V1.1.pdf" target="_blank" rel="noopener noreferrer">CAR 2 CAR Communication Consortium</a> (consortium européen de constructeurs, p. 17), et la Flandre l'utilise sur ses carrefours (<a href="https://mobilidata-documentation.wegenenverkeer.be/docs/doc/Messages/SREM" target="_blank" rel="noopener noreferrer">documentation Mobilidata du message SREM</a>). Notre maquette reprend ce principe en version simplifiée, avec nos propres messages JSON <code>PRIORITY_REQUEST</code> et <code>PRIORITY_GRANT</code>.</li>
                         </ul>
                         <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
                         <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Cet AC parle d'applications Web ou mobiles, alors que la nôtre est une application pour ordinateur. Ce qui correspond ici, c'est la démarche : partir d'un cahier des charges et le respecter.</p>
@@ -361,28 +364,28 @@
                         <p class="sae-code-src"><code>client/fenetre.py</code> (extrait)</p>
 
                         <h4><i class="fas fa-image me-2"></i>Captures de l'application</h4>
-                        <p class="sae-code-src">Captures prises les 7 et 8 octobre 2026, avec le faux serveur.</p>
+                        <p class="sae-code-src">Version actuelle (commit <code>adbf0a8</code>), captures du 13/11/2026 avec le faux serveur. Scénario : Hôpital Pasteur → Petite Venise à 8 h.</p>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/halo.jpg" width="1300" height="800" alt="Trois trajets tracés sur la carte de Colmar" loading="lazy">
-                            <figcaption><strong>Fig. 1</strong> Test du trajet Hôpital Pasteur → Petite Venise à 8 h. Trajet classique en noir, adapté au trafic en violet, avec priorité en bleu ; les rues sont colorées selon le trafic. En bas, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne, et « Feux : 1 demandes, 1 accordées » que l'échange UDP avec un carrefour a réussi.</figcaption>
+                            <img src="assets/sae302/trajets.jpg" width="1600" height="900" alt="Les trois trajets tracés sur la carte de Colmar avec le graphique de comparaison" loading="lazy">
+                            <figcaption><strong>Fig. 1</strong> Après « Calculer » : trajet classique en noir (1 949 m, 4 min 56 s), adapté au trafic en violet (4 min 14 s), avec priorité aux feux en bleu (4 min 13 s). Les rues sont colorées selon le trafic à 8 h (vert fluide, orange chargé, rouge bouché). En bas à gauche, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne.</figcaption>
                         </figure>
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/feux-milieu.jpg" width="1300" height="800" alt="Mission en cours, trois feux passés au vert" loading="lazy">
-                                    <figcaption><strong>Fig. 2</strong> Pendant le trajet : 3 feux demandés, 3 passés au vert. Gain affiché : 1 min 14 s.</figcaption>
+                                    <img src="assets/sae302/en-route.jpg" width="1600" height="900" alt="Les trois véhicules en route près de la gare" loading="lazy">
+                                    <figcaption><strong>Fig. 2</strong> Pendant l'animation : les trois véhicules roulent en même temps près de la gare.</figcaption>
                                 </figure>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/gps.jpg" width="1300" height="800" alt="Arrivée saisie en coordonnées GPS" loading="lazy">
-                                    <figcaption><strong>Fig. 3</strong> Arrivée saisie en coordonnées GPS. Un point hors de la carte est refusé avec un message, sans planter.</figcaption>
+                                    <img src="assets/sae302/zoom-halo.jpg" width="780" height="600" alt="Zoom sur un feu entouré d'un halo bleu devant le véhicule prioritaire" loading="lazy">
+                                    <figcaption><strong>Fig. 3</strong> Zoom sur la fig. 2 : le carrefour a accepté la demande UDP du véhicule bleu, son feu porte le halo bleu de priorité.</figcaption>
                                 </figure>
                             </div>
                         </div>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/fin.jpg" width="1300" height="800" alt="Version intermédiaire de l'interface" loading="lazy">
-                            <figcaption><strong>Fig. 4</strong> Une version de début octobre (temps encore en secondes), pour montrer l'évolution de l'interface.</figcaption>
+                            <img src="assets/sae302/historique.jpg" width="1600" height="900" alt="Fenêtre Historique listant les dernières simulations" loading="lazy">
+                            <figcaption><strong>Fig. 4</strong> Le bouton « Historique » : le client demande au serveur les dernières simulations enregistrées dans sa base SQLite et les affiche.</figcaption>
                         </figure>
 
                         <h4><i class="fas fa-clipboard me-2"></i>Extrait de mon compte rendu (semaine 1)</h4>
@@ -468,8 +471,8 @@
                             <li><span>Jalon 7</span>Rendu final <small>15/11/2026</small></li>
                         </ol>
 
-                        <h4>Analyse du besoin (QQOQCP)</h4>
-                        <figure class="sae-fig sae-fig-narrow">
+                        <h4 class="text-center">Analyse du besoin (QQOQCP)</h4>
+                        <figure class="sae-fig sae-fig-narrow mx-auto text-center">
                             <img src="assets/sae302/qqoqcp.jpg" width="1000" height="1492" alt="Feuille manuscrite d'analyse QQOQCP du projet" loading="lazy">
                             <figcaption><strong>Fig. 5</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet (<a href="docs/sae302/qqoqcp.jpeg" target="_blank">voir en grand</a>). Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
                         </figure>
