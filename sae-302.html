@@ -149,7 +149,8 @@
                 <h2 class="h4 fw-bold mb-3"><i class="fas fa-ambulance text-accent me-2"></i>Le projet</h2>
                 <p class="text-secondary-custom">Lors d'une intervention, une ambulance ou un camion de pompiers perd du temps dans le trafic et aux feux rouges. Dans la SAÉ 3.02, nous jouons le rôle d'un cabinet de développement sollicité par une ville : elle veut une maquette logicielle qui montre combien de temps un véhicule d'urgence peut gagner grâce à un meilleur itinéraire et à la priorité aux feux, avant d'envisager un déploiement réel.</p>
                 <p class="text-secondary-custom">Notre application, développée en binôme avec Youssef Jabrane, calcule et compare trois itinéraires sur le réseau routier réel du centre de Colmar : le trajet <strong>classique</strong> (le plus court), le trajet <strong>adapté au trafic</strong> selon l'heure, et le trajet avec <strong>priorité aux feux</strong>, où le véhicule demande le vert aux carrefours à son approche. Les trois véhicules sont animés sur la carte et leurs temps sont comparés.</p>
-                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, animation, communication réseau), la carte réelle de Colmar (extraction depuis OpenStreetMap et transformation en réseau de rues utilisable), un faux serveur de test et le déploiement. <strong>Youssef :</strong> le serveur (calcul des itinéraires, feux, base de données).</p>
+                <p class="text-secondary-custom"><strong>Ma partie :</strong> le client (interface, animation, communication réseau), la carte réelle de Colmar (extraction depuis OpenStreetMap et transformation en réseau de rues utilisable), un faux serveur pour tester pendant le développement, puis l'intégration du vrai serveur et le déploiement. <strong>Youssef :</strong> le serveur (graphe de la ville, calcul des trois itinéraires avec Dijkstra, sens uniques). En fin de projet, j'ai corrigé son serveur pour qu'il respecte notre protocole commun, puis testé l'ensemble sous Windows et sur deux machines virtuelles Linux.</p>
+                <p class="text-secondary-custom">Rendu final du 15/11/2026 : <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux" target="_blank" rel="noopener noreferrer">dépôt GitHub du projet</a>, <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/blob/main/Bilan_Projet.pdf" target="_blank" rel="noopener noreferrer">bilan du projet</a> et <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/blob/main/IAGraphie.pdf" target="_blank" rel="noopener noreferrer">IAGraphie</a>.</p>
                 <div class="d-flex flex-wrap gap-2 mb-4">
                     <span class="tech-tag">Python 3</span><span class="tech-tag">PyQt6</span><span class="tech-tag">QThread</span><span class="tech-tag">Sockets TCP / UDP</span><span class="tech-tag">JSON</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">Makefile</span>
                 </div>
@@ -216,7 +217,7 @@
                             <li>une communication écrite directement avec les sockets de Python ;</li>
                             <li>une règle de sécurité sur les <strong>threads</strong>. Un thread est une tâche qui tourne en parallèle de la fenêtre, ici pour écouter le réseau. Il n'a pas le droit de modifier la fenêtre lui-même, car Qt n'est pas prévu pour ça et l'application peut planter. Il envoie un <strong>signal</strong> (« un message est arrivé »), et c'est la fenêtre qui se met à jour.</li>
                         </ul>
-                        <p class="mb-0">Concrètement, j'ai écrit l'interface et la carte (<code>client/fenetre.py</code>, <code>client/carte.py</code>), la partie réseau (<code>client/reseau.py</code>), un faux serveur pour tester sans attendre le vrai, et l'outil qui extrait la carte de Colmar depuis OpenStreetMap.</p>
+                        <p class="mb-0">Concrètement, j'ai écrit l'interface et la carte (<code>client/fenetre.py</code>, <code>client/carte.py</code>), la partie réseau (<code>client/reseau.py</code>), un faux serveur pour tester sans attendre le vrai, et l'outil qui extrait la carte de Colmar depuis OpenStreetMap. À la fin, j'ai branché le client sur le vrai serveur de Youssef (<code>serveur/serveur_test.py</code>) et corrigé ce serveur là où ses messages ne suivaient pas le protocole.</p>
                     </div>
                 </div>
 
@@ -224,17 +225,17 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC23.03</span><q>Utiliser un protocole réseau pour programmer une application client/serveur</q></div>
-                        <p>Le sujet interdisait les bibliothèques qui gèrent le réseau à notre place : il fallait tout écrire avec les sockets. J'ai donc programmé moi-même la connexion, la découpe des messages et la gestion des erreurs, ce qui correspond directement à cet AC.</p>
+                        <p>Le sujet interdisait les bibliothèques qui gèrent le réseau à notre place : il fallait tout écrire avec les sockets. J'ai donc programmé moi-même la connexion, la découpe des messages et la gestion des erreurs.</p>
                         <ul>
                             <li><strong>En TCP</strong>, les données arrivent en continu, sans séparation entre les messages : une lecture peut contenir la moitié d'un message, ou deux messages collés. Nous avons donc terminé chaque message JSON par un retour à la ligne, et le client recolle les morceaux jusqu'à trouver ce retour à la ligne.</li>
                             <li><strong>En UDP</strong>, il n'y a pas de connexion : chaque message part seul, dans un paquet (un « datagramme »). Il arrive entier ou pas du tout, donc pas besoin de séparateur. En revanche, UDP ne renvoie rien en cas de perte : l'application doit continuer même si une demande se perd.</li>
-                            <li><strong>Pourquoi pas tout en TCP ?</strong> Pour le serveur, TCP est le bon choix : la carte et les trajets doivent arriver en entier. Pour les feux, UDP colle mieux à la situation : le véhicule envoie une courte demande à chaque carrefour qu'il approche, et il y a 86 feux sur la carte. En TCP, il faudrait ouvrir une connexion avec chaque carrefour pour un seul message. Et si une demande se perd, une réponse en retard ne sert plus à rien une fois le carrefour passé : mieux vaut un message rapide qu'un message garanti. </li>
-                            <li><strong>Un principe qui existe vraiment :</strong> dans les systèmes de transport coopératifs (C-ITS), le véhicule d'urgence envoie une demande de priorité au carrefour, qui lui répond et peut passer le feu au vert. C'est la communication véhicule-infrastructure, ou V2I. Ce cas d'usage, « Emergency Vehicle Approach », est décrit par le <a href="https://www.car-2-car.org/fileadmin/documents/General_Documents/C2CCC_TR_2318_Selected_C-ITS-UseCases_InCities_V1.1.pdf" target="_blank" rel="noopener noreferrer">CAR 2 CAR Communication Consortium</a> (consortium européen de constructeurs, p. 17), et la Flandre l'utilise sur ses carrefours (<a href="https://mobilidata-documentation.wegenenverkeer.be/docs/doc/Messages/SREM" target="_blank" rel="noopener noreferrer">documentation Mobilidata du message SREM</a>). Notre maquette reprend ce principe en version simplifiée, avec nos propres messages JSON <code>PRIORITY_REQUEST</code> et <code>PRIORITY_GRANT</code>.</li>
+                            <li><strong>Pourquoi pas tout en TCP ?</strong> Pour le serveur, TCP est le bon choix : la carte et les trajets doivent arriver en entier. Pour les feux, UDP colle mieux à la situation : le véhicule envoie une courte demande à chaque carrefour qu'il approche, et il y a 86 feux sur la carte. En TCP, il faudrait ouvrir une connexion avec chaque carrefour pour un seul message. Et si une demande se perd, une réponse en retard ne sert plus à rien une fois le carrefour passé.</li>
+                            <li><strong>Ce principe existe déjà :</strong> dans les systèmes de transport coopératifs (C-ITS), le véhicule d'urgence envoie une demande de priorité au carrefour, qui lui répond et peut passer le feu au vert. C'est la communication véhicule-infrastructure, ou V2I. Ce cas d'usage, « Emergency Vehicle Approach », est décrit par le <a href="https://www.car-2-car.org/fileadmin/documents/General_Documents/C2CCC_TR_2318_Selected_C-ITS-UseCases_InCities_V1.1.pdf" target="_blank" rel="noopener noreferrer">CAR 2 CAR Communication Consortium</a> (consortium européen de constructeurs, p. 17), et la Flandre l'utilise sur ses carrefours (<a href="https://mobilidata-documentation.wegenenverkeer.be/docs/doc/Messages/SREM" target="_blank" rel="noopener noreferrer">documentation Mobilidata du message SREM</a>). Notre maquette reprend ce principe en version simplifiée, avec nos propres messages JSON <code>PRIORITY_REQUEST</code> et <code>PRIORITY_GRANT</code>.</li>
                         </ul>
                         <div class="sae-ac"><span class="code">AC23.02</span><q>Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles</q></div>
-                        <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Cet AC parle d'applications Web ou mobiles, alors que la nôtre est une application pour ordinateur. Ce qui correspond ici, c'est la démarche : partir d'un cahier des charges et le respecter.</p>
+                        <p>Toutes les fonctionnalités du client viennent du tableau des priorités de notre <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a> (voir <a href="#moscow">le tableau MoSCoW</a> plus bas). À mi-parcours, j'ai repris ce tableau ligne par ligne pour vérifier ce qui était fini. Cet AC parle d'applications Web ou mobiles, alors que la nôtre est une application pour ordinateur. Ici, c'est la démarche qui correspond : partir du cahier des charges.</p>
                         <div class="sae-ac"><span class="code">AC23.05</span><q>Accéder à un ensemble de données depuis une application et/ou un site web</q></div>
-                        <p class="mb-0">Le bouton <strong>Historique</strong> du client affiche les dernières simulations enregistrées. Le client ne lit pas la base lui-même : il envoie la demande <code>GET_HISTORY</code> au serveur, qui interroge sa base SQLite et renvoie les résultats. Pour l'instant, c'est mon faux serveur qui fournit ces données.</p>
+                        <p class="mb-0">Le bouton <strong>Historique</strong> du client affiche les dernières simulations enregistrées. Le client ne lit pas la base lui-même : il envoie la demande <code>GET_HISTORY</code> au serveur, qui interroge sa base SQLite et renvoie les résultats (<code>HISTORY</code>). Chaque calcul de trajet y est enregistré par le serveur (voir la fig. 5).</p>
                     </div>
                 </div>
 
@@ -243,7 +244,7 @@
                     <div class="reflection-card-body">
                         <h4 class="mt-0">Démarche</h4>
                         <p>J'ai avancé par petites étapes, en testant chacune avant de passer à la suivante. J'ai commencé par une carte de test très simple : une grille de 36 carrefours nommés de A1 à F6, sur laquelle je traçais un trajet donné (par exemple A1 → A2 → B2) pour vérifier l'affichage. Après une remarque de l'enseignant à toute la classe sur le manque d'originalité des projets, j'ai décidé de remplacer cette grille par la vraie carte de Colmar. Ensuite sont venus la connexion au serveur, les trois trajets, les feux, l'animation, et enfin les demandes de feu vert.</p>
-                        <p>Comme le serveur de Youssef n'était pas encore prêt, j'ai écrit un <strong>faux serveur</strong> qui répond aux mêmes messages que le vrai. Ça m'a permis de tester tout le client sans attendre, et ce faux serveur montrait aussi à Youssef exactement ce que le client attendait.</p>
+                        <p>Comme le serveur de Youssef n'était pas encore adapté à la carte de Colmar, j'ai écrit un <strong>faux serveur</strong> qui répond aux mêmes messages que le vrai. Il m'a servi à tester le client, et à montrer à Youssef les messages que le client attendait. Le 15/11, j'ai remplacé le faux serveur par le vrai : le client recevait bien la carte, mais « Calculer » affichait une erreur, car les noms et la structure de certains messages du serveur ne correspondaient pas au protocole. J'ai corrigé le serveur, puis supprimé le faux serveur du dépôt.</p>
 
                         <h4>Problèmes rencontrés</h4>
                         <div class="table-responsive">
@@ -255,6 +256,7 @@
                                 <tr><td>Un message mal formé fermait toute l'application</td><td>Avec PyQt6, une erreur dans une fonction appelée par un signal arrête le programme</td><td>Intercepter l'erreur et afficher un message au lieu de planter</td></tr>
                                 <tr><td>Erreurs UDP sous Windows</td><td>Windows refuse d'écouter une socket UDP non attachée à un port</td><td>Attacher la socket à un port libre choisi par le système</td></tr>
                                 <tr><td>Passer de la grille de test à une vraie ville</td><td>Une carte réelle compte des milliers de rues, et les positions sont en coordonnées GPS, pas en mètres</td><td>Extraire le réseau routier de Colmar depuis OpenStreetMap (2 715 carrefours, 2 944 tronçons) et convertir les coordonnées GPS en mètres pour les dessiner</td></tr>
+                                <tr><td>Avec le vrai serveur, « Calculer » renvoyait une erreur</td><td>Le serveur et le client avaient été développés chacun de leur côté : certains messages du serveur n'avaient pas les noms et la structure prévus par le protocole</td><td>Adapter le serveur au protocole commun (<code>commun/protocole.py</code>)</td></tr>
                             </tbody>
                         </table>
                         </div>
@@ -262,16 +264,15 @@
                         <div class="sae-limit">
                             <h4><i class="fas fa-balance-scale me-2"></i>Ce qui n'est pas parfait</h4>
                             <ul class="mb-0">
-                                <li><strong>Tout est testé avec mon faux serveur.</strong> Le vrai serveur n'est pas encore dans le dépôt : les captures et les tests de cette page utilisent le faux serveur que j'ai écrit.</li>
-                                <li><strong>Le gain de la priorité est calculé à l'avance.</strong> Le serveur (ici le faux) calcule le temps du trajet « priorité » en supposant que tous les feux passeront au vert. Si un carrefour refusait la demande, le temps affiché ne changerait pas. <em>Pourquoi :</em> calculer les trois trajets d'un coup, avant l'animation, était le moyen le plus simple d'obtenir vite les trois temps à comparer. Faire dépendre le temps des vraies réponses aurait demandé une simulation en temps réel entre le serveur et les carrefours, que nous n'avons pas eu le temps de faire.</li>
+                                <li><strong>L'intégration est arrivée trop tard.</strong> Le client et le serveur n'ont été assemblés que le 15/11, le jour du rendu.</li>
+                                <li><strong>Le gain de la priorité est calculé à l'avance.</strong> Le serveur calcule le temps du trajet « priorité » en supposant que tous les feux passeront au vert. Si un carrefour refusait la demande, le temps affiché ne changerait pas. <em>Pourquoi :</em> calculer les trois trajets d'un coup, avant l'animation, était le moyen le plus simple d'obtenir vite les trois temps à comparer. Faire dépendre le temps des vraies réponses aurait demandé une simulation en temps réel entre le serveur et les carrefours, que nous n'avons pas eu le temps de faire.</li>
                                 <li><strong>La règle des feux est écrite deux fois.</strong> Le rythme des feux (30 s vert, 30 s rouge) est codé à la fois dans le client, pour l'affichage, et dans le serveur. Si l'un des deux change, l'écran ne correspond plus au calcul. <em>Pourquoi :</em> pendant l'animation, le client recolore les 86 feux plusieurs fois par seconde. Demander l'état de chaque feu au serveur à chaque fois aurait saturé le réseau, alors j'ai recopié la règle dans le client. La bonne solution serait que le serveur envoie la règle (durées et décalage de chaque feu) une seule fois, avec la carte.</li>
-                                <li><strong>J'ai ajouté des messages sans les valider à deux.</strong> Le fichier de protocole commun liste 5 types de messages ; le client en utilise 5 de plus (trafic, trajets multiples, historique…). Nous aurions dû les ajouter ensemble au protocole au fur et à mesure.</li>
-                                <li><strong>J'ai utilisé une IA, surtout pour la carte réelle.</strong> Elle m'a aidé à extraire les rues de Colmar depuis OpenStreetMap et à convertir les coordonnées GPS. Le détail est dans <code>IAGraphie.pdf</code>. J'ai relu ce code pour être capable de l'expliquer.</li>
+                                <li><strong>J'ai ajouté des messages avant de les valider à deux.</strong> Le client utilisait des messages (trafic, trajets multiples, historique…) qui n'étaient pas encore écrits dans le protocole commun. Ils n'y ont été documentés qu'à la fin, dans <code>commun/protocole.py</code>. Nous aurions dû les ajouter ensemble au fur et à mesure.</li>
                             </ul>
                         </div>
 
                         <h4>Ce que j'en retiens</h4>
-                        <p class="mb-0">Avant ce projet, TCP et UDP étaient surtout des notions de cours. En codant moi-même, j'ai compris pourquoi TCP oblige à découper ses messages et pourquoi UDP est plus simple, mais sans garantie. J'ai aussi découvert la programmation avec plusieurs threads : c'est ce qui m'a posé le plus de problèmes, et c'est là que j'ai le plus appris. Enfin, écrire un faux serveur m'a appris à ne pas rester bloqué par le travail des autres.</p>
+                        <p class="mb-0">Avant ce projet, TCP et UDP étaient surtout des notions de cours. En codant moi-même, j'ai compris pourquoi TCP oblige à découper ses messages et pourquoi UDP est plus simple, mais sans garantie. J'ai aussi découvert la programmation avec plusieurs threads : c'est ce qui m'a posé le plus de problèmes. Enfin, le faux serveur m'a permis d'avancer sans attendre le serveur de Youssef.</p>
                     </div>
                 </div>
 
@@ -279,17 +280,19 @@
                     <div class="reflection-card-header"><span class="num">4</span> Preuves</div>
                     <div class="reflection-card-body">
                         <h4 class="mt-0"><i class="fab fa-git-alt me-2"></i>Commits</h4>
-                        <p>Tous mes commits sont sur la branche <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/tree/david/client" target="_blank" rel="noopener noreferrer"><code>david/client</code></a> du dépôt du projet.</p>
+                        <p>J'ai travaillé sur la branche <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/tree/david/client" target="_blank" rel="noopener noreferrer"><code>david/client</code></a>, fusionnée dans <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux" target="_blank" rel="noopener noreferrer"><code>main</code></a> pour le rendu du 15/11.</p>
                         <div class="table-responsive">
                         <table class="sae-table sae-commits">
                             <thead><tr><th>Date</th><th>Commit</th><th>Contenu</th></tr></thead>
                             <tbody>
-                                <tr><td>30/09</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/b52d16108c8318c5e49e0918a74f8dba10221545" target="_blank" rel="noopener noreferrer"><code>b52d161</code></a></td><td>Structure du projet et contrat protocole</td></tr>
-                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/ab7a546e44460e2e73a086d8d9814437adff9c77" target="_blank" rel="noopener noreferrer"><code>ab7a546</code></a></td><td>Client étapes 4 et 5 : carte, fenêtre, réseau TCP, faux serveur</td></tr>
-                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/456c1298c1b96951ea98d815d38cbbbf65d13f17" target="_blank" rel="noopener noreferrer"><code>456c129</code></a></td><td>Simplification du client : suppression du mode hors ligne</td></tr>
-                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a></td><td>Makefile</td></tr>
-                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/f69e77172b093df86b91ce94712072a925f426fe" target="_blank" rel="noopener noreferrer"><code>f69e771</code></a></td><td>Vraie carte de Colmar : extraction OSM, fond de carte, lieux, rues et clic sur la carte</td></tr>
-                                <tr><td>10/11</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a></td><td>Simplification du client, suppression de Grafana, guide d'installation Linux</td></tr>
+                                <tr><td>30/09</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/b52d16108c8318c5e49e0918a74f8dba10221545" target="_blank" rel="noopener noreferrer"><code>b52d161</code></a></td><td>Structure du projet et contrat protocole</td></tr>
+                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/ab7a546e44460e2e73a086d8d9814437adff9c77" target="_blank" rel="noopener noreferrer"><code>ab7a546</code></a></td><td>Client étapes 4 et 5 : carte, fenêtre, réseau TCP, faux serveur</td></tr>
+                                <tr><td>05/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/456c1298c1b96951ea98d815d38cbbbf65d13f17" target="_blank" rel="noopener noreferrer"><code>456c129</code></a></td><td>Simplification du client : suppression du mode hors ligne</td></tr>
+                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a></td><td>Makefile</td></tr>
+                                <tr><td>07/10</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/f69e77172b093df86b91ce94712072a925f426fe" target="_blank" rel="noopener noreferrer"><code>f69e771</code></a></td><td>Vraie carte de Colmar : extraction OSM, fond de carte, lieux, rues et clic sur la carte</td></tr>
+                                <tr><td>10/11</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a></td><td>Simplification du client, suppression de Grafana, guide d'installation Linux</td></tr>
+                                <tr><td>15/11</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/0a150d6c2f2db2e2fa79e073670bd3af094acbd7" target="_blank" rel="noopener noreferrer"><code>0a150d6</code></a></td><td>Version finale du client et des docs : intégration du serveur de Youssef, protocole dans <code>commun/</code>, schémas</td></tr>
+                                <tr><td>15/11</td><td><a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/b70e1172fa32588058bc40150f43eaf72b3fd9a8" target="_blank" rel="noopener noreferrer"><code>b70e117</code></a></td><td>Version finale : fusion de <code>david/client</code> dans <code>main</code></td></tr>
                             </tbody>
                         </table>
                         </div>
@@ -347,6 +350,8 @@
             self.carte.colorer_trafic(message["densites"])
         elif message["type"] == "ROUTES":
             self.afficher_routes(message)
+        elif message["type"] == "HISTORY":
+            self.afficher_historique(message["simulations"])
         elif message["type"] == "ERROR":
             self.afficher_erreur(message["raison"])
     except (KeyError, ValueError, TypeError) as e:
@@ -354,32 +359,36 @@
                         <p class="sae-code-src"><code>client/fenetre.py</code> (extrait)</p>
 
                         <h4><i class="fas fa-image me-2"></i>L'application en fonctionnement</h4>
-                        <p class="sae-code-src">Version actuelle (commit <code>adbf0a8</code>), enregistrée le 13/11/2026 avec le faux serveur. Scénario : Hôpital Pasteur → Petite Venise à 8 h.</p>
+                        <p class="sae-code-src">Version rendue le 15/11/2026, avec le vrai serveur. Scénario : Commissariat de police → Gare de Colmar à 8 h.</p>
                         <figure class="sae-fig">
-                            <video src="assets/sae302/animation.mp4" poster="assets/sae302/animation-poster.jpg" width="1280" height="720" autoplay loop muted playsinline controls preload="metadata"></video>
-                            <figcaption><strong>Vidéo</strong> Une simulation complète (21 s) : je clique sur « Calculer », le client envoie la demande au serveur en TCP, les trois trajets s'affichent, puis les trois véhicules roulent en même temps jusqu'à la Petite Venise. Le véhicule bleu demande la priorité aux feux en UDP sur son chemin.</figcaption>
+                            <img src="assets/sae302/final-trajets.jpg" width="1600" height="950" alt="Les trois trajets du Commissariat à la Gare de Colmar, le trafic en couleurs et le graphique des temps" loading="lazy">
+                            <figcaption><strong>Fig. 1</strong> Pendant l'animation : trajet classique en noir (2 102 m, 10 min 46 s), adapté au trafic en violet (8 min 41 s), avec priorité aux feux en bleu (6 min 30 s), soit 4 min 16 s gagnées sur le trajet classique. Le graphique à gauche compare les trois temps.</figcaption>
                         </figure>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/trajets.jpg" width="1600" height="900" alt="Les trois trajets tracés sur la carte de Colmar avec le graphique de comparaison" loading="lazy">
-                            <figcaption><strong>Fig. 1</strong> Après « Calculer » : trajet classique en noir (1 949 m, 4 min 56 s), adapté au trafic en violet (4 min 14 s), avec priorité aux feux en bleu (4 min 13 s). Les rues sont colorées selon le trafic à 8 h (vert fluide, orange chargé, rouge bouché). En bas à gauche, « Connecté à 127.0.0.1:5050 » montre que la liaison TCP fonctionne.</figcaption>
+                            <img src="assets/sae302/final-trafic-8h-22h.jpg" width="1600" height="601" alt="La carte du trafic à 8 h et à 22 h" loading="lazy">
+                            <figcaption><strong>Fig. 2</strong> Le trafic envoyé par le serveur (<code>TRAFFIC</code>) à 8 h, heure de pointe, et à 22 h : vert fluide, orange chargé, rouge bouché.</figcaption>
                         </figure>
                         <div class="row g-3">
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/en-route.jpg" width="1600" height="900" alt="Les trois véhicules en route près de la gare" loading="lazy">
-                                    <figcaption><strong>Fig. 2</strong> Pendant l'animation : les trois véhicules roulent en même temps près de la gare.</figcaption>
+                                    <img src="assets/sae302/final-zoom-halo.jpg" width="1276" height="910" alt="Zoom sur un feu entouré d'un halo bleu devant le véhicule prioritaire" loading="lazy">
+                                    <figcaption><strong>Fig. 3</strong> Zoom pendant l'animation : le carrefour a accordé la demande UDP du véhicule bleu, son feu porte le halo bleu de priorité.</figcaption>
                                 </figure>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <figure class="sae-fig">
-                                    <img src="assets/sae302/zoom-halo.jpg" width="780" height="600" alt="Zoom sur un feu entouré d'un halo bleu devant le véhicule prioritaire" loading="lazy">
-                                    <figcaption><strong>Fig. 3</strong> Zoom sur la fig. 2 : le carrefour a accepté la demande UDP du véhicule bleu, son feu porte le halo bleu de priorité.</figcaption>
+                                    <img src="assets/sae302/final-serveur-sortie.jpg" width="1100" height="600" alt="Terminal du serveur : calcul des trois trajets puis demandes de priorité accordées" loading="lazy">
+                                    <figcaption><strong>Fig. 4</strong> Le terminal du serveur pendant ce trajet : les trois stratégies calculées, puis une demande <code>PRIORITY_REQUEST</code> par feu, toutes accordées (<code>PRIORITY_GRANT</code>).</figcaption>
                                 </figure>
                             </div>
                         </div>
                         <figure class="sae-fig">
-                            <img src="assets/sae302/historique.jpg" width="1600" height="900" alt="Fenêtre Historique listant les dernières simulations" loading="lazy">
-                            <figcaption><strong>Fig. 4</strong> Le bouton « Historique » : le client envoie GET_HISTORY au serveur (ici mon faux serveur) et affiche les dernières simulations qu'il reçoit.</figcaption>
+                            <img src="assets/sae302/final-historique.jpg" width="500" height="118" alt="Fenêtre Historique listant les dernières simulations" loading="lazy" style="max-width: 500px;">
+                            <figcaption><strong>Fig. 5</strong> Le bouton « Historique » : le client envoie <code>GET_HISTORY</code>, le serveur lit sa base SQLite et renvoie les dernières simulations.</figcaption>
+                        </figure>
+                        <figure class="sae-fig">
+                            <video src="assets/sae302/animation.mp4" poster="assets/sae302/animation-poster.jpg" width="1280" height="720" loop muted playsinline controls preload="metadata"></video>
+                            <figcaption><strong>Vidéo</strong> Une simulation complète (21 s), enregistrée le 13/11, avant l'intégration, avec mon faux serveur (Hôpital Pasteur → Petite Venise à 8 h) : « Calculer », les trois trajets s'affichent, puis les trois véhicules roulent en même temps. Le véhicule bleu demande la priorité aux feux en UDP sur son chemin.</figcaption>
                         </figure>
 
                         <h4><i class="fas fa-clipboard me-2"></i>Extrait de mon compte rendu (semaine 1)</h4>
@@ -396,7 +405,7 @@
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p class="mb-0">Du 24/09 au 15/11/2026, nous avons joué le rôle d'un cabinet qui répond à la demande d'une ville. Il fallait comprendre le besoin, l'écrire dans un <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a>, se répartir le travail, suivre l'avancement et adapter le projet quand les attentes ont évolué.</p>
+                        <p class="mb-0">Du 24/09 au 15/11/2026, nous avons joué le rôle d'un cabinet qui répond à la demande d'une ville. Il fallait écrire le <a href="docs/sae302/cahier-des-charges.pdf" target="_blank">cahier des charges</a>, se répartir le travail et suivre l'avancement.</p>
                     </div>
                 </div>
 
@@ -404,7 +413,7 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissage critique</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC22.05</span><q>Capacité à questionner un cahier des charges RT</q></div>
-                        <p>Je n'ai pas seulement appliqué le cahier des charges, je l'ai remis en question à trois moments :</p>
+                        <p>J'ai remis en question le cahier des charges à trois moments :</p>
                         <ul class="mb-0">
                             <li><strong>Au départ :</strong> nous avons analysé le besoin avec un QQOQCP (Qui ? Quoi ? Où ? Quand ? Comment ? Pourquoi ?), puis classé les fonctionnalités par priorité avec la méthode MoSCoW et estimé le temps de chacune.</li>
                             <li><strong>En cours de route :</strong> après une remarque de l'enseignant à toute la classe sur l'originalité des projets, j'ai proposé de remplacer la grille de test par la vraie carte de Colmar, et soulevé des questions que le cahier des charges ne réglait pas (une ambulance peut-elle prendre un sens unique à contresens ?).</li>
@@ -416,13 +425,12 @@
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
-                        <ul>
-                            <li><strong>Répartition :</strong> le client pour moi, le serveur pour Youssef, et un seul fichier écrit à deux : le protocole, la liste des messages échangés. Une fois ce contrat fixé, chacun pouvait avancer seul.</li>
-                            <li><strong>Changement de périmètre :</strong> passer à la carte de Colmar n'était pas un caprice. Le cahier des charges prévoyait déjà un « Déploiement dans une ville » (priorité <em>Should</em>), nous l'avons simplement avancé.</li>
-                            <li><strong>Avancement inégal :</strong> à mi-parcours, le client était en avance mais le vrai serveur n'existait pas encore. Plutôt que d'attendre, j'ai écrit un faux serveur et proposé par écrit à Youssef les nouveaux messages dont le client avait besoin. Mon erreur : je les ai utilisés avant qu'on les valide ensemble. <span class="sae-todo">À COMPLÉTER</span></li>
+                        <ul class="mb-0">
+                            <li><strong>Répartition :</strong> le client pour moi, le serveur pour Youssef. Le protocole (la liste des messages échangés) est le seul fichier écrit à deux.</li>
+                            <li><strong>Changement de périmètre :</strong> le cahier des charges prévoyait un « Déploiement dans une ville » (priorité <em>Should</em>). En passant à la carte de Colmar, nous l'avons fait plus tôt que prévu.</li>
+                            <li><strong>Avancement inégal :</strong> à mi-parcours, le client était en avance mais le serveur de Youssef ne fonctionnait pas encore sur la carte de Colmar. J'ai écrit un faux serveur et proposé par écrit à Youssef les nouveaux messages dont le client avait besoin. Je les ai utilisés avant qu'on les valide ensemble.</li>
+                            <li><strong>Intégration tardive :</strong> le client et le serveur n'ont été assemblés que le 15/11, le jour du rendu. Les jalons « Client / serveur » et « 3 trajets comparés » n'ont donc été atteints avec le vrai serveur qu'à la fin, avec environ 4 à 6 semaines de retard sur le planning. Il aurait fallu tester nos deux programmes ensemble chaque semaine.</li>
                         </ul>
-                        <h4>Ce que j'en retiens</h4>
-                        <p class="mb-0">Je pensais qu'un cahier des charges servait surtout au début du projet. En fait, c'est lui qui nous a permis de savoir où nous en étions, et de justifier nos changements. J'ai aussi appris qu'il vaut mieux signaler un retard ou un écart tôt plutôt que de le découvrir à la fin.</p>
                     </div>
                 </div>
 
@@ -464,19 +472,37 @@
                             <li><span>Jalon 6</span>Tests et corrections</li>
                             <li><span>Jalon 7</span>Rendu final <small>15/11/2026</small></li>
                         </ol>
+                        <p class="sae-legend">Réalisé : jalons 1 à 3 à l'heure (interface, réseau TCP et carte de Colmar en place du 05 au 07/10, grâce au faux serveur) ; jalons 4 et 5 atteints avec le vrai serveur le 15/11 ; tests sur deux VM Linux et sous Windows les 14 et 15/11 ; rendu à l'heure.</p>
 
                         <h4 class="text-center">Analyse du besoin (QQOQCP)</h4>
                         <figure class="sae-fig sae-fig-narrow mx-auto text-center">
                             <img src="assets/sae302/qqoqcp.jpg" width="1000" height="1492" alt="Feuille manuscrite d'analyse QQOQCP du projet" loading="lazy">
-                            <figcaption><strong>Fig. 5</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet (<a href="docs/sae302/qqoqcp.jpeg" target="_blank">voir en grand</a>). Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
+                            <figcaption><strong>Fig. 6</strong> Notre analyse QQOQCP, écrite à la main au lancement du projet (<a href="docs/sae302/qqoqcp.jpeg" target="_blank">voir en grand</a>). Utilisateur visé : le régulateur des véhicules d'urgence ; trois étapes envisagées : simulation sur ordinateur, carrefour connecté, déploiement en ville.</figcaption>
                         </figure>
 
                         <h4>Bilan à mi-parcours (14/10/2026)</h4>
                         <p class="sae-quote">« Côté client (David) : presque tout ce que le cahier des charges promet est déjà visible à l'écran : carte, 3 trajets, animation, feux, priorité UDP, graphique, historique. »</p>
-                        <ul class="mb-0">
-                            <li><span class="sae-todo">À COMPLÉTER</span> capture du tableau ClickUp</li>
-                            <li><span class="sae-todo">À COMPLÉTER</span> liens vers les comptes rendus hebdomadaires</li>
-                        </ul>
+
+                        <h4>Suivi dans ClickUp</h4>
+                        <figure class="sae-fig sae-fig-narrow mx-auto">
+                            <img src="assets/sae302/final-clickup.jpg" width="1600" height="1335" alt="Liste des étapes du projet dans ClickUp avec leurs échéances" loading="lazy">
+                            <figcaption><strong>Fig. 7</strong> Nos étapes dans ClickUp avec leurs échéances, au moment du rendu : les étapes 1 à 11 sont terminées, la préparation de la démonstration finale reste à faire.</figcaption>
+                        </figure>
+
+                        <h4>Temps relevés dans nos comptes rendus hebdomadaires</h4>
+                        <div class="table-responsive">
+                        <table class="sae-table">
+                            <thead><tr><th>Compte rendu</th><th>Période</th><th>Temps</th><th>Contenu principal</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>07/09 - 13/09</td><td>3 h 15</td><td>Découverte du sujet, organisation (ClickUp, Discord)</td></tr>
+                                <tr><td>2</td><td>14/09 - 20/09</td><td>3 h 15</td><td>Installation de Python, prise en main de Git et GitHub</td></tr>
+                                <tr><td>3</td><td>22/09 - 04/10</td><td>13 h 00</td><td>Carte PyQt6, protocole JSON, client réseau (moi) ; ville, Dijkstra, serveur TCP (Youssef)</td></tr>
+                                <tr><td>4</td><td>05/10 - 30/10</td><td>16 h 15</td><td>Carte de Colmar, trois trajets, animation, feux, UDP (moi) ; serveur sur la carte de Colmar, sens uniques (Youssef)</td></tr>
+                                <tr><td>5</td><td>31/10 - 15/11</td><td>12 h 40</td><td>Simplification, installation sur VM, intégration du serveur, documentation</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <p class="sae-code-src mb-0">Source : <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/blob/main/Bilan_Projet.pdf" target="_blank" rel="noopener noreferrer">bilan du projet</a>, partie 4.</p>
                     </div>
                 </div>
             </section>
@@ -489,7 +515,7 @@
                 <div class="reflection-card sae-part">
                     <div class="reflection-card-header"><span class="num">1</span> Contexte</div>
                     <div class="reflection-card-body">
-                        <p class="mb-0">Pour la démonstration finale, l'application doit tourner sur deux machines : le serveur sur l'une, le client sur l'autre. Je me suis occupé de rendre l'installation simple et identique partout, sur Windows comme sur des machines virtuelles Linux, et de la coordination technique avec Youssef.</p>
+                        <p class="mb-0">Pour la démonstration finale, l'application doit tourner sur deux machines : le serveur sur l'une, le client sur l'autre. Je me suis occupé de l'installation, sous Windows et sur des machines virtuelles Linux.</p>
                     </div>
                 </div>
 
@@ -497,9 +523,9 @@
                     <div class="reflection-card-header"><span class="num">2</span> Apprentissages critiques</div>
                     <div class="reflection-card-body">
                         <div class="sae-ac"><span class="code">AC21.06</span><q>Travailler en équipe pour développer ses compétences professionnelles</q></div>
-                        <p>Notre binôme s'est organisé autour d'un contrat commun, le protocole JSON, avec une branche Git chacun. J'ai fourni à Youssef le faux serveur comme modèle de ce que le client attendait, et je lui ai proposé les nouveaux messages par écrit. <span class="sae-todo">À COMPLÉTER</span></p>
+                        <p>Nous avions chacun notre branche Git et un fichier commun, le protocole JSON. J'ai donné à Youssef le faux serveur comme modèle de ce que le client attendait, et je lui ai proposé les nouveaux messages par écrit. Nous faisions deux points d'avancement par semaine sur Discord et suivions les tâches dans ClickUp. Au moment d'assembler les deux parties, le serveur de Youssef ne respectait pas entièrement le protocole : j'ai adapté le serveur, puis j'ai fait les tests d'intégration sous Windows et sur deux machines virtuelles Linux.</p>
                         <div class="sae-ac"><span class="code">AC21.03</span><q>Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</q></div>
-                        <p class="mb-0">La situation : une démonstration avec deux machines. J'ai préparé l'installation de l'application sur des machines virtuelles Linux et la possibilité de lancer le client vers l'adresse IP du serveur.<sup><a href="#note-2">2</a></sup></p>
+                        <p class="mb-0">J'ai installé l'application sur deux machines virtuelles Linux (Debian 13), une pour le serveur et une pour le client, avec le client lancé vers l'adresse IP du serveur. Sur mes machines, l'ensemble fonctionne (voir la fig. 8) ; la recette avec les enseignants a lieu lors de la soutenance.<sup><a href="#note-2">2</a></sup></p>
                     </div>
                 </div>
 
@@ -507,23 +533,21 @@
                     <div class="reflection-card-header"><span class="num">3</span> Réflexion</div>
                     <div class="reflection-card-body">
                         <h4 class="mt-0">Ce que j'ai fait</h4>
-                        <p>J'ai écrit un <strong>Makefile</strong> : un fichier qui regroupe toutes les commandes du projet. Au lieu de retenir de longues commandes, il suffit de taper par exemple <code>make installer</code> pour tout installer, <code>make serveur</code> pour lancer le serveur, ou <code>make client HOTE=192.168.56.10</code> pour lancer le client vers un serveur sur une autre machine. Le même Makefile fonctionne sous Windows et sous Linux.</p>
-                        <p>J'ai aussi rédigé un guide d'installation pour deux machines virtuelles.</p>
+                        <p>J'ai écrit un <strong>Makefile</strong> : un fichier qui regroupe toutes les commandes du projet. Par exemple : <code>make installer</code> installe tout, <code>make serveur</code> lance le serveur, et <code>make client HOTE=192.168.56.10</code> lance le client vers un serveur sur une autre machine. Le même Makefile fonctionne sous Windows et sous Linux. Pour la VM client, <code>make installer-client</code> ajoute les bibliothèques dont Qt a besoin pour ouvrir une fenêtre, et <code>make ip</code> affiche l'adresse à donner au client. Avant l'installation, un petit script vérifie la version de Python.</p>
+                        <p>J'ai aussi rédigé la documentation d'installation : le <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux#readme" target="_blank" rel="noopener noreferrer">README</a> pour deux VM, une installation sans make, une installation sous Windows et une page d'erreurs fréquentes.</p>
                         <h4>Difficultés</h4>
                         <div class="table-responsive">
                         <table class="sae-table">
                             <thead><tr><th>Difficulté</th><th>Ce que j'ai fait</th></tr></thead>
                             <tbody>
                                 <tr><td>Windows et Linux n'utilisent pas les mêmes chemins ni les mêmes commandes (par exemple <code>ipconfig</code> contre <code>hostname -I</code>)</td><td>Le Makefile détecte le système et choisit automatiquement les bonnes commandes</td></tr>
-                                <tr><td>Sur la machine virtuelle Linux, PyQt6 ne démarrait pas : il manquait des bibliothèques du système (erreur « Could not load the Qt platform plugin "xcb" »)</td><td>Je les ai identifiées et ajoutées au guide : <code>libxcb-cursor0</code>, <code>libxkbcommon-x11-0</code>, <code>libxcb-icccm4</code>, <code>libxcb-keysyms1</code>, <code>libxcb-xkb1</code></td></tr>
+                                <tr><td>Sur la machine virtuelle Linux, PyQt6 ne démarrait pas : il manquait des bibliothèques du système (erreur « Could not load the Qt platform plugin "xcb" »)</td><td>Je les ai identifiées (<code>libxcb-cursor0</code>, <code>libxkbcommon-x11-0</code>, <code>libxcb-icccm4</code>…) et regroupées dans <code>make installer-client</code></td></tr>
+                                <tr><td>Sur Debian, mon compte n'avait pas le droit d'utiliser <code>sudo</code> (« not in the sudoers file »)</td><td>Ajouter le compte au groupe <code>sudo</code> depuis root (<code>usermod -aG sudo</code>), et l'expliquer dans le README</td></tr>
                                 <tr><td>L'environnement Python du projet était cassé sur mon poste</td><td>Je l'ai recréé et j'ai noté les versions exactes des bibliothèques dans <code>requirements.txt</code>, pour que tout le monde installe les mêmes</td></tr>
-                                <tr><td><span class="sae-todo">À COMPLÉTER</span> Faire communiquer deux machines virtuelles</td><td>Réglage du réseau des VM et ouverture des ports 5050 (TCP) et 5051 (UDP) dans le pare-feu</td></tr>
+                                <tr><td>Faire communiquer deux machines virtuelles : les deux VM doivent se voir pour que le client joigne le serveur sur TCP 5050 et UDP 5051</td><td>Carte réseau VirtualBox en mode pont à la maison (fig. 9), ou NAT plus réseau privé hôte à l'école, où le pont est souvent bloqué. Vérification avec <code>ping</code>, et ouverture des ports avec <code>ufw</code> si le pare-feu est actif</td></tr>
                             </tbody>
                         </table>
                         </div>
-                        
-                        <h4>Ce que j'en retiens</h4>
-                        <p class="mb-0">Une application qui marche sur mon ordinateur ne prouve pas grand-chose. La vraie preuve, c'est qu'une autre personne puisse l'installer sur une machine vierge en suivant seulement le guide. C'est en préparant l'installation sur une machine virtuelle neuve que j'ai trouvé des problèmes invisibles sur mon poste, comme les bibliothèques manquantes pour PyQt6.</p>
                     </div>
                 </div>
 
@@ -535,16 +559,40 @@
 HOTE = 127.0.0.1
 
 ifeq ($(OS),Windows_NT)
+    PYTHON_SYSTEME = python
     PYTHON = .venv/Scripts/python.exe
     AFFICHER_IP = ipconfig
 else
+    PYTHON_SYSTEME = python3
     PYTHON = .venv/bin/python
     AFFICHER_IP = hostname -I
-endif</code></pre>
+endif
+
+installer:
+	@$(PYTHON_SYSTEME) outils/verifier_python.py
+	$(PYTHON_SYSTEME) -m venv .venv
+	$(PYTHON) -m pip install -r requirements.txt</code></pre>
                         <p class="sae-code-src"><code>Makefile</code> (extrait) : le même fichier choisit les bonnes commandes selon le système.</p>
+                        <figure class="sae-fig">
+                            <img src="assets/sae302/final-deux-vm.jpg" width="624" height="335" alt="Deux VM Linux côte à côte : le serveur dans un terminal, le client avec les trois trajets" loading="lazy">
+                            <figcaption><strong>Fig. 8</strong> Test sur deux VM Linux (15/11). À gauche, la VM serveur : <code>make serveur</code>, écoute UDP sur le port 5051, client connecté depuis l'adresse de la VM client, trajets calculés et priorités accordées. À droite, la VM client : les trois trajets et « Connecté à 192.168…:5050 ».</figcaption>
+                        </figure>
+                        <div class="row g-3">
+                            <div class="col-md-5">
+                                <figure class="sae-fig">
+                                    <img src="assets/sae302/final-virtualbox.jpg" width="811" height="421" alt="Réglage réseau d'une VM dans VirtualBox en mode pont" loading="lazy">
+                                    <figcaption><strong>Fig. 9</strong> Réglage réseau d'une VM dans VirtualBox : carte en mode pont sur le Wi-Fi du PC, les VM et le PC sont sur le même réseau.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-7">
+                                <figure class="sae-fig">
+                                    <img src="assets/sae302/final-windows.jpg" width="1600" height="956" alt="Serveur et client lancés sur le même PC Windows" loading="lazy">
+                                    <figcaption><strong>Fig. 10</strong> Test sous Windows, serveur et client sur le même PC : Hôpital Pasteur → point cliqué sur la carte à 8 h, gain de la priorité de 1 min 59 s.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
                         <ul class="mb-0">
-                            <li><span class="sae-todo">À COMPLÉTER</span> capture du client sur une VM connecté au serveur sur l'autre VM, avec la commande <code>ip a</code> sur les deux</li>
-                            <li>Commits <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a> (Makefile) et <a href="https://github.com/youssefjabrane9/SAE-3.02-Tampere-Emergency/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a> (guide d'installation Linux pour deux VM)</li>
+                            <li>Commits <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/c875157855584aa1a423f16f6bbeabc09a83ae4a" target="_blank" rel="noopener noreferrer"><code>c875157</code></a> (Makefile) et <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/adbf0a8f14f54bb809e00e354aef339349c2443f" target="_blank" rel="noopener noreferrer"><code>adbf0a8</code></a> (guide d'installation Linux pour deux VM), puis <a href="https://github.com/youssefjabrane9/SAE-3.02-LesNouveaux/commit/0a150d6c2f2db2e2fa79e073670bd3af094acbd7" target="_blank" rel="noopener noreferrer"><code>0a150d6</code></a> (version finale : <code>make installer-client</code>, documentation Windows et erreurs fréquentes)</li>
                         </ul>
                     </div>
                 </div>
